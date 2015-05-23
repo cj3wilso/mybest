@@ -1,0 +1,13 @@
+# REWRITE PARAMETERS TO NICE SLASHES
+RewriteEngine On
+IndexIgnore *
+Options +FollowSymLinks -Multiviews -Indexes
+
+#Supported by dev site
+<IfModule mod_suphp.c>
+suPHP_ConfigPath /home2/cj3wilso/public_html/dev_best/robots
+<Files php.ini>
+order allow,deny
+deny from all
+</Files>
+</IfModule>

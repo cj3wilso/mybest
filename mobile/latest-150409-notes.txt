@@ -1,0 +1,7 @@
+zip app folder
+upload to PhoneGap Build
+Go to settings > Unlock Android with 5757...
+Go to Android app, choose myBest key and download released version
+Upload to Google Play
+
+If you don't choose the key it will remain in development mode and you can't update in Google Play

@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /_inc/
+Disallow: /assets/
+Disallow: /errors/
+Disallow: /org/
+Disallow: /admin/
+Disallow: /edit/
+Disallow: /upload/
+Disallow: /robots/
+Disallow: /admin.php
+Disallow: /admin-edit.php

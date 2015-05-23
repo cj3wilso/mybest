@@ -1,0 +1,130 @@
+# REWRITE PARAMETERS TO NICE SLASHES
+RewriteEngine On
+IndexIgnore *
+Options +FollowSymLinks -Multiviews -Indexes
+
+#Supported by live site
+<IfModule mod_php5.c>
+php_value include_path ".:/var/www/_inc"
+</IfModule>
+
+#Supported by dev site
+<IfModule mod_suphp.c>
+suPHP_ConfigPath /home2/cj3wilso/public_html/dev_best
+<Files php.ini>
+order allow,deny
+deny from all
+</Files>
+</IfModule>
+
+DirectoryIndex index.php index.html
+
+ErrorDocument 404 /errors/404.php
+
+RewriteRule ^upload/([^/\.]+)/?$ /upload/index.php?id=$1 [L]
+
+# Redirect domains to root of site
+RewriteCond %{HTTP_HOST} ^mybestapartments.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.mybestapartments.com$
+RewriteRule (.*)$ http://mybestapartments.ca/$1 [R=301,L]
+
+#Lowercase only URL - Live site
+RewriteCond %{HTTP_HOST} !^dev\.mybestapartments\.ca$ [NC]
+RewriteCond %{HTTP_HOST} ^23\.251\.151\.120$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^(.+\.)mybestapartments\.ca$ [NC]
+RewriteRule ^(.*)$ http://mybestapartments.ca/$1 [L,R=301]
+
+# Resolve .php file for extensionless php urls
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^/.]+)$ $1.php [L]
+
+#Redirect any old apartment pages
+RewriteRule ^apartment/(.*) rent/$1 [R=301,L]
+
+# Don't allow trailing slashes, these are seen as new page
+# Upload folder needs to be excluded or it doesn't work
+RewriteCond %{REQUEST_URI} !^/upload
+RewriteRule ^(.*)/$ /$1 [R=301,L]
+
+#Page Specific Rewrites
+RewriteRule ^rent/?$ /rent [QSA,L]
+RewriteRule ^rent/([^/]*)/?$ /rent?prov=$1 [QSA,L]
+RewriteRule ^rent/([^/]*)/([^/]*)/?$ /rent?prov=$1&city=$2 [QSA,L]
+RewriteRule ^rent/([^/]*)/([^/]*)/([^/]*)/?$ /rent?prov=$1&city=$2&options=$3 [QSA,L]
+#RewriteRule ^apartment/([^/]*)/([^/]*)/([^/]*)/([^/]*)/?$ /apartment?prov=$1&city=$2&name=$3&id=$4 [QSA,L]
+RewriteRule ^rent/([^/]*)/([^/]*)/([^/]*)/([^/]*)/?$ /apartment?prov=$1&city=$2&name=$3&id=$4 [QSA,L]
+RewriteRule ^add/?$ /admin-edit [L]
+RewriteRule ^edit/([^/]*)/?$ /admin-edit?id=$1 [L]
+RewriteRule ^options/([^/]*)/([^/]*)/?$ /options?prov=$1&city=$2 [QSA,L]
+RewriteRule ^options/([^/]*)/([^/]*)/([^/]*)/?$ /options?prov=$1&city=$2&options=$3 [L]
+
+AddType video/ogg .ogv
+AddType video/mp4 .mp4
+AddType video/webm .webm
+
+#############
+# TYPES FIX #
+#############
+#AddType text/css .css
+#AddType text/javascript .js
+
+##Allow html to run as php
+#AddType application/x-httpd-php .html .htm
+
+####################
+# GZIP COMPRESSION #
+####################
+SetOutputFilter DEFLATE
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml text/javascript application/x-javascript application/x-httpd-php
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip
+Header append Vary User-Agent env=!dont-vary 
+
+# remove browser bugs
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+Header append Vary User-Agent
+
+<ifModule mod_expires.c>
+# 1 YEAR
+<FilesMatch "\.(ico|pdf|flv)$">
+Header set Cache-Control "max-age=29030400, public"
+</FilesMatch>
+# 1 WEEK
+<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+Header set Cache-Control "max-age=604800, public"
+Header set Connection keep-alive
+</FilesMatch>
+# 2 WEEKS
+<FilesMatch "\.(xml|txt|css|js)$">
+Header set Cache-Control "max-age=1209600, proxy-revalidate"
+</FilesMatch>
+# Force no caching for dynamic files
+<filesMatch ".(php|cgi|pl|htm)$">
+  ExpiresDefault A0
+  Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+  Header set Pragma "no-cache"
+</filesMatch>
+</ifModule>
+
+# Enable ETag
+FileETag MTime Size
+ExpiresActive on
+ExpiresDefault "access plus 1 year"
+
+# compress text, HTML, JavaScript, CSS, and XML
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript

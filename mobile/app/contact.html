@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+
+<body>
+<div id="contactForm" data-role="page" data-add-back-btn="true">
+  <div data-role="header">
+    <h1>Check Availability</h1>
+  </div>
+  <div data-role="content">
+    <form id="contactSeller" method="post">
+      <div class="form_result"></div>
+      <input id="prop" name="prop" type="hidden" />
+      <label for="text-basic" class="ui-input-text">Your name:</label>
+      <input id="cname" type="text" name="dname" minlength="2" class="ui-input-text ui-body-c" />
+      <label for="text-basic" class="ui-input-text">Your email:</label>
+      <input class="email required" id="cemail" type="text" name="demail" />
+      <label for="text-basic" class="ui-input-text">Message:</label>
+      <textarea class="required" id="ccomment" name="dcomment" rows="5" minlength="10"></textarea>
+      <button id="seller" type="submit" name="seller">Send</button>
+    </form>
+  </div>
+</div>
+</body>

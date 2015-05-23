@@ -1,0 +1,116 @@
+{
+	"regions" : [
+		{
+         	"region" : "Durham Regional Municipality",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.93683830,
+			"lng" : -78.92882419999999
+   		},
+		{
+         	"region" : "York Regional Municipality",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.98846120,
+			"lng" : -79.47038850
+   		},
+		{
+         	"region" : "Waterloo Regional Municipality",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.46425780,
+			"lng" : -80.52040959999999
+   		},
+		{
+         	"region" : "Toronto Division",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.6532260,
+			"lng" : -79.38318430
+   		},
+		{
+         	"region" : "Greater Vancouver",
+			"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.25012430,
+			"lng" : -123.08242170
+   		},
+		{
+         	"region" : "Haldimand County",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.93333330,
+			"lng" : -79.88333329999999
+   		},
+		{
+         	"region" : "Elgin County",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.66458730,
+			"lng" : -80.98710740
+   		},
+		{
+         	"region" : "Renfrew County",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.63830810,
+			"lng" : -77.16740260
+   		},
+		{
+         	"region" : "Peterborough County",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 52.59560810,
+			"lng" : -0.26901790
+   		},
+		{
+         	"region" : "Ottawa Division",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.42152960,
+			"lng" : -75.69719309999999
+   		},
+		{
+         	"region" : "Halton Regional Municipality",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.53253720000001,
+			"lng" : -79.87448359999999
+   		},
+		{
+         	"region" : "Peel Regional Municipality",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.58904520,
+			"lng" : -79.64411980
+   		},
+		{
+         	"region" : "Middlesex County",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.93104190,
+			"lng" : -81.42789839999999
+   		},
+		{
+         	"region" : "Hamilton Division",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.25002080000001,
+			"lng" : -79.86609140
+   		},
+		{
+         	"region" : "Wellington County",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.78033230,
+			"lng" : -80.54384499999999
+   		},
+		{
+         	"region" : "Simcoe County",
+			"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.47165250,
+			"lng" : -79.82967429999999
+   		}
+ 	]
+}

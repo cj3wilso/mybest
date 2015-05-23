@@ -1,0 +1,3852 @@
+{
+	"cities" : [
+		{
+ 			"city" : "Mobile",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.25,
+            "lng" : -52.84999999999999
+   		},
+		{
+ 			"city" : "Harbour Main-Chapel Cove-Lakev",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.4433888,
+            "lng" : -53.150213
+   		},
+		{
+ 			"city" : "North River",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.5423699,
+            "lng" : -53.3207456
+   		},
+		{
+ 			"city" : "Witless Bay",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.2826676,
+            "lng" : -52.8325042
+   		},
+		{
+ 			"city" : "Carbonear",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.7375216,
+            "lng" : -53.2294869
+   		},
+		{
+ 			"city" : "Dunville",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.268576,
+            "lng" : -53.885991
+   		},
+		{
+ 			"city" : "Sunnyside",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.86008750000001,
+            "lng" : -53.9232641
+   		},
+		{
+ 			"city" : "Shoal Harbour",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 48.1833333,
+            "lng" : -53.9833333
+   		},
+		{
+ 			"city" : "Clarenville",
+         	"region" : "Clarenville",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 48.168225,
+            "lng" : -53.9645533
+   		},
+		{
+ 			"city" : "Conception Harbour",
+         	"region" : "Conception Harbour",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.44126199999999,
+            "lng" : -53.219434
+   		},
+		{
+ 			"city" : "Conception Bay South",
+         	"region" : "Conception Bay South",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.51666669999999,
+            "lng" : -52.9833333
+   		},
+		{
+ 			"city" : "Torbay",
+         	"region" : "Torbay",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.6580777,
+            "lng" : -52.7355238
+   		},
+		{
+ 			"city" : "Mount Pearl",
+         	"region" : "Mount Pearl",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.523852,
+            "lng" : -52.7805
+   		},
+		{
+ 			"city" : "St. John's",
+         	"region" : "St. John's",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.5605413,
+            "lng" : -52.71283150000001
+   		},
+		{
+ 			"city" : "Paradise",
+         	"region" : "Paradise",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.5333333,
+            "lng" : -52.8666667
+   		},
+		{
+ 			"city" : "Appleton",
+         	"region" : "Division No. 6",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 48.995070,
+          	"lng" : -54.8622340
+   		},
+		{
+ 			"city" : "Arnold's Cove",
+         	"region" : "Division No. 1",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.75744479999999,
+           	"lng" : -53.98874370
+   		},
+		{
+ 			"city" : "Corner Brook",
+         	"region" : "Division No. 5",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 48.94899670,
+           	"lng" : -57.95027260000001
+   		},
+		{
+ 			"city" : "Argentia",
+         	"region" : "Division No. 1",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.3020520,
+           	"lng" : -53.9868240
+   		},
+		{
+ 			"city" : "Carnduff",
+         	"region" : "Carnduff",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 49.17393790000001,
+            "lng" : -101.7958095
+   		},
+		{
+ 			"city" : "Richardson",
+         	"region" : "Richardson",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 50.3856279,
+            "lng" : -104.457576
+   		},
+		{
+ 			"city" : "Lampman",
+         	"region" : "Lampman",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 49.3773069,
+            "lng" : -102.7621115
+   		},
+		{
+ 			"city" : "Lloydminster",
+         	"region" : "Lloydminster",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 53.2779625,
+            "lng" : -110.0061451
+   		},
+		{
+ 			"city" : "Weyburn",
+         	"region" : "Weyburn",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 49.6632836,
+            "lng" : -103.8532906
+   		},
+		{
+ 			"city" : "Bienfait",
+         	"region" : "Bienfait",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 49.14267880000001,
+            "lng" : -102.8086736
+   		},
+		{
+ 			"city" : "Kerrobert",
+         	"region" : "Kerrobert",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 51.9185447,
+            "lng" : -109.136794
+   		},
+		{
+ 			"city" : "Pilot Butte",
+         	"region" : "Pilot Butte",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 50.4801035,
+            "lng" : -104.4186625
+   		},
+		{
+ 			"city" : "Yorkton",
+         	"region" : "Yorkton",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 51.2138889,
+            "lng" : -102.4627778
+   		},
+		{
+ 			"city" : "Prince Albert",
+         	"region" : "Prince Albert",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 53.2033494,
+            "lng" : -105.7530705
+   		},
+		{
+ 			"city" : "Moose Jaw",
+         	"region" : "Moose Jaw",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 50.3915811,
+            "lng" : -105.5348562
+   		},
+		{
+ 			"city" : "Melville",
+         	"region" : "Melville",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 50.929452,
+            "lng" : -102.804654
+   		},
+		{
+ 			"city" : "Estevan",
+         	"region" : "Estevan",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 49.1390842,
+            "lng" : -102.9914807
+   		},
+		{
+ 			"city" : "Saskatoon",
+         	"region" : "Saskatoon",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 52.1333972,
+            "lng" : -106.6832385
+   		},
+		{
+ 			"city" : "Ardill",
+         	"region" : "Ardill",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 49.930494,
+			"lng" : -105.850747
+   		},
+		{
+ 			"city" : "Abbey",
+         	"region" : "Division No. 8",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 52.1040570,
+			"lng" : -121.9282570
+   		},
+		{
+ 			"city" : "Regina",
+         	"region" : "Division No. 6",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 50.45472220,
+           	"lng" : -104.60666670
+   		},
+		{
+ 			"city" : "Archerwill",
+         	"region" : "Division No. 14",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 52.4400670,
+           	"lng" : -103.86152040
+   		},
+		{
+ 			"city" : "Arcola",
+         	"region" : "Division No. 1",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 49.63906570,
+           	"lng" : -102.49253590
+   		},
+		{
+ 			"city" : "Aberdeen",
+         	"region" : "Division No. 15",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 52.32610360,
+			"lng" : -106.29149130
+   		},
+		{
+ 			"city" : "Abernethy",
+         	"region" : "Division No. 6",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 50.74660260,
+			"lng" : -103.41794540
+   		},
+		{
+ 			"city" : "Alvena",
+         	"region" : "Division No. 15",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 52.51757910,
+         	"lng" : -106.01697770
+   		},
+		{
+ 			"city" : "Asquith",
+         	"region" : "Division No. 12",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 52.13425729999999,
+           	"lng" : -107.22872480
+   		},
+		{
+ 			"city" : "Assiniboia",
+         	"region" : "Division No. 3",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 49.63356719999999,
+          	"lng" : -105.9917920
+   		},
+		{
+ 			"city" : "Arborfield",
+         	"region" : "Division No. 14",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 53.10392780,
+           	"lng" : -103.66088030
+   		},
+		{
+ 			"city" : "Alsask",
+         	"region" : "Division No. 13",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 51.37745450,
+        	"lng" : -109.99689240
+   		},
+		{
+ 			"city" : "Alameda",
+         	"region" : "Division No. 1",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 49.26461590,
+			"lng" : -102.28252510
+   		},
+		{
+ 			"city" : "Alida",
+         	"region" : "Division No. 1",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 49.38864080,
+			"lng" : -101.8725110
+   		},
+		{
+ 			"city" : "Aneroid",
+         	"region" : "Division No. 3",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 49.71688630,
+           	"lng" : -107.29692880
+   		},
+		{
+ 			"city" : "Allan",
+         	"region" : "Division No. 11",
+     		"prov" : "SK",
+			"provLng" : "Saskatchewan",
+			"lat" : 51.89400860,
+			"lng" : -106.05548490
+   		},
+		{
+ 			"city" : "Rocky View County",
+         	"region" : "Rocky View County",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.1424175,
+            "lng" : -114.052366
+   		},
+		{
+ 			"city" : "Westlock",
+         	"region" : "Westlock",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 54.1521565,
+            "lng" : -113.851419
+   		},
+		{
+ 			"city" : "Sherwood Park",
+         	"region" : "Sherwood Park",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.5412083,
+            "lng" : -113.2957365
+   		},
+		{
+ 			"city" : "Cold Lake",
+         	"region" : "Cold Lake",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 54.4643173,
+            "lng" : -110.1731468
+   		},
+		{
+ 			"city" : "Fort McMurray",
+         	"region" : "Fort McMurray",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 56.72637959999999,
+            "lng" : -111.3803407
+   		},
+		{
+ 			"city" : "Leduc",
+         	"region" : "Leduc",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.2580126,
+           	"lng" : -113.5502217
+   		},
+		{
+ 			"city" : "Slave Lake",
+         	"region" : "Slave Lake",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 55.2866833,
+           	"lng" : -114.7711184
+   		},
+		{
+ 			"city" : "Camrose",
+         	"region" : "Camrose",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.0222045,
+           	"lng" : -112.8285983
+   		},
+		{
+ 			"city" : "Stony Plain",
+         	"region" : "Stony Plain",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.52999999999999,
+           	"lng" : -114.0063889
+   		},
+		{
+ 			"city" : "Wetaskiwin",
+         	"region" : "Wetaskiwin",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 52.9695353,
+           	"lng" : -113.3772454
+   		},
+		{
+ 			"city" : "Alix",
+         	"region" : "Division No. 8",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 52.39948560,
+			"lng" : -113.18650260
+   		},
+		{
+ 			"city" : "Altario",
+         	"region" : "Division No. 4",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.9182590,
+          	"lng" : -110.1467220
+   		},
+		{
+ 			"city" : "Acadia Valley",
+         	"region" : "Division No. 4",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.1577640,
+			"lng" : -110.2141520
+   		},
+		{
+ 			"city" : "Acme",
+         	"region" : "Division No. 5",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.49622810,
+			"lng" : -113.51002440
+   		},
+		{
+ 			"city" : "Athabasca",
+         	"region" : "Division No. 13",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 54.72140940000001,
+           	"lng" : -113.28618220
+   		},
+		{
+ 			"city" : "Airdrie",
+         	"region" : "Division No. 6",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.29170050,
+			"lng" : -114.01436350
+   		},
+		{
+ 			"city" : "Alberta Beach",
+         	"region" : "Division No. 13",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.67666670000001,
+			"lng" : -114.350
+   		},
+		{
+ 			"city" : "Assumption",
+         	"region" : "Division No. 17",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 58.69790,
+           	"lng" : -118.6899310
+   		},
+		{
+ 			"city" : "Andrew",
+         	"region" : "Division No. 10",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.87966150,
+          	"lng" : -112.33517660
+   		},
+		{
+ 			"city" : "Alder Flats",
+         	"region" : "Division No. 11",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 52.93126190,
+			"lng" : -114.9413640
+   		},
+		{
+ 			"city" : "Arrowwood",
+         	"region" : "Division No. 5",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 50.73862810,
+           	"lng" : -113.15068330
+   		},
+		{
+ 			"city" : "Ashmont",
+         	"region" : "Division No. 12",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 54.129050,
+           	"lng" : -111.5689860
+   		},
+		{
+ 			"city" : "Alliance",
+         	"region" : "Division No. 7",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 52.43593420,
+			"lng" : -111.78460620
+   		},
+		{
+ 			"city" : "Anzac",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 56.4488990,
+           	"lng" : -111.0367650
+   		},
+		{
+ 			"city" : "Ardrossan",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.5516060,
+           	"lng" : -113.1428390
+   		},
+		{
+ 			"city" : "Chester",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.5421155,
+            "lng" : -64.2388802
+   		},
+		{
+ 			"city" : "Eastern Passage",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.6164433,
+            "lng" : -63.47488120000001
+   		},
+		{
+ 			"city" : "Enfield",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.9435255,
+            "lng" : -63.53616539999999
+   		},
+		{
+ 			"city" : "Nine Mile River",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 45.0413889,
+            "lng" : -63.5769444
+   		},
+		{
+ 			"city" : "Porters Lake",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.7401963,
+            "lng" : -63.310213
+   		},
+		{
+ 			"city" : "Sydney",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.659889,
+            "lng" : -63.740311
+   		},
+		{
+ 			"city" : "Timberlea",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.659889,
+            "lng" : -63.740311
+   		},
+		{
+ 			"city" : "Windsor",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.9902861,
+            "lng" : -64.1310364
+   		},
+		{
+ 			"city" : "Cole Harbour",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.6458149,
+            "lng" : -63.4534447
+   		},
+		{
+ 			"city" : "Lakeside",
+         	"region" : "Lakeside",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.6370647,
+            "lng" : -63.7010459
+   		},
+		{
+ 			"city" : "Bedford",
+         	"region" : "Bedford",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.7319444,
+            "lng" : -63.6566667
+   		},
+		{
+ 			"city" : "Canning",
+         	"region" : "Canning",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 45.1579167,
+            "lng" : -64.42416670000001
+   		},
+		{
+ 			"city" : "Sackville",
+         	"region" : "Sackville",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.759955,
+            "lng" : -63.691725
+   		},
+		{
+ 			"city" : "Lower Sackville",
+         	"region" : "Lower Sackville",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.759955,
+            "lng" : -63.691725
+   		},
+		{
+ 			"city" : "Dartmouth",
+         	"region" : "Dartmouth",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.6652059,
+            "lng" : -63.5677427
+   		},
+		{
+ 			"city" : "Halifax",
+         	"region" : "Halifax",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.6488625,
+            "lng" : -63.5753196
+   		},
+		{
+ 			"city" : "Advocate Harbour",
+         	"region" : "Cumberland County",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 45.33603900000001,
+			"lng" : -64.78198399999999
+   		},
+		{
+ 			"city" : "Argyle",
+         	"region" : "Yarmouth County",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 43.793650,
+          	"lng" : -65.8550
+   		},
+		{
+ 			"city" : "Arichat",
+         	"region" : "Richmond County",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 45.51373150,
+          	"lng" : -61.01184250000001
+   		},
+		{
+ 			"city" : "Amherst",
+         	"region" : "Cumberland County",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 45.8166670,
+          	"lng" : -64.21672060
+   		},
+		{
+ 			"city" : "Annapolis Royal",
+         	"region" : "Annapolis County",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 44.7422260,
+          	"lng" : -65.5158220
+   		},
+		{
+ 			"city" : "Antigonish",
+         	"region" : "Antigonish County",
+     		"prov" : "NS",
+			"provLng" : "Nova Scotia",
+			"lat" : 45.62266049999999,
+           	"lng" : -61.99280250
+   		},
+		{
+ 			"city" : "Aklavik",
+         	"region" : "Inuvik Region",
+     		"prov" : "NT",
+			"provLng" : "Northwest Territories",
+			"lat" : 68.2199160,
+			"lng" : -135.0077880
+   		},
+		{
+ 			"city" : "Aklavik",
+         	"region" : "Keewatin Region",
+     		"prov" : "NU",
+			"provLng" : "Nunavut",
+			"lat" : 61.10830610000001,
+           	"lng" : -94.05995089999999
+   		},
+		{
+ 			"city" : "Kings County",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.2222596,
+            "lng" : -62.4171697
+   		},
+		{
+ 			"city" : "North Rustico",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.457633,
+            "lng" : -63.3139175
+   		},
+		{
+ 			"city" : "Rusticoville",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.4327204,
+            "lng" : -63.318901
+   		},
+		{
+ 			"city" : "Stanhope",
+         	"region" : "Stanhope",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.406773,
+            "lng" : -63.10756800000001
+   		},
+		{
+ 			"city" : "Brackley Beach",
+         	"region" : "Brackley Beach",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.40554100000001,
+            "lng" : -63.195174
+   		},
+		{
+ 			"city" : "Souris",
+         	"region" : "Souris",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.3549799,
+            "lng" : -62.2518341
+   		},
+		{
+ 			"city" : "Cornwall",
+         	"region" : "Cornwall",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.2294978,
+            "lng" : -63.21699109999999
+   		},
+		{
+ 			"city" : "Harrington",
+         	"region" : "Harrington",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.350233,
+            "lng" : -63.16771000000001
+   		},
+		{
+ 			"city" : "Mermaid",
+         	"region" : "Mermaid",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.26399199999999,
+            "lng" : -63.03392
+   		},
+		{
+ 			"city" : "Montague",
+         	"region" : "Montague",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.1650664,
+            "lng" : -62.6480207
+   		},
+		{
+ 			"city" : "Mount Herbert",
+         	"region" : "Mount Herbert",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.230399,
+            "lng" : -63.039405
+   		},
+		{
+ 			"city" : "Charlottetown",
+         	"region" : "Charlottetown",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.23824,
+            "lng" : -63.13107040000001
+   		},
+		{
+ 			"city" : "Stratford",
+         	"region" : "Stratford",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.215926,
+            "lng" : -63.08860989999999
+   		},
+		{
+ 			"city" : "Alberton",
+         	"region" : "Prince County",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.81312940,
+			"lng" : -64.06482740
+   		},
+		{
+ 			"city" : "Frizzley Flats",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 45.1410320,
+            "lng" : -76.0217870
+   		},
+		{
+ 			"city" : "La Broquerie",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.521344,
+            "lng" : -96.51014599999999
+   		},
+		{
+ 			"city" : "La Broquerie",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.521344,
+            "lng" : -96.51014599999999
+   		},
+		{
+ 			"city" : "Sanford",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.6825,
+            "lng" : -97.4441667
+   		},
+		{
+ 			"city" : "Carman",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.5085651,
+            "lng" : -98.0016988
+   		},
+		{
+ 			"city" : "Saint Eustache",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.975057,
+            "lng" : -97.7808079
+   		},
+		{
+ 			"city" : "Shorepointe Village",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 50.641621,
+            "lng" : -96.99946199999999
+   		},
+		{
+ 			"city" : "Steinbach",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.5258333,
+            "lng" : -96.6838889
+   		},
+		{
+ 			"city" : "Rosenort",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.4586111,
+            "lng" : -97.43416669999999
+   		},
+		{
+ 			"city" : "Dauphin",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 51.1500374,
+            "lng" : -100.0497004
+   		},
+		{
+ 			"city" : "Blumenort",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.6079093,
+            "lng" : -96.6934526
+   		},
+		{
+ 			"city" : "Lorette",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.7396213,
+            "lng" : -96.87432749999999
+   		},
+		{
+ 			"city" : "Niverville",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.605965,
+            "lng" : -97.04018649999999
+   		},
+		{
+ 			"city" : "Tyndall",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.4586111,
+            "lng" : -97.43416669999999
+   		},
+		{
+ 			"city" : "Selkirk",
+         	"region" : "Selkirk",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 50.1435276,
+            "lng" : -96.8754295
+   		},
+		{
+ 			"city" : "Winkler",
+         	"region" : "Winkler",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.1801103,
+            "lng" : -97.93894739999999
+   		},
+		{
+ 			"city" : "Winnipeg",
+         	"region" : "Winnipeg",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.8997541,
+            "lng" : -97.13749369999999
+   		},
+		{
+ 			"city" : "Alexander",
+         	"region" : "Division No. 7",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.8298510,
+			"lng" : -100.2952690
+   		},
+		{
+ 			"city" : "Altona",
+         	"region" : "Division No. 3",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 49.10349810,
+          	"lng" : -97.55549479999999
+   		},
+		{
+ 			"city" : "Arborg",
+         	"region" : "Division No. 18",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 50.90610350,
+           	"lng" : -97.21817129999999
+   		},
+		{
+ 			"city" : "Alonsa",
+         	"region" : "Division No. 17",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 50.8011770,
+           	"lng" : -98.97760699999999
+   		},
+		{
+ 			"city" : "Ashern",
+         	"region" : "Division No. 18",
+     		"prov" : "MB",
+			"provLng" : "Manitoba",
+			"lat" : 51.1824880,
+          	"lng" : -98.3446620
+   		},
+		{
+ 			"city" : "Sunbury County",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.948467,
+            "lng" : -66.394012
+   		},
+		{
+ 			"city" : "Oromocto",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.8368547,
+            "lng" : -66.4875565
+   		},
+		{
+ 			"city" : "Florenceville-Bristol",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 46.448654,
+            "lng" : -67.5976574
+   		},
+		{
+ 			"city" : "Rothesay",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.3815453,
+            "lng" : -65.969021
+   		},
+		{
+ 			"city" : "York County",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.9033969,
+            "lng" : -66.7535462
+   		},
+		{
+ 			"city" : "Saint Stephen",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.1941651,
+            "lng" : -67.2755622
+   		},
+		{
+ 			"city" : "Miramichi",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 47.0225,
+            "lng" : -65.5088889
+   		},
+		{
+ 			"city" : "New Maryland",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.8909953,
+            "lng" : -66.6848239
+   		},
+		{
+ 			"city" : "Oak Bay",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.2306803,
+            "lng" : -67.1920641
+   		},
+		{
+ 			"city" : "Rusagonis",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.802758,
+            "lng" : -66.620402
+   		},
+		{
+ 			"city" : "Richibucto Road",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.9525381,
+            "lng" : -66.5748352
+   		},
+		{
+ 			"city" : "DSL de Drummond",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 47.042078,
+            "lng" : -67.6037528
+   		},
+		{
+ 			"city" : "McLeod Hill",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 46.0233048,
+            "lng" : -66.68703839999999
+   		},
+		{
+ 			"city" : "Hanwell",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.8902806,
+            "lng" : -66.7516364
+   		},
+		{
+ 			"city" : "Upper Kingsclear",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.88665229999999,
+            "lng" : -66.90709509999999
+   		},
+		{
+ 			"city" : "Fredericton",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.9635895,
+            "lng" : -66.6431151
+   		},
+		{
+ 			"city" : "Saint John",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.2733153,
+            "lng" : -66.0633081
+   		},
+		{
+ 			"city" : "Allardville",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 47.47477710,
+			"lng" : -65.49246060
+   		},
+		{
+ 			"city" : "Albert Mines",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.8641140,
+			"lng" : -64.6620690
+   		},
+		{
+ 			"city" : "Alma",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 45.6037950,
+			"lng" : -64.94143640
+   		},
+		{
+ 			"city" : "Clarington",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.9351662,
+            "lng" : -78.6075637
+   		},
+		{
+ 			"city" : "Brantford",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.1456786,
+            "lng" : -80.296471
+   		},
+		{
+ 			"city" : "County of Brant",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.1456786,
+            "lng" : -80.296471
+   		},
+		{
+ 			"city" : "Haldimand",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.9572568,
+            "lng" : -79.811364
+   		},
+		{
+ 			"city" : "Halton",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.510346,
+            "lng" : -79.8927513
+   		},
+		{
+ 			"city" : "Township of North Dumfries",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.3321985,
+            "lng" : -80.3467915
+   		},
+		{
+ 			"city" : "Wellington County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.7065934,
+            "lng" : -80.4803764
+   		},
+		{
+ 			"city" : "Midland",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.74951600000001,
+            "lng" : -79.89219229999999
+   		},
+		{
+ 			"city" : "St-Albert",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.255103,
+            "lng" : -75.121965
+   		},
+		{
+ 			"city" : "Blue Mountains",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.4833333,
+            "lng" : -80.38333329999999
+   		},
+		{
+ 			"city" : "Fort Frances",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 48.6099494,
+            "lng" : -93.3955282
+   		},
+		{
+ 			"city" : "Perth",
+         	"region" : "Perth",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.8988097,
+            "lng" : -76.2485592
+   		},
+		{
+ 			"city" : "Cornwall",
+         	"region" : "Cornwall",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.0212762,
+            "lng" : -74.730345
+   		},
+		{
+ 			"city" : "Fournier",
+         	"region" : "Fournier",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.441299,
+            "lng" : -74.89864100000001
+   		},
+		{
+ 			"city" : "Glencoe",
+         	"region" : "Glencoe",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.7472597,
+            "lng" : -81.70945330000001
+   		},
+		{
+ 			"city" : "Goderich",
+         	"region" : "Goderich",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.7428345,
+            "lng" : -81.7138942
+   		},
+		{
+ 			"city" : "Innisfil",
+         	"region" : "Innisfil",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.3008813,
+            "lng" : -79.6114973
+   		},
+		{
+ 			"city" : "Kingston",
+         	"region" : "Kingston",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.2311717,
+            "lng" : -76.4859544
+   		},
+		{
+ 			"city" : "Limoges",
+         	"region" : "Limoges",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.3343153,
+            "lng" : -75.2516203
+   		},
+		{
+ 			"city" : "Winchester",
+         	"region" : "Winchester",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.09180569999999,
+            "lng" : -75.35278470000002
+   		},
+		{
+ 			"city" : "Gloucester",
+         	"region" : "Gloucester",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.4473421,
+            "lng" : -75.5942867
+   		},
+		{
+ 			"city" : "Thunder Bay",
+         	"region" : "Thunder Bay",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 48.3808951,
+            "lng" : -89.24768229999999
+   		},
+		{
+ 			"city" : "Southampton",
+         	"region" : "Southampton",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.4948543,
+            "lng" : -81.3695635
+   		},
+		{
+ 			"city" : "Casselman",
+         	"region" : "Casselman",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.3107048,
+           	"lng" : -75.0893653
+   		},
+		{
+ 			"city" : "Drummond-North Elmsley",
+         	"region" : "Drummond-North Elmsley",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.9702095,
+           	"lng" : -76.2017953
+   		},
+		{
+ 			"city" : "Thorold",
+         	"region" : "Thorold",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.1080276,
+          	"lng" : -79.2149775
+   		},
+		{
+ 			"city" : "Bayview Village",
+         	"region" : "Bayview Village",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.778243,
+           	"lng" : -79.38275779999999
+   		},
+		{
+ 			"city" : "Embrun",
+         	"region" : "Embrun",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.27564599999999,
+           	"lng" : -75.27541099999999
+   		},
+		{
+ 			"city" : "McNab/Braeside",
+         	"region" : "McNab/Braeside",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.4452338,
+          	"lng" : -76.5008626
+   		},
+		{
+ 			"city" : "Nepean",
+         	"region" : "Nepean",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.33490459999999,
+           	"lng" : -75.7241006
+   		},
+		{
+ 			"city" : "Orleans",
+         	"region" : "Orleans",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.46620799999999,
+           	"lng" : -75.5424929
+   		},
+		{
+ 			"city" : "Plantagenet",
+         	"region" : "Plantagenet",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.535115,
+           	"lng" : -74.998847
+   		},
+		{
+ 			"city" : "St. Catharines",
+         	"region" : "St. Catharines",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.1593745,
+           	"lng" : -79.2468626
+   		},
+		{
+ 			"city" : "Saint Catharines",
+         	"region" : "Saint Catharines",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.1593745,
+           	"lng" : -79.2468626
+   		},
+		{
+ 			"city" : "New Tecumseth",
+         	"region" : "New Tecumseth",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.1529303,
+          	"lng" : -79.8685861
+   		},
+		{
+ 			"city" : "Zephyr",
+         	"region" : "Zephyr",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.2010255,
+          	"lng" : -79.2651364
+   		},
+		{
+ 			"city" : "Clarence-Rockland",
+         	"region" : "Clarence-Rockland",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.5508523,
+          	"lng" : -75.280351
+   		},
+		{
+ 			"city" : "Fergus",
+         	"region" : "Fergus",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.7059522,
+          	"lng" : -80.3778336
+   		},
+		{
+ 			"city" : "Caledon",
+         	"region" : "Caledon",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.8666667,
+           	"lng" : -80
+   		},
+		{
+ 			"city" : "Vanier",
+         	"region" : "Vanier",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.4370851,
+           	"lng" : -75.658968
+   		},
+		{
+ 			"city" : "Sarnia",
+         	"region" : "Sarnia",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.974536,
+         	"lng" : -82.4065901
+   		},
+		{
+ 			"city" : "New Hamburg",
+         	"region" : "New Hamburg",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.37945879999999,
+           	"lng" : -80.71110580000001
+   		},
+		{
+ 			"city" : "East Gwillimbury",
+         	"region" : "East Gwillimbury",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.1010645,
+           	"lng" : -79.4417811
+   		},
+		{
+ 			"city" : "Woodbridge",
+         	"region" : "Woodbridge",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.7890469,
+           	"lng" : -79.612977
+   		},
+		{
+ 			"city" : "Greater Sudbury",
+         	"region" : "Greater Sudbury",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 46.48999999999999,
+           	"lng" : -81.00999999999999
+   		},
+		{
+ 			"city" : "Milton",
+         	"region" : "Milton",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.5182991,
+          	"lng" : -79.8774042
+   		},
+		{
+ 			"city" : "Scugog",
+         	"region" : "Scugog",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.170115,
+           	"lng" : -78.894457
+   		},
+		{
+ 			"city" : "Georgina",
+         	"region" : "York Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.2962960,
+           	"lng" : -79.43623199999999
+   		},
+		{
+ 			"city" : "Willowdale",
+         	"region" : "North York",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.7711708,
+			"lng" : -79.4197497
+   		},
+		{
+ 			"city" : "Palgrave",
+         	"region" : "Peel Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.946235,
+            "lng" : -79.830568
+   		},
+		{
+ 			"city" : "Centre Wellington",
+         	"region" : "Wellington County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.723633,
+           	"lng" : -80.321311
+   		},
+		{
+ 			"city" : "Kemptville",
+         	"region" : "North Grenville",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.01638840,
+           	"lng" : -75.64594699999999
+   		},
+		{
+ 			"city" : "Bradford West Gwillimbury",
+         	"region" : "Simcoe County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.1202210,
+          	"lng" : -79.5619080
+   		},
+		{
+ 			"city" : "Georgetown",
+         	"region" : "Halton Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.65020460,
+         	"lng" : -79.90362360
+   		},
+		{
+ 			"city" : "Alvinston",
+         	"region" : "Lambton County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.81908689999999,
+         	"lng" : -81.86233759999999
+   		},
+		{
+ 			"city" : "Grafton",
+         	"region" : "Northumberland County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.9926340,
+           	"lng" : -78.0233830
+   		},
+		{
+ 			"city" : "Arva",
+         	"region" : "Middlesex County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.0504510,
+           	"lng" : -81.29494099999999
+   		},
+		{
+ 			"city" : "Carleton Place",
+         	"region" : "Lanark County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.14060300000001,
+           	"lng" : -76.1465460
+   		},
+		{
+ 			"city" : "Thornhill",
+         	"region" : "York Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.81611110,
+           	"lng" : -79.42444440
+   		},
+		{
+ 			"city" : "Elmira",
+         	"region" : "Woolwich",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.60040739999999,
+           	"lng" : -80.56298459999999
+   		},
+		{
+ 			"city" : "Smiths Falls",
+         	"region" : "Lanark County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.9037480,
+           	"lng" : -76.02161889999999
+   		},
+		{
+ 			"city" : "Athens",
+         	"region" : "Attica",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 37.98371550,
+          	"lng" : 23.72930970
+   		},
+		{
+ 			"city" : "Atikokan",
+         	"region" : "Rainy River District",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 48.7571690,
+           	"lng" : -91.62552100000001
+   		},
+		{
+ 			"city" : "Apsley",
+         	"region" : "Peterborough County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.7537290,
+          	"lng" : -78.0869520
+   		},
+		{
+ 			"city" : "Alliston",
+         	"region" : "Simcoe County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.14892890,
+			"lng" : -79.86274969999999
+   		},
+		{
+ 			"city" : "Arthur",
+         	"region" : "Wellington County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.83603690,
+          	"lng" : -80.53283879999999
+   		},
+		{
+ 			"city" : "Arkell",
+         	"region" : "Wellington County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.5372980,
+          	"lng" : -80.1678280
+   		},
+		{
+ 			"city" : "Arnprior",
+         	"region" : "Renfrew County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.43474450,
+          	"lng" : -76.35184690
+   		},
+		{
+ 			"city" : "Attawapiskat",
+         	"region" : "Kenora District",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 52.92588460,
+           	"lng" : -82.42889219999999
+   		},
+		{
+ 			"city" : "Arkona",
+         	"region" : "Lambton County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.0758550,
+          	"lng" : -81.83406699999999
+   		},
+		{
+ 			"city" : "Amherstburg",
+         	"region" : "Essex County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.10137790,
+           	"lng" : -83.10869769999999
+   		},
+		{
+ 			"city" : "Arden",
+         	"region" : "Frontenac County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.7204840,
+          	"lng" : -76.9238180
+   		},
+		{
+ 			"city" : "Ancaster",
+         	"region" : "Hamilton Division",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.21777910,
+          	"lng" : -79.98728349999999
+   		},
+		{
+ 			"city" : "York",
+         	"region" : "Toronto Division",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.69567870,
+			"lng" : -79.45035439999999
+   		},
+		{
+ 			"city" : "Whitby",
+         	"region" : "Durham Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.89754460,
+			"lng" : -78.94293290000002
+   		},
+		{
+ 			"city" : "Whitchurch-Stouffville",
+         	"region" : "York Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.97058610,
+			"lng" : -79.24428420
+   		},
+		{
+ 			"city" : "Stouffville",
+         	"region" : "York Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.97058610,
+			"lng" : -79.24428420
+   		},
+		{
+ 			"city" : "Alderville First Nation",
+         	"region" : "Northumberland County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.17696610,
+			"lng" : -78.07945610
+   		},
+		{
+ 			"city" : "Acton",
+         	"region" : "Halton Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.63390880,
+			"lng" : -80.04132199999999
+   		},
+		{
+ 			"city" : "Alexandria",
+         	"region" : "Stormont, Dundas and Glengarry United Counties",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.31117980,
+			"lng" : -74.63671579999999
+   		},
+		{
+ 			"city" : "Alfred",
+         	"region" : "Prescott and Russell United Counties",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.55860939999999,
+			"lng" : -74.88037439999999
+   		},
+		{
+ 			"city" : "Algoma Mills",
+         	"region" : "Algoma District",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 46.1849510,
+			"lng" : -82.8169470
+   		},
+		{
+ 			"city" : "Alban",
+         	"region" : "Sudbury District",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 46.1047030,
+			"lng" : -80.62633599999999
+   		},
+		{
+ 			"city" : "Waterloo",
+         	"region" : "Waterloo Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.46425780,
+			"lng" : -80.52040959999999
+   		},
+		{
+ 			"city" : "Wasaga Beach",
+         	"region" : "Simcoe County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.52074190,
+			"lng" : -80.01606679999999
+   		},
+		{
+ 			"city" : "Adolphustown",
+         	"region" : "Lennox and Addington County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.063730,
+			"lng" : -77.00655990000001
+   		},
+		{
+ 			"city" : "Ailsa Craig",
+         	"region" : "Middlesex County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.14702820,
+			"lng" : -81.53376930
+   		},
+		{
+ 			"city" : "Angus",
+         	"region" : "Simcoe County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.32555130,
+          	"lng" : -79.88845549999999
+   		},
+		{
+ 			"city" : "Ajax",
+         	"region" : "Durham Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.85085530,
+			"lng" : -79.02037319999999
+   		},
+		{
+ 			"city" : "Wasaga",
+         	"region" : "Simcoe County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.52074190,
+			"lng" : -80.01606679999999
+   		},
+		{
+ 			"city" : "Uxbridge",
+         	"region" : "Durham Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.10940280000001,
+			"lng" : -79.12049979999999
+   		},
+		{
+ 			"city" : "Toronto",
+         	"region" : "Toronto Division",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.6532260,
+			"lng" : -79.38318430
+   		},
+		{
+ 			"city" : "Toronto Island",
+         	"region" : "Toronto Division",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.62257570,
+			"lng" : -79.37467380
+   		},
+		{
+ 			"city" : "Timmins",
+         	"region" : "Cochrane District",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 48.47582080,
+			"lng" : -81.33049530
+   		},
+		{
+ 			"city" : "Temagami",
+         	"region" : "Nipissing District",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 47.06449640,
+			"lng" : -79.79093790
+   		},
+		{
+ 			"city" : "Fort St. John",
+         	"region" : "Fort St. John",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 56.2422284,
+            "lng" : -120.8303221
+   		},
+		{
+ 			"city" : "Fraser Valley",
+         	"region" : "Fraser Valley",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.6965695,
+            "lng" : -122.0799227
+   		},
+		{
+ 			"city" : "University of British Columbia",
+         	"region" : "University of British Columbia",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.260605,
+            "lng" : -123.245994
+   		},
+		{
+ 			"city" : "Prince George",
+         	"region" : "Prince George",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 53.9170641,
+            "lng" : -122.7496693
+   		},
+		{
+ 			"city" : "East Kootenay",
+         	"region" : "East Kootenay",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 50.12841050000001,
+            "lng" : -115.7568033
+   		},
+		{
+ 			"city" : "Kamloops",
+         	"region" : "Kamloops",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 50.674522,
+            "lng" : -120.3272674
+   		},
+		{
+ 			"city" : "Delta",
+         	"region" : "Delta",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.12,
+            "lng" : -122.99
+   		},
+		{
+ 			"city" : "East Kootenay",
+         	"region" : "East Kootenay",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 50.12841050000001,
+            "lng" : -115.7568033
+   		},
+		{
+ 			"city" : "Esquimalt",
+         	"region" : "Esquimalt",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 48.43584200000001,
+            "lng" : -123.411234
+   		},
+		{
+ 			"city" : "Hope",
+         	"region" : "Hope",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.38583329999999,
+            "lng" : -121.4419444
+   		},
+		{
+ 			"city" : "Okanagan Falls",
+         	"region" : "Okanagan Falls",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.344601,
+           	"lng" : -119.570801
+   		},
+		{
+ 			"city" : "Okanagan-Similkameen",
+         	"region" : "Okanagan-Similkameen",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.5173467,
+           	"lng" : -120.1281752
+   		},
+		{
+ 			"city" : "Mission",
+         	"region" : "Mission",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.20028199999999,
+           	"lng" : -122.420248
+   		},
+		{
+ 			"city" : "Merritt",
+         	"region" : "Merritt",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 50.1113079,
+           	"lng" : -120.7862222
+   		},
+		{
+ 			"city" : "Whistler",
+         	"region" : "Whistler",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 50.1163196,
+           	"lng" : -122.9573563
+   		},
+		{
+ 			"city" : "Cawston",
+         	"region" : "Cawston",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.184576,
+           	"lng" : -119.755577
+   		},
+		{
+ 			"city" : "Surrey",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.1864950,
+			"lng" : -122.8231340
+   		},
+		{
+ 			"city" : "Boston Bar",
+         	"region" : "Fraser Valley",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.8612680,
+           	"lng" : -121.44090
+   		},
+		{
+ 			"city" : "Armstrong",
+         	"region" : "North Okanagan",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 50.44769830,
+          	"lng" : -119.19699380
+   		},
+		{
+ 			"city" : "Wiarton",
+         	"region" : "Wiarton",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.7419729,
+            "lng" : -81.14083440000002
+   		},
+		{
+ 			"city" : "Deep River",
+         	"region" : "Deep River",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 46.09766279999999,
+            "lng" : -77.49333969999999
+   		},
+		{
+ 			"city" : "Halton Hills",
+         	"region" : "Halton Hills",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.646987,
+            "lng" : -80.017663
+   		},
+		{
+ 			"city" : "Orangeville",
+         	"region" : "Orangeville",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.9199788,
+            "lng" : -80.0943113
+   		},
+		{
+ 			"city" : "Otterville",
+         	"region" : "Otterville",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.8879476,
+            "lng" : -81.3116601
+   		},
+		{
+ 			"city" : "Lucknow",
+         	"region" : "Lucknow",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.9633993,
+            "lng" : -81.5130095
+   		},
+		{
+ 			"city" : "Listowel",
+         	"region" : "Listowel",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.7334165,
+            "lng" : -80.95146980000001
+   		},
+		{
+ 			"city" : "Wingham",
+         	"region" : "Wingham",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.9264829,
+            "lng" : -80.60338209999999
+   		},
+		{
+ 			"city" : "Simcoe",
+         	"region" : "Haldimand County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.83726320,
+			"lng" : -80.30404240
+   		},
+		{
+ 			"city" : "Armstrong",
+         	"region" : "Thunder Bay District",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 50.2967410,
+           	"lng" : -89.0582730
+   		},
+		{
+ 			"city" : "Richmond Hill",
+         	"region" : "York Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.88284010,
+			"lng" : -79.44028080
+   		},
+		{
+ 			"city" : "Richmond",
+         	"region" : "Elgin County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.7642010,
+			"lng" : -80.84441199999999
+   		},
+		{
+ 			"city" : "Renfrew",
+         	"region" : "Renfrew County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.47491990,
+			"lng" : -76.68771860
+   		},
+		{
+ 			"city" : "Port Perry",
+         	"region" : "Durham Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.10504539999999,
+			"lng" : -78.9441480
+   		},
+		{
+ 			"city" : "Port Hope",
+         	"region" : "Northumberland County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.9491640,
+			"lng" : -78.29346160
+   		},
+		{
+ 			"city" : "Port Credit",
+         	"region" : "Peel Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.55194440,
+			"lng" : -79.58444440
+   		},
+		{
+ 			"city" : "Pickering",
+         	"region" : "Durham Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.83841169999999,
+			"lng" : -79.08675789999999
+   		},
+		{
+ 			"city" : "Peterborough",
+         	"region" : "Peterborough County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.3090580,
+			"lng" : -78.31974699999999
+   		},
+		{
+ 			"city" : "Parry Sound",
+         	"region" : "Parry Sound District",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.34739250,
+			"lng" : -80.03478299999999
+   		},
+		{
+ 			"city" : "Ottawa",
+         	"region" : "Ottawa Division",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.42152960,
+			"lng" : -75.69719309999999
+   		},
+		{
+ 			"city" : "Owen Sound",
+         	"region" : "Grey County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.56903050,
+			"lng" : -80.94056019999999
+   		},
+		{
+ 			"city" : "Abitibi Canyon",
+         	"region" : "Cochrane District",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 49.87905390,
+			"lng" : -81.57138499999999
+   		},
+		{
+ 			"city" : "Oshawa",
+         	"region" : "Durham Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.89709290,
+			"lng" : -78.86579119999999
+   		},
+		{
+ 			"city" : "Osgoode",
+         	"region" : "Ottawa Division",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.14825470,
+			"lng" : -75.6017780
+   		},
+		{
+ 			"city" : "Orillia",
+         	"region" : "Simcoe County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.60824650,
+			"lng" : -79.41967830
+   		},
+		{
+ 			"city" : "Oakville",
+         	"region" : "Halton Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.450,
+			"lng" : -79.68333330
+   		},
+		{
+ 			"city" : "North York",
+         	"region" : "Toronto Division",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.76153770,
+			"lng" : -79.41107939999999
+   		},
+		{
+ 			"city" : "Niagara Falls",
+         	"region" : "Niagara Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.08955770,
+			"lng" : -79.08494360
+   		},
+		{
+ 			"city" : "Niagara-on-the-Lake",
+         	"region" : "Niagara Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.25499880,
+			"lng" : -79.07726160
+   		},
+		{
+ 			"city" : "Newcastle",
+         	"region" : "Durham Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.91777310,
+			"lng" : -78.58748460
+   		},
+		{
+ 			"city" : "Newmarket",
+         	"region" : "York Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.05918700000001,
+			"lng" : -79.46125599999999
+   		},
+		{
+ 			"city" : "Muskoka",
+         	"region" : "Muskoka District Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.9016420,
+			"lng" : -79.57582099999999
+   		},
+		{
+ 			"city" : "Mississauga",
+         	"region" : "Peel Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.58904520,
+			"lng" : -79.64411980
+   		},
+		{
+ 			"city" : "Markham",
+         	"region" : "York Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.85610020,
+			"lng" : -79.33701880
+   		},
+		{
+ 			"city" : "London",
+         	"region" : "Middlesex County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.98695020,
+			"lng" : -81.2431770
+   		},
+		{
+ 			"city" : "Concord",
+         	"region" : "York Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.7983290,
+           	"lng" : -79.50790730
+   		},
+		{
+ 			"city" : "Lindsay",
+         	"region" : "Kawartha Lakes Division",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.35657420,
+			"lng" : -78.74075420
+   		},
+		{
+ 			"city" : "King City",
+         	"region" : "York Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.92869020,
+			"lng" : -79.52814309999999
+   		},
+		{
+ 			"city" : "Keswick",
+         	"region" : "York Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.2347980,
+			"lng" : -79.46535290
+   		},
+		{
+ 			"city" : "Hudson",
+         	"region" : "Timiskaming District",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 47.53095850,
+			"lng" : -79.8448430
+   		},
+		{
+ 			"city" : "Hamilton",
+         	"region" : "Hamilton Division",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.25002080000001,
+			"lng" : -79.86609140
+   		},
+		{
+ 			"city" : "Guelph",
+         	"region" : "Wellington County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.54480480,
+			"lng" : -80.24816659999999
+   		},
+		{
+ 			"city" : "Fort Erie",
+         	"region" : "Niagara Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.90177640,
+			"lng" : -78.97217449999999
+   		},
+		{
+ 			"city" : "Etobicoke",
+         	"region" : "Toronto Division",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.62049460,
+			"lng" : -79.51319830
+   		},
+		{
+ 			"city" : "Scarborough",
+         	"region" : "Toronto Division",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.77642580,
+			"lng" : -79.23175209999999
+   		},
+		{
+ 			"city" : "East York",
+         	"region" : "Toronto Division",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.69120059999999,
+			"lng" : -79.34166379999999
+   		},
+		{
+ 			"city" : "Creemore",
+         	"region" : "Simcoe County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.32723760,
+			"lng" : -80.10618590
+   		},
+		{
+ 			"city" : "Courtice",
+         	"region" : "Durham Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.91093520,
+			"lng" : -78.78844680
+   		},
+		{
+ 			"city" : "Collingwood",
+         	"region" : "Simcoe County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.50076869999999,
+			"lng" : -80.21690470
+   		},
+		{
+ 			"city" : "Cobourg",
+         	"region" : "Northumberland County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.95933730,
+			"lng" : -78.16773630
+   		},
+		{
+ 			"city" : "Cambridge",
+         	"region" : "Waterloo Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.36162110,
+			"lng" : -80.31442760
+   		},
+		{
+ 			"city" : "Kitchener",
+         	"region" : "Waterloo Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.4343110,
+          	"lng" : -80.47774690
+   		},
+		{
+ 			"city" : "Burlington",
+         	"region" : "Halton Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.32551960,
+			"lng" : -79.79903190
+   		},
+		{
+ 			"city" : "Brooklin",
+         	"region" : "Durham Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.9570490,
+			"lng" : -78.9607580
+   		},
+		{
+ 			"city" : "Brockville",
+         	"region" : "Leeds and Grenville United Counties",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.58952440,
+			"lng" : -75.68428580000001
+   		},
+		{
+ 			"city" : "Brampton",
+         	"region" : "Peel Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.68333330,
+			"lng" : -79.76666670
+   		},
+		{
+ 			"city" : "Bowmanville",
+         	"region" : "Durham Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.91304299999999,
+			"lng" : -78.6896170
+   		},
+		{
+ 			"city" : "Belleville",
+         	"region" : "Hastings County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.16275890,
+			"lng" : -77.38323149999999
+   		},
+		{
+ 			"city" : "Barrie",
+         	"region" : "Simcoe County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 44.37809020,
+			"lng" : -79.70161589999999
+   		},
+		{
+ 			"city" : "Drayton Valley",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.2214074,
+            "lng" : -114.9766786
+   		},
+		{
+ 			"city" : "Beiseker",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.3850292,
+            "lng" : -113.535263
+   		},
+		{
+ 			"city" : "Black Diamond",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 50.6883865,
+            "lng" : -114.2326442
+   		},
+		{
+ 			"city" : "Whitecourt",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 54.1424043,
+            "lng" : -115.6849812
+   		},
+		{
+ 			"city" : "De Winton",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 50.8230556,
+            "lng" : -114.0186111
+   		},
+		{
+ 			"city" : "Innisfail",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 52.0274064,
+            "lng" : -113.9470957
+   		},
+		{
+ 			"city" : "Devon",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.3613826,
+            "lng" : -113.7263574
+   		},
+		{
+ 			"city" : "Vulcan",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 50.4031725,
+            "lng" : -113.2612478
+   		},
+		{
+ 			"city" : "Carstairs",
+         	"region" : "Carstairs",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.5649396,
+          	"lng" : -114.0985975
+   		},
+		{
+ 			"city" : "Fairview",
+         	"region" : "Fairview",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 56.0696394,
+           	"lng" : -118.3916672
+   		},
+		{
+ 			"city" : "High River",
+         	"region" : "High River",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 50.5801021,
+           	"lng" : -113.8707312
+   		},
+		{
+ 			"city" : "Hinton",
+         	"region" : "Hinton",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.406541,
+           	"lng" : -117.570033
+   		},
+		{
+ 			"city" : "Lethbridge",
+         	"region" : "Lethbridge",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 49.69349,
+          	"lng" : -112.84184
+   		},
+		{
+ 			"city" : "Sedgewick",
+         	"region" : "Sedgewick",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 52.7765035,
+           	"lng" : -111.6967497
+   		},
+		{
+ 			"city" : "Strathmore",
+         	"region" : "Strathmore",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.0378523,
+           	"lng" : -113.4002873
+   		},
+		{
+ 			"city" : "Saint Albert",
+         	"region" : "Saint Albert",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.6304753,
+           	"lng" : -113.625642
+   		},
+		{
+ 			"city" : "Fort Saskatchewan",
+         	"region" : "Fort Saskatchewan",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.7007157,
+            "lng" : -113.2094659
+   		},
+		{
+ 			"city" : "Cochrane",
+         	"region" : "Cochrane",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.1909883,
+          	"lng" : -114.4678603
+   		},
+		{
+ 			"city" : "Strathcona County",
+         	"region" : "Strathcona County",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.53267760000001,
+          	"lng" : -113.1553199
+   		},
+		{
+ 			"city" : "Edson",
+         	"region" : "Edson",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.5835,
+          	"lng" : -116.434502
+   		},
+		{
+ 			"city" : "Red Deer",
+         	"region" : "Red Deer",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 52.2681118,
+           	"lng" : -113.8112386
+   		},
+		{
+ 			"city" : "Sylvan Lake",
+         	"region" : "Sylvan Lake",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 52.30762010000001,
+           	"lng" : -114.0979947
+   		},
+		{
+ 			"city" : "Olds",
+         	"region" : "Olds",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.7920135,
+           	"lng" : -114.105279
+   		},
+		{
+ 			"city" : "Okotoks",
+         	"region" : "Okotoks",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 50.7254936,
+           	"lng" : -113.9749472
+   		},
+		{
+ 			"city" : "Chestermere",
+         	"region" : "Chestermere",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.05,
+           	"lng" : -113.8225
+   		},
+		{
+ 			"city" : "Crossfield",
+         	"region" : "Crossfield",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.4301636,
+          	"lng" : -114.0319551
+   		},
+		{
+ 			"city" : "Banff",
+         	"region" : "Division No. 15",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 44.37809020,
+			"lng" : -79.70161589999999
+   		},
+		{
+ 			"city" : "Edmonton",
+         	"region" : "Division No. 11",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.5443890,
+           	"lng" : -113.49092670
+   		},
+		{
+ 			"city" : "South Edmonton",
+         	"region" : "Division No. 11",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.395655,
+          	"lng" : -113.7147381
+   		},
+		{
+ 			"city" : "Airdrie",
+         	"region" : "Airdrie",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.2917005,
+          	"lng" : -114.0143635
+   		},
+		{
+ 			"city" : "Didsbury",
+         	"region" : "Didsbury",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.6608359,
+            "lng" : -114.136516
+   		},
+		{
+ 			"city" : "Morinville",
+         	"region" : "Morinville",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.79842900000001,
+           	"lng" : -113.643011
+   		},
+		{
+ 			"city" : "Crowsnest Pass",
+         	"region" : "Crowsnest Pass",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 49.5908749,
+           	"lng" : -114.523843
+   		},
+		{
+ 			"city" : "Vegreville",
+         	"region" : "Vegreville",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.495529,
+           	"lng" : -112.052544
+   		},
+		{
+ 			"city" : "St. Albert",
+         	"region" : "St. Albert",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.6304753,
+            "lng" : -113.625642
+   		},
+		{
+ 			"city" : "Spruce Grove",
+         	"region" : "Spruce Grove",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 53.5427846,
+           	"lng" : -113.9033672
+   		},
+		{
+ 			"city" : "Calgary",
+         	"region" : "Division No. 6",
+     		"prov" : "AB",
+			"provLng" : "Alberta",
+			"lat" : 51.04532460,
+           	"lng" : -114.05810120
+   		},
+		{
+ 			"city" : "Bancroft",
+         	"region" : "Hastings County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.05586890,
+			"lng" : -77.85489129999999
+   		},
+		{
+ 			"city" : "Aylmer",
+         	"region" : "Elgin County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 42.77293810,
+			"lng" : -80.98288420
+   		},
+		{
+ 			"city" : "Aberarder",
+         	"region" : "Lambton County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 49.05680,
+			"lng" : -122.2850450
+   		},
+		{
+ 			"city" : "Aurora",
+         	"region" : "York Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.997330,
+			"lng" : -79.46493799999999
+   		},
+		{
+ 			"city" : "Vaughan",
+         	"region" : "York Regional Municipality",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 43.83720790,
+			"lng" : -79.5082760
+   		},
+		{
+ 			"city" : "Almonte",
+         	"region" : "Lanark County",
+     		"prov" : "ON",
+			"provLng" : "Ontario",
+			"lat" : 45.22556549999999,
+           	"lng" : -76.19405979999999
+   		},
+		{
+ 			"city" : "Kent",
+         	"region" : "Kent",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.235788,
+           	"lng" : -121.761618
+   		},
+		{
+ 			"city" : "Squamish",
+         	"region" : "Squamish",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.7016339,
+            "lng" : -123.1558121
+   		},
+		{
+ 			"city" : "Atlin",
+         	"region" : "Stikine Region",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 59.5780280,
+          	"lng" : -133.6895240
+   		},
+		{
+ 			"city" : "Salmon Arm",
+         	"region" : "Columbia-Shuswap",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 50.70010340,
+           	"lng" : -119.28384430
+   		},
+		{
+ 			"city" : "Vancouver",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.2612260,
+			"lng" : -123.11392680
+   		},
+		{
+ 			"city" : "West Vancouver",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.33489729999999,
+			"lng" : -123.16678470
+   		},
+		{
+ 			"city" : "Coquitlam",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.28376260,
+			"lng" : -122.79320650
+   		},
+		{
+ 			"city" : "Burnaby",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.22949080,
+			"lng" : -123.00257530
+   		},
+		{
+ 			"city" : "Delta",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.06145679999999,
+			"lng" : -123.0342230
+   		},
+		{
+ 			"city" : "New Westminster",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.20571790,
+			"lng" : -122.9109560
+   		},
+		{
+ 			"city" : "Langley",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.07433080,
+			"lng" : -122.55932180
+   		},
+		{
+ 			"city" : "Tricities",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.26139620,
+			"lng" : -122.77842350
+   		},
+		{
+ 			"city" : "Pitt Meadows",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.21906480,
+			"lng" : -122.68951650
+   		},
+		{
+ 			"city" : "Richmond",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.16658980,
+			"lng" : -123.1335690
+   		},
+		{
+ 			"city" : "Maple Ridge",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.21932260,
+			"lng" : -122.5983980
+   		},
+		{
+ 			"city" : "UBC", 
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.26833660,
+			"lng" : -123.25503590
+   		},
+		{
+ 			"city" : "North Vancouver", 
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.3196470,
+			"lng" : -123.0682370
+   		},
+		{
+ 			"city" : "Port Moody", 
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.2901140,
+			"lng" : -122.8456110
+   		},
+		{
+ 			"city" : "Abbotsford",
+         	"region" : "Fraser Valley",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.05680,
+			"lng" : -122.2850450
+   		},
+		{
+ 			"city" : "Chilliwack",
+         	"region" : "Fraser Valley",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.15794010,
+           	"lng" : -121.95146660
+   		},
+		{
+ 			"city" : "Port Coquitlam",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.26283820,
+          	"lng" : -122.78107080
+   		},
+		{
+ 			"city" : "White Rock",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.0220340,
+           	"lng" : -122.8036430
+   		},
+		{
+ 			"city" : "Victoria",
+         	"region" : "Capital",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 48.42842070,
+          	"lng" : -123.36564440
+   		},
+		{
+ 			"city" : "100 Mile House",
+         	"region" : "Cariboo",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 51.64397049999999,
+			"lng" : -121.29500970
+   		},
+		{
+ 			"city" : "108 Mile House",
+         	"region" : "Cariboo",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 51.68490030,
+			"lng" : -121.31040330
+   		},
+		{
+ 			"city" : "Ashcroft",
+         	"region" : "Thompson-Nicola",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 50.72592460,
+          	"lng" : -121.28047360
+   		},
+		{
+ 			"city" : "Agassiz",
+         	"region" : "Fraser Valley",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.23894090,
+			"lng" : -121.76588270
+   		},
+		{
+ 			"city" : "Aldergrove",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.05805160,
+			"lng" : -122.4706670
+   		},
+		{
+ 			"city" : "Alert Bay",
+         	"region" : "Mount Waddington",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 50.58448550000001,
+			"lng" : -126.92540930
+   		},
+		{
+ 			"city" : "Ahousat",
+         	"region" : "Alberni-Clayoquot",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.2833330,
+			"lng" : -126.0666670
+   		},
+		{
+ 			"city" : "Alexis Creek",
+         	"region" : "Cariboo",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 52.0829860,
+			"lng" : -123.2779920
+   		},
+		{
+ 			"city" : "108 Mile Ranch",
+         	"region" : "Cariboo",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 51.7503190,
+			"lng" : -121.3454780
+   		},
+		{
+ 			"city" : "Alkali Lake",
+         	"region" : "Cariboo",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 51.7885630,
+			"lng" : -122.2283370
+   		},
+		{
+ 			"city" : "150 Mile House",
+         	"region" : "Cariboo",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 52.1040570,
+			"lng" : -121.9282570
+   		},
+		{
+ 			"city" : "Lions Bay",
+         	"region" : "Greater Vancouver",
+     		"prov" : "BC",
+			"provLng" : "British Columbia",
+			"lat" : 49.45925290,
+          	"lng" : -123.2341390
+   		},
+		{
+ 			"city" : "Ahuntsic-Cartierville", 
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.544646,
+            "lng" : -73.6912786
+   		},
+		{
+ 			"city" : "Kirkland", 
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4528945,
+            "lng" : -73.8687875
+   		},
+		{
+ 			"city" : "Beaconsfield", 
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4299852,
+            "lng" : -73.8661314
+   		},
+		{
+ 			"city" : "Granby", 
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.397663,
+            "lng" : -72.7543225
+   		},
+		{
+ 			"city" : "Saint-Jovite", 
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.1204549,
+            "lng" : -74.5956828
+   		},
+		{
+ 			"city" : "Cote Saint-Luc", 
+         	"region" : "Cote Saint-Luc",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4666667,
+            "lng" : -73.66666669999999
+   		},
+		{
+ 			"city" : "Saint-Georges", 
+         	"region" : "Saint-Georges",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.1229184,
+            "lng" : -70.67035199999999
+   		},
+		{
+ 			"city" : "Saint-Hyacinthe", 
+         	"region" : "Saint-Hyacinthe",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.6306875,
+            "lng" : -72.95633909999999
+   		},
+		{
+ 			"city" : "Saint-Jean-sur-Richelieu", 
+         	"region" : "Saint-Jean-sur-Richelieu",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.305771,
+            "lng" : -73.2544903
+   		},
+		{
+ 			"city" : "Sainte-Catherine", 
+         	"region" : "Sainte-Catherine",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.39582,
+            "lng" : -73.5657429
+   		},
+		{
+ 			"city" : "Vaudreuil-Dorion", 
+         	"region" : "Vaudreuil-Dorion",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.404236,
+            "lng" : -74.03795989999999
+   		},
+		{
+ 			"city" : "Mascouche", 
+         	"region" : "Mascouche",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.750005,
+            "lng" : -73.600005
+   		},
+		{
+ 			"city" : "Saint-Zenon", 
+         	"region" : "Saint-Zenon",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.558758,
+            "lng" : -73.814791
+   		},
+		{
+ 			"city" : "St-Bruno-de-Montarville", 
+         	"region" : "St-Bruno-de-Montarville",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.52597400000001,
+            "lng" : -73.3406679
+   		},
+		{
+ 			"city" : "Mirabel", 
+         	"region" : "Mirabel",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.6637535,
+            "lng" : -74.0019645
+   		},
+		{
+ 			"city" : "Saint-Jerome", 
+         	"region" : "Saint-Jerome",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.775357,
+            "lng" : -74.004948
+   		},
+		{
+ 			"city" : "Rawdon", 
+         	"region" : "Rawdon",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.0447377,
+            "lng" : -73.71061209999999
+   		},
+		{
+ 			"city" : "Victoriaville", 
+         	"region" : "Victoriaville",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.0556724,
+            "lng" : -71.95895589999999
+   		},
+		{
+ 			"city" : "Terrebonne", 
+         	"region" : "Terrebonne",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.6929818,
+            "lng" : -73.63311019999999
+   		},
+		{
+ 			"city" : "Beloeil", 
+         	"region" : "Beloeil",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.5679246,
+            "lng" : -73.20394689999999
+   		},
+		{
+ 			"city" : "Bois-des-Filion", 
+         	"region" : "Bois-des-Filion",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.6667418,
+            "lng" : -73.7567021
+   		},
+		{
+ 			"city" : "Boisbriand", 
+         	"region" : "Boisbriand",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.6126338,
+            "lng" : -73.8383733
+   		},
+		{
+ 			"city" : "Boucherville", 
+         	"region" : "Boucherville",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.5913698,
+            "lng" : -73.4364097
+   		},
+		{
+ 			"city" : "Candiac", 
+         	"region" : "Candiac",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.3839341,
+            "lng" : -73.517445
+   		},
+		{
+ 			"city" : "Chambly", 
+         	"region" : "Chambly",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4391627,
+            "lng" : -73.29024629999999
+   		},
+		{
+ 			"city" : "Greenfield Park", 
+         	"region" : "Greenfield Park",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4833333,
+            "lng" : -73.45
+   		},
+		{
+ 			"city" : "Lachine", 
+         	"region" : "Lachine",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4316667,
+            "lng" : -73.675
+   		},
+		{
+ 			"city" : "Dorval", 
+         	"region" : "Dorval",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.45,
+            "lng" : -73.75
+   		},
+		{
+ 			"city" : "Saint Laurent", 
+         	"region" : "Saint Laurent",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4985638,
+            "lng" : -73.74975669999999
+   		},
+		{
+ 			"city" : "Saint-Laurent", 
+         	"region" : "Saint-Laurent",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4985638,
+            "lng" : -73.74975669999999
+   		},
+		{
+ 			"city" : "Repentigny", 
+         	"region" : "Repentigny",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.7532854,
+            "lng" : -73.4400814
+   		},
+		{
+ 			"city" : "Saint-Hubert", 
+         	"region" : "Saint-Hubert",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.49833220000001,
+            "lng" : -73.4065074
+   		},
+		{
+ 			"city" : "Saint Hubert", 
+         	"region" : "Saint Hubert",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.49833220000001,
+            "lng" : -73.4065074
+   		},
+		{
+ 			"city" : "Saint-Jacques", 
+         	"region" : "Saint-Jacques",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.9479888,
+            "lng" : -73.57051349999999
+   		},
+		{
+ 			"city" : "Saint-Laurent", 
+         	"region" : "Saint-Laurent",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4985638,
+            "lng" : -73.74975669999999
+   		},
+		{
+ 			"city" : "Saint-Lin-Laurentides", 
+         	"region" : "Saint-Lin-Laurentides",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.8524432,
+            "lng" : -73.75723929999999
+   		},
+		{
+ 			"city" : "Salaberry-de-Valleyfield", 
+         	"region" : "Salaberry-de-Valleyfield",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.2500909,
+            "lng" : -74.13308619999999
+   		},
+		{
+ 			"city" : "Sorel", 
+         	"region" : "Sorel",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.042825,
+            "lng" : -73.112302
+   		},
+		{
+ 			"city" : "Shawinigan", 
+         	"region" : "Shawinigan",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.5618559,
+           	"lng" : -72.74352540000001
+   		},
+		{
+ 			"city" : "Hampstead", 
+         	"region" : "Hampstead",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.47979100000001,
+           	"lng" : -73.636887
+   		},
+		{
+ 			"city" : "Blainville", 
+         	"region" : "Thérèse-De Blainville Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.6688961,
+           	"lng" : -73.8728751
+   		},
+		{
+ 			"city" : "Ottawa-Gatineau Metro Area", 
+         	"region" : "Communauté-Urbaine-de-l'Outaouais",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4765446,
+          	"lng" : -75.7012723
+   		},
+		{
+ 			"city" : "Gatineau", 
+         	"region" : "Communauté-Urbaine-de-l'Outaouais",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4765446,
+          	"lng" : -75.7012723
+   		},
+		{
+ 			"city" : "Sainte-Anne-de-Bellevue", 
+         	"region" : "Montreal",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.40327610,
+           	"lng" : -73.95036080
+   		},
+		{
+ 			"city" : "Saint-Eustache", 
+         	"region" : "Deux-Montagnes Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.55854890,
+           	"lng" : -73.89607520000001
+   		},
+		{
+ 			"city" : "Bromont", 
+         	"region" : "La Haute-Yamaska Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.31666670,
+           	"lng" : -72.64999999999999
+   		},
+		{
+ 			"city" : "Westmount", 
+         	"region" : "Montreal",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4860410,
+           	"lng" : -73.60073799999999
+   		},
+		{
+ 			"city" : "Sainte-Therese", 
+         	"region" : "Therese-De Blainville Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.63971830,
+          	"lng" : -73.84390990
+   		},
+		{
+ 			"city" : "Montreal", 
+         	"region" : "Montreal",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.50866990,
+			"lng" : -73.55399249999999
+   		},
+		{
+ 			"city" : "Montréal", 
+         	"region" : "Montréal",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.50866990,
+			"lng" : -73.55399249999999
+   		},
+		{
+ 			"city" : "Laval", 
+         	"region" : "Laval",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.60664870,
+			"lng" : -73.71240899999999
+   		},
+		{
+ 			"city" : "Longueuil", 
+         	"region" : "Champlain",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.53694420,
+			"lng" : -73.51071309999999
+   		},
+		{
+ 			"city" : "Quebec", 
+         	"region" : "Quebec",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.80328260,
+			"lng" : -71.2427960
+   		},
+		{
+ 			"city" : "Quebec City", 
+         	"region" : "Communaute-Urbaine-de-Quebec",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.80328260,
+			"lng" : -71.2427960
+   		},
+		{
+ 			"city" : "La Prairie", 
+         	"region" : "Roussillon Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4168890,
+			"lng" : -73.48848699999999
+   		},
+		{
+ 			"city" : "Dollard-des-Ormeaux", 
+         	"region" : "Montreal",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4872840,
+			"lng" : -73.81993790
+   		},
+		{
+ 			"city" : "Saint-Lambert", 
+         	"region" : "Champlain",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.49203440,
+           	"lng" : -73.50417519999999
+   		},
+		{
+ 			"city" : "St-Lambert", 
+         	"region" : "Champlain",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.49203440,
+           	"lng" : -73.50417519999999
+   		},
+		{
+ 			"city" : "Saint-Lambert-de-Lauzon", 
+         	"region" : "Les Chutes-de-la-Chaudiere",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.58720049999999,
+           	"lng" : -71.21120630
+   		},
+		{
+ 			"city" : "St-Lambert-de-Lauzon", 
+         	"region" : "Les Chutes-de-la-Chaudiere",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.58720049999999,
+           	"lng" : -71.21120630
+   		},
+		{
+ 			"city" : "Verdun", 
+         	"region" : "Montreal",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.45482690,
+           	"lng" : -73.56987289999999
+   		},
+		{
+ 			"city" : "Pointe-Claire", 
+         	"region" : "Montreal",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.47196550,
+           	"lng" : -73.79901910
+   		},
+		{
+ 			"city" : "Pointe-Claire", 
+         	"region" : "Montreal",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.47196550,
+           	"lng" : -73.79901910
+   		},
+		{
+ 			"city" : "Cote-Saint-Luc", 
+         	"region" : "Montreal",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.46666670,
+            "lng" : -73.66666669999999
+   		},
+		{
+ 			"city" : "Cote-St-Luc", 
+         	"region" : "Montreal",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.46666670,
+            "lng" : -73.66666669999999
+   		},
+		{
+ 			"city" : "Brossard", 
+         	"region" : "Champlain",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.45470599999999,
+          	"lng" : -73.47066099999999
+   		},
+		{
+ 			"city" : "Abercorn",
+         	"region" : "Brome-Missisquoi Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.04078090,
+			"lng" : -72.66425679999999
+   		},
+		{
+ 			"city" : "Acton Vale",
+         	"region" : "Acton Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.64705390,
+			"lng" : -72.56506340
+   		},
+		{
+ 			"city" : "Adamsville",
+         	"region" : "Kent County",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.396750,
+			"lng" : -65.1841610
+   		},
+		{
+ 			"city" : "Aguanish",
+         	"region" : "Minganie--Basse-Côte-Nord",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 50.19724670,
+			"lng" : -62.20023080
+   		},
+		{
+ 			"city" : "Albanel",
+         	"region" : "Maria-Chapdelaine Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 48.9014090,
+			"lng" : -72.39235699999999
+   		},
+		{
+ 			"city" : "Alouette",
+         	"region" : "Le Fjord-du-Saguenay Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 48.34298290,
+          	"lng" : -70.9952730
+   		},
+		{
+ 			"city" : "Amos",
+         	"region" : "Abitibi",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 48.56501960,
+           	"lng" : -78.11252050
+   		},
+		{
+ 			"city" : "Amqui",
+         	"region" : "La Matapedia Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 48.46460530,
+          	"lng" : -67.43119150
+   		},
+		{
+ 			"city" : "Angliers",
+         	"region" : "Temiscamingue",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 47.54906099999999,
+          	"lng" : -79.2371610
+   		},
+		{
+ 			"city" : "Anjou",
+         	"region" : "Montreal",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.61595850,
+           	"lng" : -73.56935090
+   		},
+		{
+ 			"city" : "Anse-Saint-Jean",
+         	"region" : "Le Fjord-du-Saguenay Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 48.23333330,
+         	"lng" : -70.20
+   		},
+		{
+ 			"city" : "L'Anse-Saint-Jean",
+         	"region" : "Le Fjord-du-Saguenay Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 48.23333330,
+         	"lng" : -70.20
+   		},
+		{
+ 			"city" : "Armagh",
+         	"region" : "Bellechasse Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.74309540,
+           	"lng" : -70.58819799999999
+   		},
+		{
+ 			"city" : "Arundel",
+         	"region" : "Les Laurentides Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.9658070,
+           	"lng" : -74.6172170
+   		},
+		{
+ 			"city" : "Asbestos",
+         	"region" : "Asbestos",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.77410340,
+           	"lng" : -71.93671970
+   		},
+		{
+ 			"city" : "Ascot",
+         	"region" : "La Region-Sherbrookoise",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.3499610,
+           	"lng" : -71.82726860
+   		},
+		{
+ 			"city" : "Ascot Corner",
+         	"region" : "Le Haut-Saint-François Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 45.4496330,
+          	"lng" : -71.76655099999999
+   		},
+		{
+ 			"city" : "Ashuapmushuan River",
+         	"region" : "Maria-Chapdelaine Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 48.9808650,
+           	"lng" : -73.0693390
+   		},
+		{
+ 			"city" : "Aston-Jonction",
+         	"region" : "Nicolet-Yamaska Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 46.17051730,
+           	"lng" : -72.22776379999999
+   		},
+		{
+ 			"city" : "Alma", 
+         	"region" : "Lac-Saint-Jean-Est Regional County Municipality",
+     		"prov" : "QC",
+			"provLng" : "Quebec",
+			"lat" : 48.55046070,
+           	"lng" : -71.65277039999999
+   		}
+ 	]
+}
