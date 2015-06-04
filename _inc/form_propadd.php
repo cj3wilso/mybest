@@ -203,9 +203,15 @@ if (isset ($_POST['publish']) || isset ($_POST['draft'])) {
 		if(isset($insert_feat)){mysql_query($insert_feat);}
 		if(isset($insert_prophours)){mysql_query($insert_prophours);}
 		
+		//Get user's email
+		$check = mysql_query("SELECT email FROM users WHERE id = '$user_id'");
+		while($row = mysql_fetch_array( $check, MYSQL_ASSOC )) 	{
+			$user_email = $row["email"];
+		}
+		
 		//Email me to let me know someone added a new property
 		$message = "New property added: <br> 
-		http://mybestapartments.ca/rent/".$prov."/".urlencode($city)."/".cleanUrl($p_name)."/".$prop;
+		http://mybestapartments.ca/rent/".$prov."/".urlencode($city)."/".cleanUrl($p_name)."/".$prop."<br>Address: $address<br>Email of user: $user_email";
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		mail('cj3wilso@gmail.com', 'New property added: '.$prop, $message, $headers);
