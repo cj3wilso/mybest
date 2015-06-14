@@ -162,9 +162,9 @@ while($photos = mysql_fetch_array( $info3 )){
         View Website</a>
         <?php } ?>
         <?php if($info['phone1'] != 0){ ?>
-        <div class="btn btn-inverse" style="background-color:#09977b;">
+        <a href="tel://1-<?php echo $info['phone1'];?>-<?php echo $info['phone2'];?>-<?php echo $info['phone3']; ?>" class="btn btn-inverse" style="background-color:#09977b;">
           <div class="fui-chat"></div>
-          (<?php echo $info['phone1'];?>) <?php echo $info['phone2'];?>-<?php echo $info['phone3']; ?></div>
+          (<?php echo $info['phone1'];?>) <?php echo $info['phone2'];?>-<?php echo $info['phone3']; ?></a>
         <?php } ?>
         <a href="#myModal" role="button" class="btn btn-primary avail" data-toggle="modal" style="background-color:#1abc9c;">
         <div class="fui-mail"></div>

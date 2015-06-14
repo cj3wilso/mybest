@@ -353,7 +353,7 @@ if (!$result) {
             <div class="fui-mail"></div>
             Check Availability</a>
             <?php 
-			if($promo['phone1'] != 0) echo '<div class="btn btn-block btn-inverse"><div class="fui-chat"></div> ('.$promo['phone1'].') '.$promo['phone2'].'-'.$promo['phone3'].'</div>'; ?>
+			if($promo['phone1'] != 0) echo '<a href="tel://1-'.$promo['phone1'].'-'.$promo['phone2'].'-'.$promo['phone3'].'" class="btn btn-block btn-inverse"><div class="fui-chat"></div> ('.$promo['phone1'].') '.$promo['phone2'].'-'.$promo['phone3'].'</a>'; ?>
             <?php if($promo['url']) echo '<a href="'.$promo['url'].'" target="_blank" class="btn btn-block btn-inverse"><div class="fui-eye"></div> View Website</a>'; ?>
           </div>
         </div>
@@ -429,7 +429,7 @@ if (!$result) {
             <div class="fui-mail"></div>
             Check Availability</a>
             <?php 
-			if($row['phone1'] != 0) echo '<div class="btn btn-block btn-inverse"><div class="fui-chat"></div> ('.$row['phone1'].') '.$row['phone2'].'-'.$row['phone3'].'</div>'; ?>
+			if($row['phone1'] != 0) echo '<a href="tel://1-'.$row['phone1'].'-'.$row['phone2'].'-'.$row['phone3'].'" class="btn btn-block btn-inverse"><div class="fui-chat"></div> ('.$row['phone1'].') '.$row['phone2'].'-'.$row['phone3'].'</a>'; ?>
             <?php if($row['url']) echo '<a href="'.$row['url'].'" target="_blank" class="btn btn-block btn-inverse"><div class="fui-eye"></div> View Website</a>'; ?>
           </div>
         </div>
