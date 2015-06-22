@@ -23,6 +23,10 @@ ErrorDocument 404 /errors/404.php
 
 RewriteRule ^upload/([^/\.]+)/?$ /upload/index.php?id=$1 [L]
 
+#Test angular js
+RewriteRule ^page1$ /test.html [L]
+RewriteRule ^page2$ /test.html [L]
+
 # Redirect domains to root of site
 RewriteCond %{HTTP_HOST} ^mybestapartments.com$ [OR]
 RewriteCond %{HTTP_HOST} ^www.mybestapartments.com$
@@ -102,9 +106,17 @@ Header set Cache-Control "max-age=604800, public"
 Header set Connection keep-alive
 </FilesMatch>
 # 2 WEEKS
+#<FilesMatch "\.(xml|txt|css|js)$">
+#Header set Cache-Control "max-age=1209600, proxy-revalidate"
+#</FilesMatch>
 <FilesMatch "\.(xml|txt|css|js)$">
-Header set Cache-Control "max-age=1209600, proxy-revalidate"
+FileETag None
+Header unset ETag
+ExpiresDefault A0
+  Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+  Header set Pragma "no-cache"
 </FilesMatch>
+
 # Force no caching for dynamic files
 <filesMatch ".(php|cgi|pl|htm)$">
   ExpiresDefault A0

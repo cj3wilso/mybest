@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp" ng-cloak>
 <head>
 <script>
 //Change URLs for mobile app
@@ -18,7 +18,6 @@ if(!hash){
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="FREE Canadian Apartment guide. Find your next place or post an ad for free.">
 <meta name="author" content="Chris Wilson">
-<link rel="shortcut icon" href="assets/ico/favicon.ico">
 <!--[if lt IE 9]>
 	<script src="assets/js/html5shiv.js"></script>
 <![endif]-->
@@ -33,7 +32,7 @@ iframe#twitter-widget-0 {
 }
 </style>
 <div id="cssPlugins"></div>
-<script data-main="angular/main.js" src="http://marcoslin.github.io/angularAMD/js/lib/requirejs/require.js"></script>
+<link rel="shortcut icon" href="assets/ico/favicon.ico">
 <!-- START: Google Analytics -->
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -85,7 +84,7 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
         </form>
       </div>
     </div>
-    <div class="navbar navbar-default" ng-controller="NavCtrl">
+    <div class="navbar navbar-default" ng-controller="homeNav">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       <div class="navbar-collapse collapse navbar-collapse-01">
         <ul class="nav navbar-nav navbar-left">
@@ -134,7 +133,6 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
 </div>
 <!-- /wrap --> 
 <br />
-
 <footer>
   <div class="container">
     <div class="row">
@@ -176,8 +174,46 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
     </div>
   </div>
 </footer>
-
-<!-- 
+<!-- Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Contact Form</h4>
+      </div>
+      <form id="contactSeller" method="post">
+        <input id="prop" name="prop" type="hidden" />
+        <input name="page" type="hidden" value="list" />
+        <div class="modal-body">
+          <div class="form_result"></div>
+          <div class="row form-group">
+            <div class="col-lg-3">Your Name</div>
+            <div class="col-lg-9">
+              <input class="form-control" id="cname" type="text" name="dname" minlength="2" />
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-lg-3">Your Email <span class="red">*</span></div>
+            <div class="col-lg-9">
+              <input class="form-control email required" id="cemail" type="text" name="demail" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12"> Your Message <span class="red">*</span> <br />
+              <textarea class="form-control required" id="ccomment" name="dcomment" rows="5"></textarea>
+              <small class="pull-right"><span class="red">*</span> Required field</small> </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          <button id="seller" class="btn btn-primary" type="submit" name="seller">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- #myModal --> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script> 
@@ -185,8 +221,182 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
 <script src="assets/js/flatui-radio.js"></script> 
 <script src="assets/js/flatui-checkbox.js"></script> 
 <script src="assets/js/application.js?ver=20140116"></script>
--->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-route.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-sanitize.min.js"></script> 
 <div id="jsPlugins"></div>
+<script>
+var myApp = angular.module('myApp', ['ngRoute', 'ngSanitize']).constant('hash', hash);
+myApp.config(['$routeProvider', '$locationProvider', '$compileProvider',
+  function($routeProvider, $locationProvider, $compileProvider) {
+    if(!hash) {
+		$locationProvider.html5Mode(true);
+    }
+	$routeProvider.
+      when('/index.html', {
+        templateUrl: 'app-home.html', 
+		controller: 'homeFeaturedProperty' 
+      }).
+	  when('/', {
+        templateUrl: 'app-home.html', 
+		controller: 'homeFeaturedProperty' 
+      }).
+	  when('/rent', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+	  when('/rent/:prov', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+	  when('/rent/:prov/:city', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+	  when('/map*', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+	  when('/options*', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+	  when('/rent/:prov/:city/:name/:propid', { 
+		templateUrl: 'apartment.html', 
+		controller: 'apartment' 
+	  }).
+	  when('/add', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+	  when('/contact', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+	  when('/faves', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+	  when('/admin-login', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+	  when('/forgot', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+	  when('/register', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+	  when('/logout', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+	  when('/admin', { 
+		templateUrl: 'page2.html', 
+		controller: 'Page2Ctrl' 
+	  }).
+      otherwise({
+        templateUrl: 'app-home.html', 
+		controller: 'homeFeaturedProperty' 
+      });
+	  myApp.compileProvider = $compileProvider;
+}]);
+myApp.controller('apartment', function ($scope, $http, $route, hash, $routeParams) { 
+	$scope.format = 'M/d/yy h:mm:ss a';
+	$scope.name = $routeParams.propid;
+	$http.get("http://mybestapartments.ca/angular/apartment.php", {
+        params: {
+            prop_id: $routeParams.propid
+        }
+	})
+    .success(function (response) {
+		$scope.hash = hash;
+		$scope.results = response;
+	});
+});
+myApp.controller('homeFeaturedProperty', function ($scope, $http, $route, hash) { 
+    $http.get("http://mybestapartments.ca/angular/homeFeaturedProperty.php")
+    .success(function (response) {
+		$scope.hash = hash;
+		$scope.results = response;
+	});
+});
+myApp.controller('homeNav', function ($scope, $http, $route, hash) { 
+    $http.get("http://mybestapartments.ca/angular/homeNav.php")
+    .success(function (response) {
+		$scope.hash = hash;
+		$scope.results = response;
+	});
+});
+
+myApp.controller('Page1Ctrl', function ($scope, $route) { 
+    $scope.model = { 
+       message: 'otherwise is home?' 
+    };
+});
+myApp.controller('Page2Ctrl', function ($scope, $route) { 
+    $scope.model = { 
+       message: 'This is my app 2' 
+    };
+});
+myApp.filter('urlFormat', function () {
+        return function (text) {
+			var str = text.replace(/\s+/g, '-');
+			return str.toLowerCase();
+        };
+});
+
+myApp.directive('loadScript', ['$interval', 'dateFilter', function($interval, dateFilter) {
+  function link(scope, element, attrs) {
+	//Load BX CSS Library
+	var bxsliderCSS=document.createElement("link");
+    bxsliderCSS.setAttribute("rel", "stylesheet");
+    bxsliderCSS.setAttribute("type", "text/css");
+    bxsliderCSS.setAttribute("href", "assets/js/bxslider/jquery.bxslider.css");
+	document.getElementById("cssPlugins").appendChild(bxsliderCSS);
+
+	//Load BX JS Library
+	var bxsliderJs= document.createElement('script');
+	bxsliderJs.type= 'text/javascript';
+    bxsliderJs.src= 'assets/js/bxslider/jquery.bxslider.min.js?v=150621';
+	//element.append(bxsliderJs);
+	document.getElementById("jsPlugins").appendChild(bxsliderJs);
+
+	//Load BX function
+	var bxLoad= document.createElement('script');
+	bxLoad.type= 'text/javascript';
+    bxLoad.src= 'bxLoad.js';
+    document.getElementById("jsPlugins").appendChild(bxLoad);
+  }
+  return {
+    link: link
+  };
+}]);
+
+</script> 
+<script>
+$(".avail").click(function() {
+  $("#myModal").find(".alert").hide();
+  var id_prop = $(this).attr("data-prop");
+  $("input[name=prop]").val(id_prop);
+});
+$("#seller").click(function() {
+    var url = "http://mybestapartments.ca/_inc/form_contact_seller.php";
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#contactSeller").serialize(),
+           success: function(data){
+			   $("#contactSeller").find(".form_result").html(data);
+			   _gaq.push(["_trackEvent", "Appointment", "Email", "Home Page"]);
+           }
+         });
+	$("#contactSeller")[0].reset();
+    return false;
+});
+</script> 
 <script>
 //Initialize Map when searching
 /*
