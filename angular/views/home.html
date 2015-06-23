@@ -24,7 +24,7 @@
 			<div class="cta">
 				<span ng-if="x.ExternalURL"><a href="{{ x.ExternalURL }}" target="_blank" class="btn btn-inverse tile-btn-secondary"><div class="fui-eye"></div> View Website</a></span>
 				<span ng-if="x.Phone"><a href="{{ x.PhoneURL }}" class="btn btn-inverse tile-btn-secondary"><div class="fui-chat"></div>  {{ x.Phone }} </a></span>
-				<div style="display:inline-block;" ng-controller="ModalCtrl">
+				<div style="display:inline-block;" data-ng-controller="ModalController">
 					<script type="text/ng-template" id="modal.html">
 						<div class="modal-header">
 							<h3 class="modal-title">Contact Form</h3>

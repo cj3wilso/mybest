@@ -33,7 +33,6 @@ iframe#twitter-widget-0 {
 }
 </style>
 <div id="cssPlugins"></div>
-<script data-main="angular/main.js" src="http://marcoslin.github.io/angularAMD/js/lib/requirejs/require.js"></script>
 <!-- START: Google Analytics -->
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -61,7 +60,7 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
 <!-- END: CRAZY EGG HEATMAP -->
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" id="top" class="home">
+<body itemscope itemtype="http://schema.org/WebPage" id="top" class="home" data-ng-cloak>
 <!-- START: Facebook JavaScript SDK -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -85,7 +84,7 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
         </form>
       </div>
     </div>
-    <div class="navbar navbar-default" ng-controller="NavCtrl">
+    <div class="navbar navbar-default" data-ng-controller="NavController">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       <div class="navbar-collapse collapse navbar-collapse-01">
         <ul class="nav navbar-nav navbar-left">
@@ -177,10 +176,14 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
   </div>
 </footer>
 
+<script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.js'></script> 
+<script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-route.js'></script> 
+<script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-sanitize.js'></script> 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.js'></script> 
+<script data-main="angular/main.js" src="http://marcoslin.github.io/angularAMD/js/lib/requirejs/require.js"></script>
+
 <!-- 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script> 
 <script src="assets/js/bootstrap-select.js"></script> 
 <script src="assets/js/flatui-radio.js"></script> 
 <script src="assets/js/flatui-checkbox.js"></script> 
