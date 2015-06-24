@@ -94,7 +94,7 @@ include 'footer_js.php';
 <script>
 var app = angular.module('myApp', []);
 app.controller('homeFeaturedProperty', function($scope, $http) {
-    $http.get("http://mybestapartments.ca/angular/homeFeaturedProperty.php")
+    $http.get("http://mybestapartments.ca/data/homeFeaturedProperty.php")
     .success(function (response) {$scope.results = response;});
 });
 </script>
