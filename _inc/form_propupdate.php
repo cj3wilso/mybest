@@ -7,6 +7,7 @@ if (isset ($_POST['publish']) || isset ($_POST['draft'])) {
 	$accents = explode(",","ç,æ,œ,á,é,í,ó,ú,à,è,ì,ò,ù,ä,ë,ï,ö,ü,ÿ,â,ê,î,ô,û,å,e,i,ø,u");
 	$noaccents = explode(",","c,ae,oe,a,e,i,o,u,a,e,i,o,u,a,e,i,o,u,y,a,e,i,o,u,a,e,i,o,u");
 	
+	$name = strip_tags($_POST['name']);
 	$address = $_POST['streetnumber']." ".$_POST['streetaddress'].", ".$_POST['city'].", ".$_POST['prov']." ".$_POST['post'];
 	$aInput = array();
 	$aInput['stno'] = trim($_POST['streetnumber']);
@@ -37,13 +38,18 @@ if (isset ($_POST['publish']) || isset ($_POST['draft'])) {
 			$hasError = true;
 			$message = 'That property address already exists on '.$company.'. Please <a href="#myModal" role="button" data-toggle="modal">sign in</a> to edit your property or call us at '.$companyPhone.' if you think there is a mistake.';
 		}
+		
+		//If we don't have full URL create another error
+		if($prov == "" || $city == "" || $name == ""){
+			$hasError = true;
+			$message = 'Property needs a name, city and province. Please note we only accept Canadian addresses.';
+		}
 	}
 	
 	if (!isset($hasError)){ 
 		include '_inc/mysqlconnect.php';
 		
 		/* PROPERTIES */
-		$name = strip_tags($_POST['name']);
 		$pub = 0;
 		$modified = date("c");
 		if(isset ($_POST['publish']))$pub = 1;

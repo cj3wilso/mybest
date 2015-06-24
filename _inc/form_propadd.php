@@ -88,6 +88,13 @@ if (isset ($_POST['publish']) || isset ($_POST['draft'])) {
 		$hasError = true;
 		$message = 'Address must contain a street address or postal code.';
 	}
+	//If we don't have full URL create another error
+	if($prov == "" || $city == "" || $p_name == ""){
+		$hasError = true;
+		$message = 'Property needs a name, city and province. Please note we only accept Canadian addresses.';
+	}
+		
+	
 	//CHECK WHETHER GEOCODE IS WORKING
 	if ($class_exists) {
 		//Gives error if address already exists
