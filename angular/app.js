@@ -1,20 +1,20 @@
 'use strict';
 
-define(['services/routeResolver'], function () {
+define(['shared/services/routeResolver'], function () {
 
-    var app = angular.module('app', ['ngRoute', 'ngSanitize', 'routeResolverServices','ui.bootstrap']).constant('hash', hash);;
+    var app = angular.module('app', ['ngRoute', 'ngSanitize', 'routeResolverServices','ui.bootstrap']).constant('hash', hash);
 
-    app.config(['$routeProvider', 'routeResolverProvider', '$controllerProvider', 
-                '$compileProvider', '$filterProvider', '$provide', '$locationProvider',
-        function ($routeProvider, routeResolverProvider, $controllerProvider, 
+    app.config(function ($routeProvider, routeResolverProvider, $controllerProvider, 
                   $compileProvider, $filterProvider, $provide, $locationProvider) {
 
-            if(!hash) {
+            app.compileProvider = $compileProvider;
+			
+			if(!hash) {
 				$locationProvider.html5Mode(true);
 			}
 			
 			//Change default views and controllers directory using the following:
-            //routeResolverProvider.routeConfig.setBaseDirectories('/app/views', '/app/controllers');
+            //routeResolverProvider.routeConfig.setBaseDirectories('angular/views/', 'angular/controllers/');
 
             app.register =
             {
@@ -29,7 +29,7 @@ define(['services/routeResolver'], function () {
             var route = routeResolverProvider.route;
 
             $routeProvider
-                .when('/index.html', route.resolve('Home'))
+				.when('/index.html', route.resolve('Home'))
 				.when('/', route.resolve('Home'))
 				.when('/rent/:prov/:city/:name/:propid', route.resolve('Apartment'))
 				.when('/rent', route.resolve('Page2'))
@@ -44,28 +44,30 @@ define(['services/routeResolver'], function () {
 				.when('/forgot', route.resolve('Page2'))
 				.when('/register', route.resolve('Page2'))
 				.when('/logout', route.resolve('Page2'))
-				.when('/admin', route.resolve('Page2'))
-                .otherwise(route.resolve('Home'));
-                }]);
+				.when('/admin', route.resolve('Page2', '', true))
+                .otherwise({ redirectTo: '/index.html' });
+    });
 			
-			//Authenticate logins on front end
-			app.run(['$rootScope', '$location', 'authService',
-				function ($rootScope, $location, authService) {
+	//Authenticate logins on front end
+	app.run(['$rootScope', '$location', 'authService',
+		function ($rootScope, $location, authService) {
 					
-					//Client-side security. Server-side framework MUST add it's 
-					//own security as well since client-based security is easily hacked
-					$rootScope.$on("$routeChangeStart", function (event, next, current) {
-						if (next && next.$$route && next.$$route.secure) {
-							if (!authService.user.isAuthenticated) {
-								$rootScope.$evalAsync(function () {
-									authService.redirectToLogin();
-								});
-							}
-						}
-					});
-
-			}]);
-
-            return app;
+			//Client-side security. Server-side framework MUST add it's 
+			//own security as well since client-based security is easily hacked
+			$rootScope.$on("$routeChangeStart", function (event, next, current) {
+				if (next && next.$$route && next.$$route.secure) {
+					if (!authService.user.isAuthenticated) {
+						$rootScope.$evalAsync(function () {
+							authService.redirectToLogin();
+						});
+					}
+				}
+			});
+			
+			
+			
+		}
+	]);
+	return app;
 });
 

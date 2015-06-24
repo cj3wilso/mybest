@@ -1,6 +1,11 @@
-define(['angularAMD'], function (angularAMD) {
-    angularAMD.directive('loadScript', ['$interval', 'dateFilter', function($interval, dateFilter) {
+'use strict';
+
+define(['app'], function (app) {
+    app.directive('bxsliderDirective', function() {
 	  function link(scope, element, attrs) {
+		console.log('anything?');
+		alert('i am loaded');
+		
 		//Load BX CSS Library
 		var bxsliderCSS=document.createElement("link");
 		bxsliderCSS.setAttribute("rel", "stylesheet");
@@ -24,5 +29,5 @@ define(['angularAMD'], function (angularAMD) {
 	  return {
 		link: link
 	  };
-	}]);
+	});
 });

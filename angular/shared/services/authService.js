@@ -5,9 +5,9 @@ define(['app'], function (app) {
     var injectParams = ['$http', '$rootScope'];
 
     var authFactory = function ($http, $rootScope) {
-        var serviceBase = '/api/dataservice/',
+        var serviceBase = 'api/dataservice/',
             factory = {
-                loginPath: '/login',
+                loginPath: 'login',
                 user: {
                     isAuthenticated: false,
                     roles: null

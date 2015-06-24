@@ -1,16 +1,16 @@
 'use strict';
 
-define([], function () {
+define(['angular-route', 'angular-sanitize', 'ui-bootstrap'], function () {
 
     var routeResolver = function () {
 
         this.$get = function () {
-            return this;
+			return this;
         };
 
         this.routeConfig = function () {
-            var viewsDirectory = 'angular/views/',
-                controllersDirectory = 'angular/controllers/',
+            var viewsDirectory = 'angular/',
+                controllersDirectory = 'angular/',
 
             setBaseDirectories = function (viewsDir, controllersDir) {
                 viewsDirectory = viewsDir;
@@ -34,19 +34,25 @@ define([], function () {
 
         this.route = function (routeConfig) {
 
-            var resolve = function (baseName, path, secure) {
+            var resolve = function (baseName, path, secure, directive) {
                 if (!path) path = '';
+				if (!directive) directive = '';
+				//console.log(directive);
 
                 var routeDef = {};
-                routeDef.templateUrl = routeConfig.getViewsDirectory() + path + baseName + '.html';
+				var basePath = baseName + '/';
+                routeDef.templateUrl = routeConfig.getViewsDirectory() + basePath + path + baseName + '.html';
                 routeDef.controller = baseName + 'Controller';
                 routeDef.secure = (secure) ? secure : false;
-                routeDef.resolve = {
+                //console.log(routeDef.controller);
+				routeDef.resolve = {
                     load: ['$q', '$rootScope', function ($q, $rootScope) {
-                        var dependencies = [routeConfig.getControllersDirectory() + path + baseName + 'Controller.js'];
+                        var dependencies = [routeConfig.getControllersDirectory() + basePath + path + baseName + 'Controller.js', directive];
+						//console.log($q);
                         return resolveDependencies($q, $rootScope, dependencies);
                     }]
                 };
+				
 
                 return routeDef;
             },
@@ -57,7 +63,6 @@ define([], function () {
                     defer.resolve();
                     $rootScope.$apply()
                 });
-
                 return defer.promise;
             };
 

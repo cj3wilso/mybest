@@ -13,5 +13,8 @@ define(['app'], function (app) {
 		}, function (error) {
 			$window.alert('Error getting apartment: ' + error.message);
 		});
+		if($scope.includeLibraries) { //the flag was set in the $rootScope object
+			$scope = $scope.include(['plugin1', 'library1']);
+		}
      }]);
 });

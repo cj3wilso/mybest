@@ -33,6 +33,7 @@ iframe#twitter-widget-0 {
 }
 </style>
 <div id="cssPlugins"></div>
+<script data-main="angular/main.js" src="http://marcoslin.github.io/angularAMD/js/lib/requirejs/require.js"></script>
 <!-- START: Google Analytics -->
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -73,9 +74,10 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
 <!-- END: Facebook JavaScript SDK -->
 <div id="wrap">
   <div class="container">
-    <div class="row">
+    <div id="topbar" ng-controller="NavController">
+	<div class="row">
       <div class="col-sm-4">
-        <div class="logo" itemscope itemtype="http://schema.org/Organization"><a href="http://mybestapartments.ca/" itemprop="url"><img src="assets/img/logo-mybest.png" alt="My Best Apartments" width="367" height="36" class="img-responsive" itemprop="logo"></a></div>
+        <div class="logo" itemscope itemtype="http://schema.org/Organization"><a href="{{ hash }}/" itemprop="url"><img src="assets/img/logo-mybest.png" alt="My Best Apartments" width="367" height="36" class="img-responsive" itemprop="logo"></a></div>
       </div>
       <div class="col-sm-8">
         <form method="post" id="topsearch" style="width:100%;">
@@ -84,7 +86,7 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
         </form>
       </div>
     </div>
-    <div class="navbar navbar-default" data-ng-controller="NavController">
+    <div class="navbar navbar-default">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       <div class="navbar-collapse collapse navbar-collapse-01">
         <ul class="nav navbar-nav navbar-left">
@@ -112,6 +114,7 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
       <!--/.nav --> 
     </div>
     <!-- /navbar -->
+	</div>
     
     <div ng-view></div>
     
@@ -176,11 +179,7 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
   </div>
 </footer>
 
-<script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.js'></script> 
-<script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-route.js'></script> 
-<script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-sanitize.js'></script> 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.js'></script> 
-<script data-main="angular/main.js" src="http://marcoslin.github.io/angularAMD/js/lib/requirejs/require.js"></script>
+
 
 <!-- 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script> 
