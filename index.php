@@ -33,8 +33,7 @@ include("header.php");
 			<div class="cta">
 				<span ng-if="x.ExternalURL"><a href="{{ x.ExternalURL }}" target="_blank" class="btn btn-inverse tile-btn-secondary"><div class="fui-eye"></div> View Website</a></span>
 				<span ng-if="x.Phone"><a href="{{ x.PhoneURL }}" class="btn btn-inverse tile-btn-secondary"><div class="fui-chat"></div>  {{ x.Phone }} </a></span>
-				<a href="#myModal" role="button" class="btn btn-primary avail tile-btn-primary" data-toggle="modal" data-prop="{{ x.ID }}"><div class="fui-mail"></div> Check Availability</a>
-			
+				<a onclick="setForm()" id="myModalButton" href="#myModal" role="button" class="btn btn-primary avail tile-btn-primary" data-toggle="modal" data-prop="{{ x.ID }}"><div class="fui-mail"></div> Check Availability</a>
 			</div>
 			<a href="{{ x.URL }}"><div class="tile-more-stripe">View <span class="hidden-xs hidden-sm">More Details On This </span>Apartment</div></a>
 		  </div>
@@ -95,15 +94,17 @@ include 'footer_js.php';
 var app = angular.module('myApp', []);
 app.controller('homeFeaturedProperty', function($scope, $http) {
     $http.get("http://mybestapartments.ca/data/homeFeaturedProperty.php")
-    .success(function (response) {$scope.results = response;});
+    .success(function (response) {
+		$scope.results = response;
+	});
 });
 </script>
 <script>
-$(".avail").click(function() {
-  $("#myModal").find(".alert").hide();
-  var id_prop = $(this).attr("data-prop");
-  $("input[name=prop]").val(id_prop);
-});
+function setForm() {
+	var button = document.getElementById("myModalButton");
+	var id_prop = button.getAttribute("data-prop");
+	document.getElementById("prop").setAttribute("value", id_prop);
+}
 $("#seller").click(function() {
     var url = "http://mybestapartments.ca/_inc/form_contact_seller.php";
     $.ajax({
@@ -118,8 +119,5 @@ $("#seller").click(function() {
 	$("#contactSeller")[0].reset();
     return false;
 });
-</script>
-<script>
-console.log("<p>i am root "+window.location.href.split('www')[0] + 'www'+"</p>");
 </script>
 </body></html>

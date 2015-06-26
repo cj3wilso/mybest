@@ -1,8 +1,16 @@
 <?php
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+header("Content-Type: application/json; charset=UTF-8");
+
 //If the form is submitted
 require("global.php");
 	if(!isset($contactEmail)){
-		$prop = $_POST["prop"];
+		$prop = trim($_POST["prop"]);
 		require("mysqlconnect.php");
 		$info = mysql_fetch_array(mysql_query("SELECT * FROM properties WHERE id_pg='$prop'"));
 		if( $info['email'] == "" ){
@@ -16,7 +24,7 @@ require("global.php");
 	}
 	$dsubject = "Contact from $company";
 	if($info['where_posted']==""){
-		$url = "http://$domain/rent/".$info['prov'].'/'.urlencode($info['city']).'/'.urlencode($info['name']).'/'.$info['id_pg'];
+		$url = "http://$domain/apartment/".$info['prov'].'/'.urlencode($info['city']).'/'.urlencode($info['name']).'/'.$info['id_pg'];
 	}else{
 		$url = $info['where_posted'];
 	}
@@ -70,11 +78,12 @@ require("global.php");
 		}
 			
 	}
+
+ if(isset($hasError)) { //If errors are found 
+    echo "Please check if you've filled all the fields with valid information. Thank you.";
+} 
+if(isset($emailSent) && $emailSent == true) { //If email is sent 
+    echo "Email Successfully Sent!";
+} 
+echo $prop;
 ?>
-<!-- Message -->
-      <?php if(isset($hasError)) { //If errors are found ?>
-      <div class="alert alert-danger">Please check if you've filled all the fields with valid information. Thank you.</div>
-      <?php } ?>
-      <?php if(isset($emailSent) && $emailSent == true) { //If email is sent ?>
-      <div class="alert alert-success"><strong>Email Successfully Sent!</strong></div>
-      <?php } ?>

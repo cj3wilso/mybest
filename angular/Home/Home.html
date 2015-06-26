@@ -24,31 +24,31 @@
 			<div class="cta">
 				<span ng-if="x.ExternalURL"><a href="{{ x.ExternalURL }}" target="_blank" class="btn btn-inverse tile-btn-secondary"><div class="fui-eye"></div> View Website</a></span>
 				<span ng-if="x.Phone"><a href="{{ x.PhoneURL }}" class="btn btn-inverse tile-btn-secondary"><div class="fui-chat"></div>  {{ x.Phone }} </a></span>
+
 				<div style="display:inline-block;" data-ng-controller="ModalController">
 					<script type="text/ng-template" id="modal.html">
 						<div class="modal-header">
 							<h3 class="modal-title">Contact Form</h3>
 						</div>
 						<form id="contactSeller" method="post">
-						<input id="prop" name="prop" type="hidden" />
-						<input name="page" type="hidden" value="list" />
+						<input type="hidden" ng-model="page" ng-init="page='home'" />
 						<div class="modal-body">
 						  <div class="form_result">{{message}}</div>
 						  <div class="row form-group">
 							<div class="col-lg-3">Your Name</div>
 							<div class="col-lg-9">
-							  <input class="form-control" id="cname" type="text" name="dname" minlength="2" />
+							  <input ng-model="contact.dname" class="form-control" id="cname" type="text" name="dname" minlength="2" />
 							</div>
 						  </div>
 						  <div class="row form-group">
 							<div class="col-lg-3">Your Email <span class="red">*</span></div>
 							<div class="col-lg-9">
-							  <input class="form-control email required" id="cemail" type="text" name="demail" />
+							  <input ng-model="contact.demail" class="form-control email required" id="cemail" type="text" name="demail" />
 							</div>
 						  </div>
 						  <div class="row">
 							<div class="col-lg-12"> Your Message <span class="red">*</span> <br />
-							  <textarea class="form-control required" id="ccomment" name="dcomment" rows="5"></textarea>
+							  <textarea ng-model="contact.dcomment" class="form-control required" id="ccomment" name="dcomment" rows="5"></textarea>
 							  <small class="pull-right"><span class="red">*</span> Required field</small> </div>
 						  </div>
 						</div>
@@ -59,18 +59,15 @@
 					  </form>
 					</script>
 
-					<button class="btn btn-primary avail tile-btn-primary" ng-click="open()" data-prop="{{ x.ID }}"><div class="fui-mail"></div> Check Availability</button>
+					<button class="btn btn-primary avail tile-btn-primary" ng-click="open()"><div class="fui-mail"></div> Check Availability</button>
 				</div>
 
-				
-				
-			
 			</div>
 			<a href="{{ hash }}{{ x.URL }}"><div class="tile-more-stripe">View <span class="hidden-xs hidden-sm">More Details On This </span>Apartment</div></a>
 		  </div>
 	  </div>
 	  <div class="col-xs-4"><div class="tile-img-feat"><a class="tile-feat" href="{{ x.URL }}">
 		<span ng-if="!x.Photo"><img src="http://placehold.it/390x390&text=Photos%20Coming%20Soon" itemprop="image" width="390" height="390" class="img-rounded img-responsive" style="border:1px solid #eff0f2;" alt="Photos Coming Soon"></span>
-		<span ng-if="x.Photo"><img src="upload/server/php/files/{{ x.ID }}/slide/{{ x.Photo }}" itemprop="image" width="390" height="390" class="img-rounded img-responsive" style="border:1px solid #eff0f2;" alt="{{ x.Name }}"></span>
+		<span ng-if="x.Photo"><img src="http://mybestapartments.ca/upload/server/php/files/{{ x.ID }}/slide/{{ x.Photo }}" itemprop="image" width="390" height="390" class="img-rounded img-responsive" style="border:1px solid #eff0f2;" alt="{{ x.Name }}"></span>
 		</a></div></div>
 	</div>

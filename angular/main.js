@@ -20,6 +20,7 @@ require(
 		'shared/services/routeResolver',
 		'shared/services/authService',
 		'shared/services/apartmentService',
+		'shared/services/contactService',
 		'nav/navService',
 		'shared/filters/urlFormat',
 		'nav/NavController',
