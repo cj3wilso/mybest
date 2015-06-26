@@ -7,21 +7,35 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Content-Type: application/json; charset=UTF-8");
 
+echo 'is this working?? ';
+print_r($_POST);
+
+$postdata = file_get_contents("php://input");
+$request = json_decode($postdata);
+print_r($request);
+$email = $request->contact->email;
+$page = $request->contact->page;
+$prop = trim($request->contact->prop);
+$dname = trim($request->contact->dname);
+$emailFrom = trim($request->contact->demail);
+if(function_exists('stripslashes')) {
+	$dcomment = stripslashes(trim($request->contact->dcomment));
+} else {
+	$dcomment = trim($request->contact->dcomment);
+}
+
+echo 'is this working?? '.$prop;
+
 //If the form is submitted
 require("global.php");
-	if(!isset($contactEmail)){
-		$prop = trim($_POST["prop"]);
-		require("mysqlconnect.php");
-		$info = mysql_fetch_array(mysql_query("SELECT * FROM properties WHERE id_pg='$prop'"));
-		if( $info['email'] == "" ){
-			$info['email'] = "cj3wilso@gmail.com";//$companyEmail
-			$page = "Page: ".$_POST["page"];
-		}else{
-			$page = "";
-		}
-		$contactEmail = $info['email'];
-		require("mysqlclose.php");
+	require("mysqlconnect.php");
+	$info = mysql_fetch_array(mysql_query("SELECT * FROM properties WHERE id_pg='$prop'"));
+	if( $info['email'] == "" ){
+		$info['email'] = "cj3wilso@gmail.com";//$companyEmail
+	}else{
 	}
+	$contactEmail = $info['email'];
+	require("mysqlclose.php");
 	$dsubject = "Contact from $company";
 	if($info['where_posted']==""){
 		$url = "http://$domain/apartment/".$info['prov'].'/'.urlencode($info['city']).'/'.urlencode($info['name']).'/'.$info['id_pg'];
@@ -30,31 +44,21 @@ require("global.php");
 	}
 	
 	//Check to make sure that the name field is not empty
-	if(trim($_POST['dname']) == '') {
+	if($dname == '') {
 		$hasError = true;
-	} else {
-		$dname = trim($_POST['dname']);
 	}
 	
 	//Check to make sure sure that a valid email address is submitted
-	if(trim($_POST['demail']) == '')  {
+	if($emailFrom == '')  {
 		$hasError = true;
-	} else if (!filter_var($_POST['demail'], FILTER_VALIDATE_EMAIL) ) {
+	} else if (!filter_var($emailFrom, FILTER_VALIDATE_EMAIL) ) {
 		$hasError = true;
 		echo 'not valid';
-	} else {
-		$emailFrom = trim($_POST['demail']);
 	}
 
 	//Check to make sure comments were entered
-	if(trim($_POST['dcomment']) == '') {
+	if($dcomment == '') {
 		$hasError = true;
-	} else {
-		if(function_exists('stripslashes')) {
-			$dcomment = stripslashes(trim($_POST['dcomment']));
-		} else {
-			$dcomment = trim($_POST['dcomment']);
-		}
 	}
 
 	//If there is no error, send the email
@@ -79,7 +83,7 @@ require("global.php");
 			
 	}
 
- if(isset($hasError)) { //If errors are found 
+if(isset($hasError)) { //If errors are found 
     echo "Please check if you've filled all the fields with valid information. Thank you.";
 } 
 if(isset($emailSent) && $emailSent == true) { //If email is sent 
