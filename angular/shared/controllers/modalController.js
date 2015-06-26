@@ -41,8 +41,6 @@ define(['app'], function (app) {
 				var formContact = $scope.contact;
 				console.log(formContact);
 				contactService.contactSeller(formContact).then(function (data) {
-					console.log('form successful!');
-					$window.alert('results here: ' + data);
 					$scope.message = data;
 					_gaq.push(["_trackEvent", "Appointment", "Email", "Home Page"]);
 					//$modalInstance.close($scope.selected.item);

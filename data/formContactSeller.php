@@ -7,24 +7,17 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-echo 'is this working?? ';
-print_r($_POST);
-
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
-print_r($request);
-$email = $request->contact->email;
-$page = $request->contact->page;
-$prop = trim($request->contact->prop);
-$dname = trim($request->contact->dname);
-$emailFrom = trim($request->contact->demail);
+$page = trim($request->page);
+$prop = trim($request->prop);
+$dname = trim($request->dname);
+$emailFrom = trim($request->demail);
 if(function_exists('stripslashes')) {
-	$dcomment = stripslashes(trim($request->contact->dcomment));
+	$dcomment = stripslashes(trim($request->dcomment));
 } else {
-	$dcomment = trim($request->contact->dcomment);
+	$dcomment = trim($request->dcomment);
 }
-
-echo 'is this working?? '.$prop;
 
 //If the form is submitted
 require("global.php");
@@ -89,5 +82,4 @@ if(isset($hasError)) { //If errors are found
 if(isset($emailSent) && $emailSent == true) { //If email is sent 
     echo "Email Successfully Sent!";
 } 
-echo $prop;
 ?>
