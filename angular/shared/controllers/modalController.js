@@ -38,9 +38,6 @@ define(['app'], function (app) {
 			$scope.$watch("page", function(){
 				$scope.contact.page = $scope.page;
 				$scope.contact.prop = $rootScope.propid;
-				$scope.contact.prov = $rootScope.prov;
-				$scope.contact.city = $rootScope.city;
-				$scope.contact.name = $rootScope.name;
 				var formContact = $scope.contact;
 				console.log(formContact);
 				contactService.contactSeller(formContact).then(function (data) {

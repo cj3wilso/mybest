@@ -12,9 +12,6 @@ define(['app'], function (app) {
                 $scope.hash = hash;
 				$scope.results = data;
 				$rootScope.propid = $scope.results.records[0]["ID"];
-				$rootScope.prov = $scope.results.records[0]["Prov"];
-				$rootScope.city = $scope.results.records[0]["City"];
-				$rootScope.name = $scope.results.records[0]["Name"];
 		}, function (error) {
 			$window.alert('Error getting apartment: ' + error.message);
 		});
