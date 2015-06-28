@@ -25,31 +25,30 @@
           		<div class="fui-chat"></div>
           		({{ results.records.phone1 }}) {{ results.records.phone2 }}-{{ results.records.phone3 }}
           	</a> 
-        	<div style="display:inline-block;" data-ng-controller="ModalController">
+				<div style="display:inline-block;" data-ng-controller="ModalController">
 					<script type="text/ng-template" id="modal.html">
 						<div class="modal-header">
 							<h3 class="modal-title">Contact Form</h3>
 						</div>
 						<form id="contactSeller" method="post">
-						<input id="prop" name="prop" type="hidden" />
-						<input name="page" type="hidden" value="list" />
+						<input type="hidden" ng-model="page" ng-init="page='home'" />
 						<div class="modal-body">
 						  <div class="form_result">{{message}}</div>
 						  <div class="row form-group">
 							<div class="col-lg-3">Your Name</div>
 							<div class="col-lg-9">
-							  <input class="form-control" id="cname" type="text" name="dname" minlength="2" />
+							  <input ng-model="contact.dname" class="form-control" id="cname" type="text" name="dname" minlength="2" />
 							</div>
 						  </div>
 						  <div class="row form-group">
 							<div class="col-lg-3">Your Email <span class="red">*</span></div>
 							<div class="col-lg-9">
-							  <input class="form-control email required" id="cemail" type="text" name="demail" />
+							  <input ng-model="contact.demail" class="form-control email required" id="cemail" type="text" name="demail" />
 							</div>
 						  </div>
 						  <div class="row">
 							<div class="col-lg-12"> Your Message <span class="red">*</span> <br />
-							  <textarea class="form-control required" id="ccomment" name="dcomment" rows="5"></textarea>
+							  <textarea ng-model="contact.dcomment" class="form-control required" id="ccomment" name="dcomment" rows="5"></textarea>
 							  <small class="pull-right"><span class="red">*</span> Required field</small> </div>
 						  </div>
 						</div>
@@ -59,8 +58,7 @@
 						</div>
 					  </form>
 					</script>
-
-					<button class="btn btn-primary avail tile-btn-primary" ng-click="open()" data-prop="{{ x.ID }}"><div class="fui-mail"></div> Check Availability</button>
+					<button class="btn btn-primary avail tile-btn-primary" ng-click="open()"><div class="fui-mail"></div> Check Availability</button>
 				</div>
 		</div>
       </div>
