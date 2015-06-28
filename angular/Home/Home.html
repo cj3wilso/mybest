@@ -66,7 +66,7 @@
 			<a href="{{ hash }}{{ x.URL }}"><div class="tile-more-stripe">View <span class="hidden-xs hidden-sm">More Details On This </span>Apartment</div></a>
 		  </div>
 	  </div>
-	  <div class="col-xs-4"><div class="tile-img-feat"><a class="tile-feat" href="{{ x.URL }}">
+	  <div class="col-xs-4"><div class="tile-img-feat"><a class="tile-feat" href="{{ hash }}{{ x.URL }}">
 		<span ng-if="!x.Photo"><img src="http://placehold.it/390x390&text=Photos%20Coming%20Soon" itemprop="image" width="390" height="390" class="img-rounded img-responsive" style="border:1px solid #eff0f2;" alt="Photos Coming Soon"></span>
 		<span ng-if="x.Photo"><img src="http://mybestapartments.ca/upload/server/php/files/{{ x.ID }}/slide/{{ x.Photo }}" itemprop="image" width="390" height="390" class="img-rounded img-responsive" style="border:1px solid #eff0f2;" alt="{{ x.Name }}"></span>
 		</a></div></div>

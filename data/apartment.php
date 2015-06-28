@@ -11,7 +11,7 @@ require("mysqli-connect.php");
 
 
 //Show Tracking Record
-$page_id="1w9k4";
+$page_id="1vc9n";
 if(isset($_GET["prop_id"])){$page_id = $_GET["prop_id"];}
 $info = $conn->query("SELECT *, uf.id_prop AS star, p.id_user AS owner,
 GROUP_CONCAT(CONCAT('<tr><td>', style, '</td><td>', beds, '</td><td>', ba, '</td><td>', sq_ft, '</td><td>$',  rent, '</td><td>', dep, '</td></tr>') 
@@ -20,11 +20,13 @@ FROM properties p
 LEFT JOIN prop_units ON prop_units.id_prop = '$page_id'
 LEFT JOIN prop_intro ON prop_intro.id_prop = '$page_id' 
 LEFT JOIN prop_hours ON prop_hours.id_prop = '$page_id' 
+LEFT JOIN prop_photos ON prop_photos.id_prop = '$page_id' 
 LEFT JOIN user_fav uf ON uf.id_prop = '$page_id' AND $fav_find 
 WHERE id_pg = '$page_id'");
 $info = $info->fetch_array(MYSQLI_ASSOC);
 
 
+/*
 //If no name or unit then redirect
 //If deleted then go to list page with message
 if($info['name'] == NULL || $info['unit'] == NULL || $info['deleted']==1 || $info['pub']==='0'){
@@ -35,13 +37,13 @@ if($info['name'] == NULL || $info['unit'] == NULL || $info['deleted']==1 || $inf
 	header("Location: $list/".$_GET["prov"]."/".urlencode($_GET["city"])."/");
 }
 //Redirect users to correct URL
-/*
 $correctURL = "/rent/".urlencode($info['prov'])."/".urlencode($info['city'])."/".cleanUrl($info['name'])."/".$info['id_pg'];
 if($_SERVER["REQUEST_URI"] != $correctURL){
 	header ('HTTP/1.1 301 Moved Permanently');
 	header("Location: $correctURL");
 }
 */
+
 $json ='{"records":'.json_encode($info).'}';
 echo $json;
 
@@ -51,10 +53,6 @@ FROM prop_feat
 WHERE id_prop = '$page_id' AND deleted = 0
 GROUP BY type");
 $featrows = mysql_num_rows($check);
-$info3 = mysql_query("SELECT photo
-FROM prop_photos
-WHERE id_prop = '$page_id'
-ORDER BY p_order ASC");
 $pageTitle = $info['name'].' in '.$info['city'].', '.$info['prov'];
 $metaDesc = "See Apartment photos, location, description and features for ".$info['name'].' in '.$info['city'].', '.$info['prov'];
 if($info['email']){

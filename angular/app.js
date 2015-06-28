@@ -31,10 +31,11 @@ define(['shared/services/routeResolver'], function () {
             $routeProvider
 				.when('/index.html', route.resolve('Home'))
 				.when('/', route.resolve('Home'))
+				.when('/rent/:prov/:city', route.resolve('List'))
+				.when('/rent/:prov/:city/:page', route.resolve('List'))
 				.when('/rent/:prov/:city/:name/:propid', route.resolve('Apartment'))
 				.when('/rent', route.resolve('Page2'))
 				.when('/rent/:prov', route.resolve('Page2'))
-				.when('/rent/:prov/:city', route.resolve('Page2'))
 				.when('/map*', route.resolve('Page2'))
 				.when('/options*', route.resolve('Page2'))
 				.when('/add', route.resolve('Page2'))

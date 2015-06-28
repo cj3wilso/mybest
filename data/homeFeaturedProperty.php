@@ -53,6 +53,7 @@ if($city_exists->num_rows == 0){
 
 //If country code isn't CA then don't show "Search by city" area
 if($cnty != "CA"){$city=NULL;}
+$where_city = "";
 
 if($gotads->num_rows == 0){
 	/* If no ads then show any post */
@@ -66,11 +67,11 @@ if($gotads->num_rows == 0){
 						 (SELECT MAX(id)
 							FROM properties pp WHERE pp.pub=1 $where_city)) AS id)
 			AS p2 
-		INNER JOIN prop_units ON pp.id_pg = prop_units.id_prop 
+		INNER JOIN prop_units u ON pp.id_pg = u.id_prop 
 		INNER JOIN prop_feat a ON pp.id_pg = a.id_prop 
 		INNER JOIN prop_feat b ON pp.id_pg = b.id_prop 
 		LEFT JOIN prop_photos c ON pp.id_pg = c.id_prop AND c.p_order = 1 
-		WHERE pp.id >= p2.id AND pp.pub=1 $city 
+		WHERE pp.id >= p2.id AND pp.pub=1 $where_city 
 		GROUP BY pp.id_pg  
 		ORDER BY pp.id ASC 
 		LIMIT 1";

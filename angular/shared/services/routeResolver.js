@@ -1,6 +1,6 @@
 'use strict';
 
-define(['angular-route', 'angular-sanitize', 'ui-bootstrap'], function () {
+define(['angular-route', 'angular-sanitize', 'jquery', 'ui-bootstrap', 'bx-slider'], function () {
 
     var routeResolver = function () {
 

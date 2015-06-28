@@ -2,15 +2,18 @@ require.config({
     baseUrl: 'angular',
     urlArgs: 'v=1.02',    
     paths: {
-        'angular': 'http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular',
+        'jquery': 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min',
+		'angular': 'http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular',
         'angular-route': 'http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-route',
         'angular-sanitize': 'http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-sanitize',
-		'ui-bootstrap': 'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls'
+		'ui-bootstrap': 'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls',
+		'bx-slider': 'http://bxslider.com/lib/jquery.bxslider'
     },
     shim: { 
 		'angular-route': ['angular'],
 		'angular-sanitize': ['angular'], 
-		'ui-bootstrap': ['angular'], 
+		'ui-bootstrap': ['angular'],
+		'bx-slider': ['angular']
 	}
 });
 
@@ -22,8 +25,9 @@ require(
 		'shared/services/apartmentService',
 		'shared/services/contactService',
 		'nav/navService',
-		'shared/filters/urlFormat',
 		'nav/NavController',
+		'shared/filters/urlFormat',
+		'shared/directives/bxSliderDirective',
 		'shared/controllers/modalController'
     ],
     function () {

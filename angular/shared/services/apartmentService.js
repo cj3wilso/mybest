@@ -21,6 +21,39 @@ define(['app'], function (app) {
 					return results.data;
 			});
         };
+		factory.getPhotos = function (propid) {
+            return $http.get(serviceBase + 'photos.php', {
+				params: {
+					prop_id: propid
+				}
+			}).then(
+				function (results) {
+					return results.data;
+			});
+        };
+		factory.getList = function (prov, city, page) {
+            return $http.get(serviceBase + 'list.php', {
+				params: {
+					prov: prov,
+					city: city,
+					page: page
+				}
+			}).then(
+				function (results) {
+					return results.data;
+			});
+        };
+		factory.getListAddressFeatured = function (prov, city) {
+            return $http.get(serviceBase + 'listAddressFeatured.php', {
+				params: {
+					prov: prov,
+					city: city
+				}
+			}).then(
+				function (results) {
+					return results.data;
+			});
+        };
         return factory;
     };
     apartmentFactory.$inject = injectParams;

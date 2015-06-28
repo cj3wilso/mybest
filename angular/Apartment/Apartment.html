@@ -66,18 +66,10 @@
       </div>
     </div>
     <div class="col-md-5"> 
-		<ul class="bxslider">
-			<li><img src="http://placehold.it/390x390&amp;text=Photos%20Coming%20Soon" itemprop="image" /></li>
-			<li><img src="http://placehold.it/390x390&amp;text=Photos%20Coming%20Soon" itemprop="image" /></li>
-			<li><img src="http://placehold.it/390x390&amp;text=Photos%20Coming%20Soon" itemprop="image" /></li>
-			<li><img src="http://placehold.it/390x390&amp;text=Photos%20Coming%20Soon" itemprop="image" /></li>
-		</ul>
-		<div id="bx-pager">
-			<a data-slide-index="0" href=""><img src="http://placehold.it/80x80&amp;text=Photos%20Coming%20Soon" /></a>
-			<a data-slide-index="1" href=""><img src="http://placehold.it/80x80&amp;text=Photos%20Coming%20Soon" /></a>
-			<a data-slide-index="2" href=""><img src="http://placehold.it/80x80&amp;text=Photos%20Coming%20Soon" /></a>
+		<div ng-show="results.records.photo != null" bx-slider prop="{{ results.records.id_pg }}" name="bxslider1" size="390" thumb-pager="true" class="pull-right"></div>
+		<div ng-show="results.records.photo == null">
+			<img src="http://placehold.it/390x390&amp;text=Photos%20Coming%20Soon" itemprop="image" alt="Photos Coming Soon" width="390" height="390" class="img-rounded img-responsive pull-right">
 		</div>
-	<!--<img src="http://placehold.it/390x390&amp;text=Photos%20Coming%20Soon" itemprop="image" alt="Photos Coming Soon" width="390" height="390" class="img-rounded img-responsive pull-right"> -->
 	</div>
   </div>
   <section id="units">
@@ -146,5 +138,4 @@
   <br>
   <br>
   {{ results.records }} 
-  <div load-script="format"></div>
 </div>
