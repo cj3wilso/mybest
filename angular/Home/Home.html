@@ -1,6 +1,6 @@
 <div ng-repeat="(key, value) in results">
 		<ul ng-if="key == 'IPCity'" class="nav nav-pills" style="padding-bottom:8px;">
-		  <li class="active pull-right"> <a href="{{ hash }}{{ results.IPCity.CityURL }}">View All {{ results.IPCity.City }} Apartments <i class="icon-double-angle-right"></i></a> </li>
+		  <li class="active pull-right"> <a href="{{hash}}/rent/{{ results.records[0].Prov | urlFilter }}/{{ results.records[0].City | urlFilter }}">View All {{ results.IPCity.City }} Apartments <i class="icon-double-angle-right"></i></a> </li>
 		</ul>
 	</div>
 
@@ -13,7 +13,7 @@
 	  <div class="col-xs-8">
 		<div class="tile tile-text">
 			<div class="tile-text-block">
-				<div class="tile-text-title"><a href="{{ hash }}{{ x.URL }}">Spotlight<span class="hidden-xs hidden-sm"> Apartment</span></a></div>
+				<div class="tile-text-title"><a href="{{hash}}/rent/{{ x.Prov | urlFilter }}/{{ x.City | urlFilter }}/{{ x.Name | urlFilter }}/{{ x.ID | urlFilter }}">Spotlight<span class="hidden-xs hidden-sm"> Apartment</span></a></div>
 				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="tile-text-thin">In <span itemprop="addressLocality">{{ x.City }}</span>, <span itemprop="addressRegion">{{ x.Prov }}</span>, Canada</div>
 			</div>
 			<div class="tile-text-block">
@@ -63,11 +63,13 @@
 				</div>
 
 			</div>
-			<a href="{{ hash }}{{ x.URL }}"><div class="tile-more-stripe">View <span class="hidden-xs hidden-sm">More Details On This </span>Apartment</div></a>
+			<a href="{{hash}}/rent/{{ x.Prov | urlFilter }}/{{ x.City | urlFilter }}/{{ x.Name | urlFilter }}/{{ x.ID | urlFilter }}"><div class="tile-more-stripe">View <span class="hidden-xs hidden-sm">More Details On This </span>Apartment</div></a>
 		  </div>
 	  </div>
-	  <div class="col-xs-4"><div class="tile-img-feat"><a class="tile-feat" href="{{ hash }}{{ x.URL }}">
+	  <div class="col-xs-4"><div class="tile-img-feat">
+	  <a class="tile-feat" href="{{hash}}/rent/{{ x.Prov | urlFilter }}/{{ x.City | urlFilter }}/{{ x.Name | urlFilter }}/{{ x.ID | urlFilter }}">
 		<span ng-if="!x.Photo"><img src="http://placehold.it/390x390&text=Photos%20Coming%20Soon" itemprop="image" width="390" height="390" class="img-rounded img-responsive" style="border:1px solid #eff0f2;" alt="Photos Coming Soon"></span>
 		<span ng-if="x.Photo"><img src="http://mybestapartments.ca/upload/server/php/files/{{ x.ID }}/slide/{{ x.Photo }}" itemprop="image" width="390" height="390" class="img-rounded img-responsive" style="border:1px solid #eff0f2;" alt="{{ x.Name }}"></span>
-		</a></div></div>
+		</a>
+	</div></div>
 	</div>

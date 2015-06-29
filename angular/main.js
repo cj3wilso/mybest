@@ -26,7 +26,7 @@ require(
 		'shared/services/contactService',
 		'nav/navService',
 		'nav/NavController',
-		'shared/filters/urlFormat',
+		'shared/filters/urlFilter',
 		'shared/directives/bxSliderDirective',
 		'shared/controllers/modalController'
     ],

@@ -94,10 +94,10 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
           <li class=""> <a href="{{ hash }}/rent" id="findapartmenta">Find Apartments</a>
             <ul> 
                 <li ng-repeat="prov in results.records">
-                    <a href="{{ hash }}/rent/{{prov.Prov | urlFormat}}">{{ prov.Province }}</a>
+                    <a href="{{ hash }}/rent/{{prov.Prov | urlFilter}}">{{ prov.Province }}</a>
                     <ul ng-repeat="city in prov.Cities">
                         <li ng-repeat="(key, value) in city">
-                            <a ng-href="{{ hash }}/rent/{{prov.Prov | urlFormat}}/{{key | urlFormat}}">{{key}} <span class="badge pull-right">{{ value }}</span></a>
+                            <a ng-href="{{ hash }}/rent/{{prov.Prov | urlFilter}}/{{key | urlFilter}}">{{key}} <span class="badge pull-right">{{ value }}</span></a>
                         </li>
                     </ul>
                 </li>

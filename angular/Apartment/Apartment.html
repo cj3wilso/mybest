@@ -1,6 +1,6 @@
 <div ng-repeat="(key, value) in results">
   <ul class="nav nav-pills">
-    <li class="active"> <a href="{{ hash }}/rent/{{ results.records.prov | urlFormat }}/{{ results.records.city | urlFormat }}"><span class="fui-arrow-left"></span> See more apartments near {{ results.records.city }}, {{ results.records.prov }}</a> </li>
+    <li class="active"> <a href="{{ hash }}/rent/{{ results.records.prov | urlFilter }}/{{ results.records.city | urlFilter }}"><span class="fui-arrow-left"></span> See more apartments near {{ results.records.city }}, {{ results.records.prov }}</a> </li>
   </ul>
   
   <!-- Google geo loc -->
@@ -18,7 +18,7 @@
         <div style="margin-bottom:31px;">
           <div style="font-weight:100;">Page ID: {{ results.records.id_pg }}, Posted: {{ results.records.date }}</div>
           <div style="font-weight:100;"><i class="icon-star-empty" data-prop="{{ results.records.id_pg }}"></i> Add to My Places</div>
-          <div style="font-weight:100;"><a ng-href="http://www.walkscore.com/score/{{ results.records.address | urlFormat }}-{{ results.records.city | urlFormat }}-{{ results.records.prov | urlFormat }}-{{ results.records.cntry | urlFormat }}-{{ results.records.post | urlFormat }}/lat={{ results.records.lat }}/lng={{ results.records.lng }}" target="_blank">See Walk Score</a></div>
+          <div style="font-weight:100;"><a ng-href="http://www.walkscore.com/score/{{ results.records.address | urlFilter }}-{{ results.records.city | urlFilter }}-{{ results.records.prov | urlFilter }}-{{ results.records.cntry | urlFilter }}-{{ results.records.post | urlFilter }}/lat={{ results.records.lat }}/lng={{ results.records.lng }}" target="_blank">See Walk Score</a></div>
         </div>
         <div class="hm-cta pull-right" style="position:absolute;bottom:48px;right:0px;"> 
         	<a ng-show="results.records.phone1 != 000" href="tel://1-{{ results.records.phone1 }}-{{ results.records.phone2 }}-{{ results.records.phone3 }}" class="btn btn-inverse" style="background-color:#09977b;">
