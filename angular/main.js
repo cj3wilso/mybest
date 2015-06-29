@@ -1,6 +1,6 @@
 require.config({
     baseUrl: 'angular',
-    urlArgs: 'v=1.02',    
+    urlArgs: 'v=1.03',    
     paths: {
         'jquery': 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min',
 		'angular': 'http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular',

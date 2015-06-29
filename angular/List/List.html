@@ -18,7 +18,13 @@
 </div>
 <div class="row">
   <div class="col-md-2" style="padding-top:20px;">
-    <select name="herolist" id="sort-select" class="select-block">
+    <div><a href="/rent/qc/laval?sort=rent-asc">test this</a></div>
+	<button ng-click="sorting('rent-asc')">
+		Rent ASC
+	</button>
+	
+	
+	<select name="herolist" id="sort-select" class="select-block">
       <option value='latest+desc' selected>Date (New to Old)</option>
       <option value='distance+asc' >Distance Nearest</option>
       <option value='rent+asc' >Price (Low to High)</option>

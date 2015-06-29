@@ -40,6 +40,7 @@ define(['app'], function (app) {
 				}
 			}).then(
 				function (results) {
+					console.log();
 					return results.data;
 			});
         };

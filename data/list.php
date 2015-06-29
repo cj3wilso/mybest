@@ -11,7 +11,21 @@ require("mysqli-connect.php");
 
 if(!isset($_GET["prov"])){$_GET["prov"] = "ON";}
 if(!isset($_GET["city"])){$_GET["city"] = "Toronto";}
-if(!isset($sort)){$sort = 'created DESC';}
+
+$sort = 'created DESC';
+$sort_options = array('name asc','name desc','rent asc','rent desc','created desc','distance asc');
+$get_sort = (isset($_GET['sort']) ? $_GET['sort'] : '');
+$sort_decoded = str_replace("-", " ", $get_sort);
+if(isset($_GET['sort']) && in_array($sort_decoded,$sort_options) ){
+	if($sort_decoded == 'rent asc'){
+		$sort = "ABS(rent) ASC"; 
+	}else if($sort_decoded == 'rent desc'){
+		$sort = "ABS(rent) DESC";
+	}else{
+		$sort = $_GET['sort'];
+	}
+}
+
 
 include("form_results.php");
 include("paginator.class.php");
