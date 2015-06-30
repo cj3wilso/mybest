@@ -31,16 +31,17 @@ define(['app'], function (app) {
 					return results.data;
 			});
         };
-		factory.getList = function (prov, city, page) {
+		factory.getList = function (prov, city, page, sort) {
             return $http.get(serviceBase + 'list.php', {
 				params: {
 					prov: prov,
 					city: city,
-					page: page
+					page: page,
+					sort: sort
 				}
 			}).then(
 				function (results) {
-					console.log();
+					$q.defer().resolve(results.data);
 					return results.data;
 			});
         };

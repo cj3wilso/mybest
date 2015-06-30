@@ -27,6 +27,7 @@ require(
 		'nav/navService',
 		'nav/NavController',
 		'shared/filters/urlFilter',
+		'shared/filters/setDecimalFilter',
 		'shared/directives/bxSliderDirective',
 		'shared/controllers/modalController'
     ],

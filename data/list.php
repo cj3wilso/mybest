@@ -16,7 +16,7 @@ $sort = 'created DESC';
 $sort_options = array('name asc','name desc','rent asc','rent desc','created desc','distance asc');
 $get_sort = (isset($_GET['sort']) ? $_GET['sort'] : '');
 $sort_decoded = str_replace("-", " ", $get_sort);
-if(isset($_GET['sort']) && in_array($sort_decoded,$sort_options) ){
+if($get_sort != "" && in_array($sort_decoded,$sort_options) ){
 	if($sort_decoded == 'rent asc'){
 		$sort = "ABS(rent) ASC"; 
 	}else if($sort_decoded == 'rent desc'){
