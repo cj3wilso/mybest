@@ -35,7 +35,7 @@ define(['app'], function (app) {
 					if(hash==undefined){hash='';}
 					var split = $location.path().split("/");
 					var path = split[0]+'/'+split[1]+'/'+split[2]+'/'+split[3];
-					var url = hash+path+'/'+page;
+					var url = path+'/'+page;
 					$location.path(url);;
 				};
 				//Pager items
