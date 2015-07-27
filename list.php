@@ -564,7 +564,7 @@ $(".panel .radio").click(function() {
 });
 $( ".panel #slider-range" ).on( "slidechange", function( event, ui ) {
 	var paneltext = $.trim($( this ).parents( "#price" ).find("#amount").val());
-	if( paneltext != "$0 - $10000" ){
+	if( paneltext != "$0 - $3500" ){
 		$( this ).parents( ".panel" ).find("small").text( paneltext ).addClass("selected");
 	}else{
 		$( this ).parents( ".panel" ).find("small").text( "No Preference" ).removeClass("selected");
@@ -579,7 +579,7 @@ $(function() {
 	$( "#slider-range" ).slider({
 		range: true,
 		min: 0,
-		max: 10000,
+		max: 3500,
 		values: [ '<?php echo $maxmin[0]; ?>', '<?php echo $maxmin[1]; ?>' ],
 		slide: function( event, ui ) {
 			$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
