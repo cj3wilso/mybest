@@ -3,7 +3,7 @@
 /* http://simplehtmldom.sourceforge.net/manual.htm */
 include_once("global.php");
 include_once('simple_html_dom.php');
-include_once('geocode.opencage.class.php');
+//include_once('geocode.opencage.class.php');
 header('Content-Type: text/html; charset=utf-8');
 
 /* GLOBAL VARIABLES */
@@ -66,6 +66,7 @@ header('Content-Type: text/html; charset=utf-8');
 		// Free up memory
 		imagedestroy($new_img);
 	}
+	
 	// MySQL
 	$user_id = 14;
 	$today = date("M j Y");
@@ -108,19 +109,10 @@ function getAds($findlink,$container,$adID,$propName,$desc,$url,$attributes,$ima
 		$html->load_file($link->href);
 		foreach($html->find($container) as $article)
 		{
-			$item['rnd_id'] = $pg_id[$counter];
 			/* REFRESH ARRAYS WITH CHILDREN */
 			$item['email'] = $item['photo'] = $item['Interior Features'] = $item['Appliances']  = $item['Transportation'] = $item['TV &amp; Internet'] = $item['Health / Outdoor'] = $item['Laundry'] = $item['Parking / Security'] = $item['Lease Options'] = $item['Pets'] = $item['Additional Ameneties'] = $item['Senior'] = NULL;
-			/* KEEP NAME/INTRO FIRST - USED FOR CHARACTER SEARCH */
-			$id = $article->find($adID, 0)->plaintext;
-			$begin = strpos($id, "Ad ID ")+6;
-			$item['id'] = substr($id, $begin, -1);;
-			$item['name'] = $article->find($propName, 0)->plaintext;
-			$item['desc'] = strip_tags($article->find($desc, 0)->innertext, '<p><br><br /><br/>');
-			$item['desc'] = str_replace($kijijiAds, "", $item['desc']);
-			if(preg_match($email_pattern, $item['desc'], $matches) != 0){ $item['email'] = $matches[0]; }
-			$item['url'] = $article->find($url, 0)->href;
-			$item['where_posted'] = $links[$counter];
+			$rent = $bath = $furnished = $pets_allowed = $street = $city = $prov = $postal = $address = $noaddress = NULL;
+			
 			/* FIND ATTRIBUTES IN ATTRIBUTE TABLE */
 			foreach($article->find($attributes) as $att){
 				$title = $att->first_child()->plaintext;
@@ -135,21 +127,67 @@ function getAds($findlink,$container,$adID,$propName,$desc,$url,$attributes,$ima
 						}else{
 							$getaddress = explode('Afficher la carte', $value);
 						}
-						$item['address'] = $getaddress[0];
-						echo 'address from scrape:'.$item['address'];
-						list($item['lat'], $item['lng'], $item['address'], $item['type'], $item['city'], $item['region'], $item['prov'], $item['provLng'], $item['post'], $item['street']) = opencage::getLocationInfo($item['address'],$provinces_array);
-						//Remove French accents from city - to avoid duplicates
+						$address = trim($getaddress[0]);
+						echo nl2br("\r\n".'address from scrape:'.$address."\r\n");
+						
+						//FIND This
+						//You need to match certain types of formats from Kijiji and use regular expressions to break into parts
 						$accents = explode(",","ç,æ,œ,á,é,í,ó,ú,à,è,ì,ò,ù,ä,ë,ï,ö,ü,ÿ,â,ê,î,ô,û,å,e,i,ø,u");
 						$noaccents = explode(",","c,ae,oe,a,e,i,o,u,a,e,i,o,u,a,e,i,o,u,y,a,e,i,o,u,a,e,i,o,u");
-						$item['city'] = str_ireplace($accents, $noaccents, $item['city']);
-						//City shouldn't end with word 'city'
-						//$item['city'] = stristr($item['city'], ' city', true);
-						$item['city'] = str_ireplace(' city', "", $item['city']);
-						$item['region'] = str_ireplace($accents, $noaccents, $item['region']);
-						$item['provLng'] = str_ireplace($accents, $noaccents, $item['provLng']);
-						echo 'address after geocode: <br>';
-						echo 'street address: '.$item['address']."<br>";
-						echo 'city: '.$item['city'].', postal code: '.$item['post']."<br><br>";
+						//IF STREET ADDRESS
+						$reg_street = "[0-9/]+[a-z]?[ ][0-9]?[a-z ]+";
+						$reg_city = "[a-z /]+";
+						$reg_prov_abv = "([A-Z]{2})*";
+						$reg_comma = ", ";
+						$reg_space = " ";
+						$reg_postal = "[A-Z][0-9][A-Z]([ ]?[0-9][A-Z][0-9])?";
+						//Match this address format:
+						//955b Warwick Court, Oakville/Halton Region, ON, L7T 3Z6
+						$match_pattern = $reg_street.$reg_comma.$reg_city.$reg_comma.$reg_prov_abv.$reg_comma.$reg_postal;
+						if (preg_match("#^$match_pattern$#i", $address, $matches)){
+							echo nl2br("\r\n".'i match: '.$matches[0]."\r\n");
+							$address_all = explode(",", str_ireplace($accents, $noaccents, $matches[0]));
+							$item['street'] = ucwords(trim($address_all[0]));
+							$item['city'] = $item['region'] = ucwords(trim($address_all[1]));
+							$item['prov'] = strtoupper($address_all[2]);
+							$item['post'] = $address_all[3];
+						}
+						//Match this address format:
+						//16b Yonge Street, Toronto, ON M5E 2A1
+						//33 2e Avenue, Verdun, QC H4G 2W2
+						$match_pattern2 = $reg_street.$reg_comma.$reg_city.$reg_comma.$reg_prov_abv.$reg_space.$reg_postal;
+						if (preg_match("#^$match_pattern2$#i", $address, $matches)){
+							echo nl2br("\r\n".'i match: '.$matches[0]."\r\n");
+							$address_all = explode(",", str_ireplace($accents, $noaccents, $matches[0]));
+							$item['street'] = ucwords(trim($address_all[0]));
+							$item['city'] = $item['region'] = ucwords(trim($address_all[1]));
+							$provpost = explode(' ', trim($address_all[2]), 2);
+							$item['prov'] = strtoupper($provpost[0]);
+							$item['post'] = $provpost[1];
+						}
+						//Match this address format:
+						//80b Harrison Garden Boulevard, M2N 7E3, Toronto, ON
+						$match_pattern3 = $reg_street.$reg_comma.$reg_postal.$reg_comma.$reg_city.$reg_comma.$reg_prov_abv;
+						if (preg_match("#^$match_pattern3$#i", $myaddress, $matches)){
+							echo nl2br("\r\n".'i match: '.$matches[0]."\r\n");
+							$address_all = explode(",", str_ireplace($accents, $noaccents, $matches[0]));
+							$item['street'] = ucwords(trim($address_all[0]));
+							$item['post'] = $address_all[1];
+							$item['city'] = $item['region'] = ucwords(trim($address_all[2]));
+							$item['prov'] = strtoupper($address_all[3]);
+						}
+						//Match this address format:
+						//3980b Lesage, H4G1A4, Verdun
+						$match_pattern4 = $reg_street.$reg_comma.$reg_postal.$reg_comma.$reg_city;
+						if (preg_match("#^$match_pattern4$#i", $myaddress, $matches)){
+							echo nl2br("\r\n".'i match: '.$matches[0]."\r\n");
+							$address_all = explode(",", str_ireplace($accents, $noaccents, $matches[0]));
+							$item['street'] = ucwords(trim($address_all[0]));
+							$item['post'] = $address_all[1];
+							$item['city'] = $item['region'] = ucwords(trim($address_all[2]));
+							$item['prov'] = "";
+						}
+						echo nl2br("\r\n".'address after regular expression:'."\r\n".'street:'.$item['street']."\r\n".'city:'.$item['city']."\r\n".'post:'.$item['post']."\r\n");
 						break;
 					case (preg_match("/^bathrooms/i", $title, $matches) != 0 || preg_match("/^salles de bains (nb)/i", $title, $matches) != 0):
 						$item['ba'] = substr($value, 0, -9);
@@ -165,7 +203,23 @@ function getAds($findlink,$container,$adID,$propName,$desc,$url,$attributes,$ima
 						}
 						break;
 				}
+				
 			}
+			$item['lat'] = $html->find('meta[property=og:latitude]', 0)->content;
+			$item['lng'] = $html->find('meta[property=og:longitude]', 0)->content;
+				
+			$item['rnd_id'] = $pg_id[$counter];
+			/* KEEP NAME/INTRO FIRST - USED FOR CHARACTER SEARCH */
+			$id = $article->find($adID, 0)->plaintext;
+			$begin = strpos($id, "Ad ID ")+6;
+			$item['id'] = substr($id, $begin, -1);
+			$item['name'] = $article->find($propName, 0)->plaintext;
+			$item['desc'] = strip_tags($article->find($desc, 0)->innertext, '<p><br><br /><br/>');
+			$item['desc'] = str_replace($kijijiAds, "", $item['desc']);
+			if(preg_match($email_pattern, $item['desc'], $matches) != 0){ $item['email'] = $matches[0]; }
+			$item['url'] = $article->find($url, 0)->href;
+			$item['where_posted'] = $links[$counter];
+			
 			/* GET STYLE OF UNIT */
 			foreach($styleType as $key => $value){
 				if(stripos($item['name'], $value) > 0 || stripos($item['desc'], $value) > 0){
