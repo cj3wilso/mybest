@@ -168,7 +168,7 @@ function getAds($findlink,$container,$adID,$propName,$desc,$url,$attributes,$ima
 						//Match this address format:
 						//80b Harrison Garden Boulevard, M2N 7E3, Toronto, ON
 						$match_pattern3 = $reg_street.$reg_comma.$reg_postal.$reg_comma.$reg_city.$reg_comma.$reg_prov_abv;
-						if (preg_match("#^$match_pattern3$#i", $myaddress, $matches)){
+						if (preg_match("#^$match_pattern3$#i", $address, $matches)){
 							echo nl2br("\r\n".'i match: '.$matches[0]."\r\n");
 							$address_all = explode(",", str_ireplace($accents, $noaccents, $matches[0]));
 							$item['street'] = ucwords(trim($address_all[0]));
@@ -179,7 +179,7 @@ function getAds($findlink,$container,$adID,$propName,$desc,$url,$attributes,$ima
 						//Match this address format:
 						//3980b Lesage, H4G1A4, Verdun
 						$match_pattern4 = $reg_street.$reg_comma.$reg_postal.$reg_comma.$reg_city;
-						if (preg_match("#^$match_pattern4$#i", $myaddress, $matches)){
+						if (preg_match("#^$match_pattern4$#i", $address, $matches)){
 							echo nl2br("\r\n".'i match: '.$matches[0]."\r\n");
 							$address_all = explode(",", str_ireplace($accents, $noaccents, $matches[0]));
 							$item['street'] = ucwords(trim($address_all[0]));
