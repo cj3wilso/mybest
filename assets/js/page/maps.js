@@ -18,11 +18,12 @@ var script = '<script type="text/javascript" src="http://google-maps-utility-lib
       script += '.js"><' + '/script>';
       document.write(script);
 
+var script2 = '<script type="text/javascript" src="/assets/js/page/oms.min'+'.js"><' + '/script>';
+document.write(script2);
 
-var map;
+
+var map, infoWindow, locationSelect, oms;
     var markers = [];
-    var infoWindow;
-    var locationSelect;
 
     function load() {
       map = new google.maps.Map(document.getElementById("map"), {
@@ -31,6 +32,12 @@ var map;
         mapTypeId: 'roadmap',
         mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
       });
+	  /*
+	  If you know that you won’t be moving and/or hiding any of the markers you add to this instance, 
+	  you can save memory (a closure per marker in each case) 
+	  by setting the options named markersWontMove and/or markersWontHide to true
+	  */
+	  oms = new OverlappingMarkerSpiderfier(map, {markersWontMove: true, markersWontHide: true, keepSpiderfied: true});
 	  infoWindow = new google.maps.InfoWindow();
 	  locationSelect = document.getElementById("locationSelect");
       locationSelect.onchange = function() {
@@ -54,11 +61,22 @@ var map;
    }
 
    function clearLocations() {
-     infoWindow.close();
+     /*
+	 infoWindow.close();
      for (var i = 0; i < markers.length; i++) {
        markers[i].setMap(null);
      }
      markers.length = 0;
+	 */
+	var markers = oms.getMarkers();
+	if (markers) {
+		for (i in markers) {
+			markers[i].setMap(null);
+		}
+		markers.length = 0;
+	}
+	oms.clearMarkers();
+	 
      locationSelect.innerHTML = "";
      var option = document.createElement("option");
      option.value = "none";
@@ -93,8 +111,13 @@ var map;
 		 bounds.extend(latlng);
        }
        map.fitBounds(bounds);
-	   var mcOptions = {gridSize: 50, maxZoom: 15};
+	   var markers = oms.getMarkers();
+	   var mcOptions = {maxZoom: 15};
 	   var markerCluster = new MarkerClusterer(map, markers, mcOptions);
+	   oms.addListener('click', function(marker, event) {
+			infoWindow.setContent(marker.info);	
+			infoWindow.open(map, marker);
+	   });
 	   locationSelect.style.visibility = "visible";
        locationSelect.onchange = function() {
          var markerNum = locationSelect.options[locationSelect.selectedIndex].value;
@@ -113,13 +136,16 @@ var map;
 		info: html,
 		icon: icon
       });
+	  /*
       if (infowin != false){
 		  google.maps.event.addListener(marker, 'click', function() {
 			infoWindow.setContent(this.info);
 			infoWindow.open(map, marker);
 		  });
 	  }
-	  markers.push(marker);
+	  //markers.push(marker);
+	  */
+	  oms.addMarker(marker);
     }
 
 	function createOption(name, distance, num) {
