@@ -331,13 +331,19 @@ foreach($properties as $k => $prop) {
 		$hasError = true;
 		continue;
  	}
-	/* Also check if centre of Toronto for lat/lng. If it is skip */
+<<<<<<< .mine	/* Also check if centre of Toronto for lat/lng. If it is skip */
 	if($properties[$k]['lat'] == "43.6532260" && $properties[$k]['lng'] == "-79.3831843"){
 		$hasError = true;
 		echo "\r\n Skip because centre of Toronto Lat/Lng \r\n";
 		continue;
 	}
-	/* START ADDING RECORDS */
+=======	/* Also check if centre of Toronto for lat/lng. If it is skip */
+	if($properties[$k]['lat'] == "43.6532260" && $properties[$k]['lng'] == "-79.3831843"){
+		$hasError = true;
+		echo "Skip because centre of Toronto Lat/Lng";
+		continue;
+	}
+>>>>>>> .theirs	/* START ADDING RECORDS */
 	if($hasError == false){
 		/* PROPERTIES */
 		$insert_propinfo = "INSERT INTO properties (id_user, id_pg, name, address, address2, city, region, prov, post, phone1, phone2, phone3, email, url, lat, lng, date, where_posted, posted_id, created) VALUES ($user_id, '".$properties[$k]['rnd_id']."','".$name."','".$properties[$k]['street']."','','".$properties[$k]['city']."','".$properties[$k]['region']."','".$properties[$k]['prov']."','".$properties[$k]['post']."','','','','".$properties[$k]['email']."','".$properties[$k]['url']."', ".$properties[$k]['lat'].", ".$properties[$k]['lng'].", '$today','".$properties[$k]['where_posted']."','$posted_id','".date("c")."') ;";
