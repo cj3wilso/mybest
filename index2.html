@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-cloak>
+<head>
+<script>
+//Change URLs for mobile app
+var hash;
+var root = window.location.href.split('www')[0];
+if(root.indexOf("http")==-1){
+	hash="#";
+}
+if(!hash){
+	document.write('<base href="/" />');
+}
+</script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Apartment Rentals in Canada</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FREE Canadian Apartment guide. Find your next place or post an ad for free.">
+<meta name="author" content="Chris Wilson">
+<link rel="shortcut icon" href="assets/ico/favicon.ico">
+<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+<![endif]-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="assets/css/flat-ui.css" rel="stylesheet">
+<link href="assets/css/mybest.css?ver=140705" rel="stylesheet">
+<style>
+iframe#twitter-widget-0 {
+	position: relative;
+	top: 6px;
+}
+</style>
+<div id="cssPlugins"></div>
+<script data-main="angular/main.js?v=150621" src="//marcoslin.github.io/angularAMD/js/lib/requirejs/require.js"></script>
+<!-- START: Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-9873523-11']);
+  
+    _gaq.push(['_trackPageview']);
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- END: Google Analytics -->
+<!-- START: CRAZY EGG HEATMAP -->
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0015/2093.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+<!-- END: CRAZY EGG HEATMAP -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" id="top" class="home">
+<!-- START: Facebook JavaScript SDK -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=137263626371962&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script> 
+<!-- END: Facebook JavaScript SDK -->
+<div id="wrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="logo" itemscope itemtype="http://schema.org/Organization"><a href="http://mybestapartments.ca/" itemprop="url"><img src="assets/img/logo-mybest.png" alt="My Best Apartments" width="367" height="36" class="img-responsive" itemprop="logo"></a></div>
+      </div>
+      <div class="col-sm-8">
+        <form method="post" id="topsearch" style="width:100%;">
+          <input type="search" placeholder="Search by City, Address, Page ID, Headline" class="form-control" autocomplete="off" name="addressInput" id="addressInput" style="width:100%;" />
+          <span class="input-icon fui-search" style="height:32px;margin-top:6px;margin-right:15px;"></span>
+        </form>
+      </div>
+    </div>
+    <div class="navbar navbar-default" ng-controller="NavCtrl">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <div class="navbar-collapse collapse navbar-collapse-01">
+        <ul class="nav navbar-nav navbar-left">
+          <li class=""> <a href="{{ hash }}/rent" id="findapartmenta">Find Apartments</a>
+            <ul> 
+                <li ng-repeat="prov in results.records">
+                    <a href="{{ hash }}/rent/{{prov.Prov | urlFormat}}">{{ prov.Province }}</a>
+                    <ul ng-repeat="city in prov.Cities">
+                        <li ng-repeat="(key, value) in city">
+                            <a ng-href="{{ hash }}/rent/{{prov.Prov | urlFormat}}/{{key | urlFormat}}">{{key}} <span class="badge pull-right">{{ value }}</span></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+          </li>
+          <li > <a href="{{ hash }}/add">Add a Rental</a> </li>
+          <li > <a href="{{ hash }}/contact">Contact</a> </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li ><a href="{{ hash }}/faves">My Places</a></li>
+          <li><a href="{{ hash }}/logout">Log Out</a></li>
+          <li ><a href="{{ hash }}/admin">Admin Area</a></li>
+        </ul>
+      </div>
+      <!--/.nav --> 
+    </div>
+    <!-- /navbar -->
+    
+    <div ng-view></div>
+    
+    <h5 style="margin-top:30px;">Promote for FREE, use coupon code "BEST"</h5>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="share mrl" style="margin-right:0;">
+          <ul>
+            <li> See your ad listed on the home page and top section of results page. </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4"> <a href="/add" class="btn btn-primary btn-block btn-large link-promote" style="padding:14px 0 15px 0;">Get Your Free Promotion</a> </div>
+    </div>
+    <!-- /row --> 
+    
+  </div>
+  <!-- /container --> 
+</div>
+<!-- /wrap --> 
+<br />
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8"> 
+        <!--<img src="assets/img/android-screen2.png" width="285" height="255" class="pull-right" style="margin-top:30px;" alt="Android App">-->
+        <h3 class="footer-title">Use Our Mobile App</h3>
+        <p>Android app now available! <br />
+          Apple app coming soon.<br>
+          <br />
+          Google Play: <a href="https://play.google.com/store/apps/details?id=com.MyBest.Apartments" target="_blank">My Best Apartments</a> </p>
+        <div class="muted credit" style="margin-top:103px;">Copyright &copy; 2015 Design Essence Inc. | <a href="http://feeds.feedburner.com/MyBestApartments"><img src="http://www.smallbusiness20.com/Portals/249/images/feed-icon-16x16.gif" alt="RSS Feed"></a> <a href="http://feedburner.google.com/fb/a/mailverify?uri=MyBestApartments&amp;loc=en_US">Subscribe by Email</a> | <a href="https://twitter.com/mybestapartment" class="twitter-follow-button" data-show-count="false">Follow @mybestapartment</a> 
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> |
+          <div class="fb-like" data-href="https://www.facebook.com/mybestapartments" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+          <!-- Google Plus -->
+          <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/u/0/112952821285889166461" data-rel="publisher"></div>
+          <script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script> 
+        </div>
+      </div>
+      <!-- /col-md-7 -->
+      
+      <div class="col-md-4 greenblock">
+        <div class="footer-banner">
+          <h3 class="footer-title">Why My Best Apartments?</h3>
+          <ul>
+            <li>Large Pictures are Front and Centre</li>
+            <li>Search for your Favourite Features</li>
+            <li>Find Apartments Nearest to a Street Address</li>
+            <li>View Results on a Map</li>
+            <li>Simple and Clean Interface</li>
+          </ul>
+          Post an ad: <a href="/add">mybestapartments.ca/add</a> </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Contact Form</h4>
+      </div>
+      <form id="contactSeller" method="post">
+        <input id="prop" name="prop" type="hidden" />
+        <input name="page" type="hidden" value="list" />
+        <div class="modal-body">
+          <div class="form_result"></div>
+          <div class="row form-group">
+            <div class="col-lg-3">Your Name</div>
+            <div class="col-lg-9">
+              <input class="form-control" id="cname" type="text" name="dname" minlength="2" />
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-lg-3">Your Email <span class="red">*</span></div>
+            <div class="col-lg-9">
+              <input class="form-control email required" id="cemail" type="text" name="demail" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12"> Your Message <span class="red">*</span> <br />
+              <textarea class="form-control required" id="ccomment" name="dcomment" rows="5"></textarea>
+              <small class="pull-right"><span class="red">*</span> Required field</small> </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          <button id="seller" class="btn btn-primary" type="submit" name="seller">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- #myModal
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+<script src="assets/js/bootstrap-select.js"></script> 
+<script src="assets/js/flatui-radio.js"></script> 
+<script src="assets/js/flatui-checkbox.js"></script> 
+<script src="assets/js/application.js?ver=20140116"></script>
+ --> 
+<div id="jsPlugins"></div>
+<script>
+/*
+$(".avail").click(function() {
+  $("#myModal").find(".alert").hide();
+  var id_prop = $(this).attr("data-prop");
+  $("input[name=prop]").val(id_prop);
+});
+$("#seller").click(function() {
+    var url = "http://mybestapartments.ca/_inc/form_contact_seller.php";
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#contactSeller").serialize(),
+           success: function(data){
+			   $("#contactSeller").find(".form_result").html(data);
+			   _gaq.push(["_trackEvent", "Appointment", "Email", "Home Page"]);
+           }
+         });
+	$("#contactSeller")[0].reset();
+    return false;
+});
+*/
+</script> 
+<script>
+//Initialize Map when searching
+/*
+function initialize() {
+	var input = document.getElementById('addressInput');
+	var dropitem = $(".pac-container div");
+ 	var options = {
+ 		componentRestrictions: {country: 'ca'}
+	};
+	var autocomplete = new google.maps.places.Autocomplete(input, options);
+	google.maps.event.addListener(autocomplete, 'place_changed', function() {
+		$('#topsearch').submit();
+    });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+if($(window).width() < 752){ $('#findapartment').hide();$("#mobile-apt-menu").show();}
+
+//Ad info to Google Analytics
+$(".link-promote").click(function() {
+	_gaq.push(["_trackEvent", "Free Coupon", "Click", "home Page"]);
+});
+*/
+</script>
+</body>
+</html>

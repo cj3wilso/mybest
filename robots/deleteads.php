@@ -31,38 +31,44 @@ function Visit($url){
 	   		return false;
 	   }
 }
-include "mysqlconnect.php";
+require("mysqli-connect.php");
 //Check all undeleted listings
-$check = mysql_query("SELECT where_posted, id_pg FROM properties WHERE deleted=0");
+$check = "SELECT where_posted, id_pg, created FROM properties WHERE deleted=0";
+$check = $conn->query($check);
 $today = date("c");
-while ($row = @mysql_fetch_assoc($check)){
+while($row = $check->fetch_array(MYSQLI_ASSOC)) {
 	$value = $row['id_pg'];
 	if ($row['where_posted'] != ""){
 		//echo $row['where_posted']."<br>";
 		//continue;
 		$adStillUp = Visit($row['where_posted']);
-		if (!$adStillUp){
+		$todayDate = new DateTime;
+		$createdDate = new DateTime($row['created']);
+		if ( !$adStillUp || $createdDate->modify('+1 year') < $todayDate ){
 			//echo $adStillUp."<br>";
 			delTree("upload/server/php/files/$value");
 			//Update properties table with delete id - so we can tell user this existed but gone
-			mysql_query("UPDATE properties SET deleted=1, removed='$today' WHERE id_pg='$value'");
-			mysql_query("DELETE FROM prop_feat WHERE id_prop='$value'");
-			mysql_query("DELETE FROM prop_hours WHERE id_prop='$value'");
-			mysql_query("DELETE FROM prop_intro WHERE id_prop='$value'");
-			mysql_query("DELETE FROM prop_photos WHERE id_prop='$value' AND p_order <> 1");
-			mysql_query("DELETE FROM prop_units WHERE id_prop='$value'");
-			mysql_query("DELETE FROM prop_promote WHERE id_prop='$value'");
+			$conn->query("UPDATE properties SET deleted=1, removed='$today' WHERE id_pg='$value'");
+			$conn->query("DELETE FROM prop_feat WHERE id_prop='$value'");
+			$conn->query("DELETE FROM prop_hours WHERE id_prop='$value'");
+			$conn->query("DELETE FROM prop_intro WHERE id_prop='$value'");
+			$conn->query("DELETE FROM prop_photos WHERE id_prop='$value' AND p_order <> 1");
+			$conn->query("DELETE FROM prop_units WHERE id_prop='$value'");
+			$conn->query("DELETE FROM prop_promote WHERE id_prop='$value'");
 			$offline .= "<li>Property: $value DELETED! - Updated with delete</li>";
-		}else{
+		}
+		/*
+		else{
 			$online .= "<li>Property: $value still online</li>";
 		}
+		*/
 	}
 }
-include "mysqlclose.php";
+$conn->close();
 ?>
 <ol>
 <?php echo $offline; ?>
 </ol>
 <ol>
-<?php echo $online; ?>
+<?php //echo $online; ?>
 </ol>

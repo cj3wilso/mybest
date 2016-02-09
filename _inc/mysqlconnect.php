@@ -4,7 +4,7 @@ $root = str_replace('/_inc','',$root);
 $db_host = "localhost";
 $db_password = "57575757aA";
 // Connects to your Database
-if($root == "/home2/cj3wilso/public_html/dev_best"){
+if($root == "/www/var/html/sites/dev_best"){
 	$db_username = $db_name = "cj3wilso_rentdev";
 }else{
 	$db_username = $db_name = "cj3wilso_rent254";

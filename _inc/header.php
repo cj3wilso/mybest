@@ -1,6 +1,5 @@
 <?php
 //if (!isset($_COOKIE["expire"]) || time() > $_COOKIE["expire"] ){
-	include 'mysqlconnect.php';
 	$sql = "(select COUNT(`city`) posts, prov, city from properties where prov = 'AB' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)
 	union all
 	(select COUNT(`city`) posts, prov, city from properties where prov = 'BC' AND city <> '' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)
@@ -20,22 +19,8 @@
 	(select COUNT(`city`) posts, prov, city from properties where prov = 'QC' AND city <> '' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)
 	union all
 	(select COUNT(`city`) posts, prov, city from properties where prov = 'SK' AND city <> '' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)";
-	$navresult = mysql_query($sql);
-	include 'mysqlclose.php';
+	$menuitems = mysql_query_cache($sql);
 	$deskheader = $mobileheader = $newprov = $oldprov = "";
-	while($headerrow = mysql_fetch_assoc($navresult)){
-		$menuitems[] = $headerrow;
-	}
-	/*
-	setcookie ("menu", "", time() - 3600);
-	$expire=time()+60 * 20; //60 secs (1 minute) times 20 for 20 minutes
-	setcookie("expire", $expire);
-	setcookie("menu", json_encode($menuitems), $expire);
-}else{
-	$json = stripslashes($_COOKIE['menu']);
-	$menuitems = json_decode($json, true);
-}
-*/
 
 $deskheader = $mobileheader = $newprov = $oldprov = "";
 foreach ($menuitems as $key => $value) {

@@ -8,13 +8,15 @@ header("Content-Type: application/json; charset=UTF-8");
 
 include("global.php");
 require("mysqli-connect.php");
+/*Connect to Memcache*/
+require_once("memcache.php");
 
 //Do we have any live ads?
 $gotads ="SELECT p.id_prop 
 		FROM prop_promote p 
 		INNER JOIN properties pp ON p.id_prop = pp.id_pg 
 		WHERE p.expired = '0000-00-00 00:00:00' AND p.payer_id IS NOT NULL AND pp.pub=1 AND p.sku = 'B0012'";
-$gotads = $conn->query($gotads);
+$gotads = mysql_query_cache($gotads);
 
 //Test
 //unset($_COOKIE['lastSearch']);
@@ -44,10 +46,10 @@ $cityquery = "SELECT p.id_prop
 		INNER JOIN prop_units u ON p.id_prop = u.id_prop 
 		WHERE p.expired = '0000-00-00 00:00:00' AND p.payer_id IS NOT NULL AND pp.pub=1 AND p.sku = 'B0012' 
 		$having_distance";
-$city_exists = $conn->query($cityquery);
+$city_exists = mysql_query_cache($cityquery);
 
 //If no ads in city then don't search lat/lng
-if($city_exists->num_rows == 0){
+if(count($city_exists) == 0){
 	$select_distance=$having_distance=NULL;
 }
 
@@ -55,7 +57,7 @@ if($city_exists->num_rows == 0){
 if($cnty != "CA"){$city=NULL;}
 $where_city = "";
 
-if($gotads->num_rows == 0){
+if(count($gotads) == 0){
 	/* If no ads then show any post */
 	/* http://jan.kneschke.de/projects/mysql/order-by-rand/ */
 	$sql = "SELECT *,  
@@ -75,7 +77,7 @@ if($gotads->num_rows == 0){
 		GROUP BY pp.id_pg  
 		ORDER BY pp.id ASC 
 		LIMIT 1";
-	$promoresult = $conn->query($sql);
+	$promoresult = mysql_query_cache($sql,5);
 }else{
 	/* Select a random promo - either by city or site wide */
 	$promo_sql ="SELECT *,
@@ -91,31 +93,33 @@ if($gotads->num_rows == 0){
 		$having_distance 
 		ORDER BY RAND() 
 		LIMIT 1";
-	$promoresult = $conn->query($promo_sql);
-	$promo_num_rows = $promoresult->num_rows;
+	$promoresult = mysql_query_cache($promo_sql,5);
+	$promo_num_rows = count($promoresult);
 }
 $outp = "";
-while($rs = $promoresult->fetch_array(MYSQLI_ASSOC)) {
+$rs = $promoresult;
+//while($rs = $promoresult->fetch_array(MYSQLI_ASSOC)) {
+foreach ($rs as $k => $v) {
     if ($outp != "") {$outp .= ",";}
 	$outp .= '{';
-    $outp .= '"Name":"'  . $rs["name"] . '",';
-    $outp .= '"ID":"'   . $rs["id_pg"]        . '",';
-	$outp .= '"URL":"'   . $detail."/".$rs["prov"]."/".urlencode($rs["city"])."/".cleanUrl($rs["name"])."/".$rs["id_pg"] . '",';
-	$outp .= '"Prov":"'   . $rs["prov"] . '",';
-	$outp .= '"Date":"'   . $rs["date"] . '",';
-	$outp .= '"Rent":"'   . $rs["rent"] . '",';
-	$outp .= '"Beds":"'   . $rs["beds"] . '",';
-	$outp .= '"ExternalURL":"'   . $rs["url"] . '",';
-	$outp .= '"Lat":"'   . $rs["lat"] . '",';
-	$outp .= '"Lng":"'   . $rs["lng"] . '",';
-	if($rs["phone1"]!= 0){
-		$outp .= '"Phone":"'   . "(" .$rs["phone1"].") ".$rs["phone2"]."-".$rs["phone3"] . '",';
-		$outp .= '"PhoneURL":"'   . "tel://1-" .$rs["phone1"]."-".$rs["phone2"]."-".$rs["phone3"] . '",';
+    $outp .= '"Name":"'  . $rs[$k]["name"] . '",';
+    $outp .= '"ID":"'   . $rs[$k]["id_pg"]        . '",';
+	$outp .= '"URL":"'   . $detail."/".$rs[$k]["prov"]."/".urlencode($rs[$k]["city"])."/".cleanUrl($rs[$k]["name"])."/".$rs[$k]["id_pg"] . '",';
+	$outp .= '"Prov":"'   . $rs[$k]["prov"] . '",';
+	$outp .= '"Date":"'   . $rs[$k]["date"] . '",';
+	$outp .= '"Rent":"'   . $rs[$k]["rent"] . '",';
+	$outp .= '"Beds":"'   . $rs[$k]["beds"] . '",';
+	$outp .= '"ExternalURL":"'   . $rs[$k]["url"] . '",';
+	$outp .= '"Lat":"'   . $rs[$k]["lat"] . '",';
+	$outp .= '"Lng":"'   . $rs[$k]["lng"] . '",';
+	if($rs[$k]["phone1"]!= 0){
+		$outp .= '"Phone":"'   . "(" .$rs[$k]["phone1"].") ".$rs[$k]["phone2"]."-".$rs[$k]["phone3"] . '",';
+		$outp .= '"PhoneURL":"'   . "tel://1-" .$rs[$k]["phone1"]."-".$rs[$k]["phone2"]."-".$rs[$k]["phone3"] . '",';
 	}
-	if ($rs['photo']!=NULL){
-		$outp .= '"Photo":"'   . $rs["photo"] . '",';
+	if ($rs[$k]['photo']!=NULL){
+		$outp .= '"Photo":"'   . $rs[$k]["photo"] . '",';
 	}
-    $outp .= '"City":"'. $rs["city"]     . '"}';
+    $outp .= '"City":"'. $rs[$k]["city"]     . '"}';
 }
 $json ='{';
 if(isset($city)){
@@ -124,5 +128,4 @@ if(isset($city)){
 $json .='"records":['.$outp.']';
 
 $json .= '}';
-$conn->close();
 echo($json);

@@ -18,25 +18,32 @@
 </div>
 <div class="row">
   <div class="col-md-2" style="padding-top:20px;">
-	<select ng-model="sortList" ng-options="obj.val as obj.label for obj in sortBy" ng-change="sorting(sortList)"></select>
+    <select name="herolist" id="sort-select" class="select-block">
+      <option value='latest+desc' selected>Date (New to Old)</option>
+      <option value='distance+asc' >Distance Nearest</option>
+      <option value='rent+asc' >Price (Low to High)</option>
+      <option value='rent+desc' >Price (High to Low)</option>
+      <option value='name+asc' >Name (A to Z)</option>
+      <option value='name+desc' >Name (Z to A)</option>
+    </select>
   </div>
   <div class="col-md-7"> 
   <span class="pagination pull-right">
     <ul ng-if="key == 'paginate'" ng-repeat="(key, value) in results">
 	  <span ng-repeat="i in range">
 	  <li ng-if="$index == 0" class="previous">
-		<a ng-if="i-1 != 0" href ng-click="pager(i-1)" class="fui-arrow-left"></a>
+		<a ng-if="i-1 != 0" href="{{hash}}/rent/{{ results.paginate.prov | urlFilter }}/{{ results.paginate.city | urlFilter }}/{{i-1}}" class="fui-arrow-left"></a>
 	  </li>
 	  <li ng-if="$index == 0 && i > 1">
-		<a title="Go to page 1 of {{ results.paginate.total }}" href ng-click="pager(1)">1</a>...
+		<a title="Go to page 1 of {{ results.paginate.total }}" href="{{hash}}/rent/{{ results.paginate.prov | urlFilter }}/{{ results.paginate.city | urlFilter }}/1">1</a>...
 	  </li>
 	  <li ng-class="{active: i==results.paginate.current}">
-		<a title="Go to page {{i}} of {{ results.paginate.total }}" href ng-click="pager(i)">{{i}}</a>
+		<a title="Go to page {{i}} of {{ results.paginate.total }}" href="{{hash}}/rent/{{ results.paginate.prov | urlFilter }}/{{ results.paginate.city | urlFilter }}/{{i}}">{{i}}</a>
 	  </li>
 	  <li ng-if="results.paginate.total > 5 && i == start+items-1 && i != results.paginate.total">
-		...<a title="Go to page {{ results.paginate.total }} of {{ results.paginate.total }}" href ng-click="pager(results.paginate.total)">{{ results.paginate.total }}</a>
+		...<a title="Go to page {{ results.paginate.total }} of {{ results.paginate.total }}" href="{{hash}}/rent/{{ results.paginate.prov | urlFilter }}/{{ results.paginate.city | urlFilter }}/{{ results.paginate.total }}">{{ results.paginate.total }}</a>
 	  </li>
-	  <li ng-if="i == start+items-1" class="next"><a href ng-click="pager(start+1)" class="fui-arrow-right"></a></li>
+	  <li ng-if="i == start+items-1" class="next"><a href="{{hash}}/rent/{{ results.paginate.prov | urlFilter }}/{{ results.paginate.city | urlFilter }}/{{start+1}}" class="fui-arrow-right"></a></li>
 	  </span>
 	</ul>
     </span> 
@@ -76,13 +83,13 @@
 				<span class="badge">Add to Faves</span>
 			</h4>
             <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"> 
-				<span itemprop="streetAddress">{{ x.address }} {{ x.address2 }}</span><span ng-show="x.address != '' && x.address2 != ''">, </span>
+				<span itemprop="streetAddress">{{ x.address }} {{ x.address2 }}</span>, 
 				<span itemprop="addressLocality">{{ x.city }}</span>, 
 				<span itemprop="addressRegion">{{ x.prov }}</span>, {{ x.cntry }},              
-				<span itemprop="postalCode">{{ x.post }}</span> ({{ x.distance | setDecimalFilter:2 }} km) 
+				<span itemprop="postalCode">{{ x.post }}</span> ({{ x.distance }}) 
 			</div>
             Price: {{ x.rent }}, Beds: {{ x.beds }} <br>
-            Page ID: {{ x.id_pg }}, Posted: {{ x.date }} 
+            Page ID: {{ x.id_prop }}, Posted: {{ x.date }} 
 		  </div>
           <div class="col-md-3 text-right"> 
 			
@@ -156,12 +163,12 @@
 			</a> 
 			<i class="icon-star-empty" data-prop="{{ x.id_pg }}"></i> <span class="badge">Add to Faves</span></h4>
             <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"> 
-			<span itemprop="streetAddress">{{ x.address }} {{ x.address2 }}</span><span ng-show="x.address != '' && x.address2 != ''">, </span>
+			<span itemprop="streetAddress">{{ x.address }} {{ x.address2 }}</span>, 
 			<span itemprop="addressLocality">{{ x.city }}</span>, 
 			<span itemprop="addressRegion">{{ x.prov }}</span>, {{ x.cntry }},              
-			<span itemprop="postalCode">{{ x.post }}</span> ({{ x.distance | setDecimalFilter:2 }} km) </div>
+			<span itemprop="postalCode">{{ x.post }}</span> ({{ x.distance }}) </div>
             Price: {{ x.rent }}, Beds: {{ x.beds }} <br>
-            Page ID: {{ x.id_pg }}, Posted: {{ x.date }} </div>
+            Page ID: {{ x.id_prop }}, Posted: {{ x.date }} </div>
           <div class="col-md-3 text-right"> 
 		  
 		  <div style="display:inline-block;" data-ng-controller="ModalController">

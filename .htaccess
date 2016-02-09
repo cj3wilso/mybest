@@ -5,12 +5,12 @@ Options +FollowSymLinks -Multiviews -Indexes
 
 #Supported by live site
 <IfModule mod_php5.c>
-php_value include_path ".:/var/www/_inc"
+php_value include_path ".:/var/www/html/_inc"
 </IfModule>
 
 #Supported by dev site
 <IfModule mod_suphp.c>
-suPHP_ConfigPath /home2/cj3wilso/public_html/dev_best
+suPHP_ConfigPath /var/www/html/dev_best
 <Files php.ini>
 order allow,deny
 deny from all
@@ -24,9 +24,8 @@ ErrorDocument 404 /errors/404.php
 RewriteRule ^upload/([^/\.]+)/?$ /upload/index.php?id=$1 [L]
 
 #Test angular js
-RewriteRule ^page1$ /index.html [L]
-RewriteRule ^page2$ /index.html [L]
-RewriteRule ^index$ /index.html [L]
+RewriteRule ^page1$ /test.html [L]
+RewriteRule ^page2$ /test.html [L]
 
 # Redirect domains to root of site
 RewriteCond %{HTTP_HOST} ^mybestapartments.com$ [OR]

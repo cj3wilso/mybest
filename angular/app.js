@@ -49,10 +49,6 @@ define(['shared/services/routeResolver'], function () {
                 .otherwise({ redirectTo: '/index.html' });
     });
 			
-	app.config(['$httpProvider', function ($httpProvider) {
-            // enable http caching
-           $httpProvider.defaults.cache = true;
-      }])
 	//Authenticate logins on front end
 	app.run(['$rootScope', '$location', 'authService',
 		function ($rootScope, $location, authService) {

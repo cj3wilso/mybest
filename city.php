@@ -7,7 +7,6 @@ if ( $prov == NULL ){
 }
 
 include("form_quicksearch.php");
-	require("mysqlconnect.php");
 	
 	// Show cities that have rentals
 	$sql = "SELECT DISTINCT p.city,
@@ -19,10 +18,9 @@ include("form_quicksearch.php");
 	
 	//, COUNT(DISTINCT prov) AS count 
 	
-	$result = mysql_query($sql);
-	$num_rows = mysql_num_rows($result);
+	$result = mysql_query_cache($sql);
+	$num_rows = count($result);
 	
-	require("mysqlclose.php");
 	
 include("header.php");
 $json = file_get_contents("$root/_inc/prov.json");
@@ -54,9 +52,10 @@ if ($num_rows==0) {
   <tr>
     <?php
 	$table = 1;
-	while ($row = @mysql_fetch_assoc($result)){
+	$row = $result;
+	foreach ($row as $k => $v) {
 	?>
-    <td> <div style="float:left;width:40px;margin-right:6px;"><span class="label label-default"><?php echo $row['entries']; ?></span></div> <a href="/rent/<?php echo $prov; ?>/<?php echo urlencode($row['city']); ?>"><?php echo $row['city']; ?></a> </td>
+    <td> <div style="float:left;width:40px;margin-right:6px;"><span class="label label-default"><?php echo $row[$k]['entries']; ?></span></div> <a href="/rent/<?php echo $prov; ?>/<?php echo urlencode($row[$k]['city']); ?>"><?php echo ucwords(strtolower($row[$k]['city'])); ?></a> </td>
     <?php
 	if ($table % 3 == 0){
 	?>

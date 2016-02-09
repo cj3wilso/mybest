@@ -23,10 +23,9 @@ div.gm-style-iw #cat{
 include("global.php");
 include("class.walkscore.php");
 
-include '_inc/mysqlconnect.php';
 //Show Tracking Record
 $page_id = $level[5];
-$info = mysql_fetch_array(mysql_query("SELECT *, uf.id_prop AS star, p.id_user AS owner,
+$info = mysql_query_cache("SELECT *, uf.id_prop AS star, p.id_user AS owner,
 GROUP_CONCAT(CONCAT('<tr><td>', style, '</td><td>', beds, '</td><td>', ba, '</td><td>', sq_ft, '</td><td>$',  rent, '</td><td>', dep, '</td></tr>') 
 	ORDER BY u_order ASC SEPARATOR '') AS unit
 FROM properties p 
@@ -34,7 +33,8 @@ LEFT JOIN prop_units ON prop_units.id_prop = '$page_id'
 LEFT JOIN prop_intro ON prop_intro.id_prop = '$page_id' 
 LEFT JOIN prop_hours ON prop_hours.id_prop = '$page_id' 
 LEFT JOIN user_fav uf ON uf.id_prop = '$page_id' AND $fav_find 
-WHERE id_pg = '$page_id'"));
+WHERE id_pg = '$page_id'");
+$info = $info[0];
 //If no name or unit then redirect
 //If deleted then go to list page with message
 if($info['name'] == NULL || $info['unit'] == NULL || $info['deleted']==1 || $info['pub']==='0'){
@@ -50,12 +50,12 @@ if($_SERVER["REQUEST_URI"] != $correctURL){
 	header ('HTTP/1.1 301 Moved Permanently');
 	header("Location: $correctURL");
 }
-$check = mysql_query("SELECT type, GROUP_CONCAT(CONCAT('<tr><td>', feat, '</td></tr>') SEPARATOR '') AS featlist
+$check = mysql_query_cache("SELECT type, GROUP_CONCAT(CONCAT('<tr><td>', feat, '</td></tr>') SEPARATOR '') AS featlist
 FROM prop_feat
 WHERE id_prop = '$page_id' AND deleted = 0
 GROUP BY type");
-$featrows = mysql_num_rows($check);
-$info3 = mysql_query("SELECT photo
+$featrows = count($check);
+$info3 = mysql_query_cache("SELECT photo
 FROM prop_photos
 WHERE id_prop = '$page_id'
 ORDER BY p_order ASC");
@@ -65,12 +65,12 @@ if($info['email']){
 	$contactEmail = $info['email'];
 }else{
 	$id = $info["id_user"];
-	$user = mysql_fetch_array(mysql_query("SELECT email 
+	$user = mysql_query_cache("SELECT email 
 	FROM users 
-	WHERE id = '$id'"));
+	WHERE id = '$id'");
+	$user = $user[0];
 	$contactEmail = $user["email"];
 }
-include '_inc/mysqlclose.php';
 
 //include("pageviews.php");
 include("header.php");
@@ -81,16 +81,17 @@ $star_class = 'icon-star-empty';
 if ($info['star']) $star_class = 'icon-star';
 
 //Get photos as array
-$photorows = mysql_num_rows($info3);
+$photorows = count($info3);
 $slideshow1 = $slideshow2 = '';
-while($photos = mysql_fetch_array( $info3 )){
-	$photoURL = 'http://'.$_SERVER['HTTP_HOST'].'/upload/server/php/files/'.$page_id.'/slide/'.rawurlencode($photos['photo']);
+$photos = $info3;
+foreach ($photos as $k => $v) {
+	$photoURL = 'http://'.$_SERVER['HTTP_HOST'].'/upload/server/php/files/'.$page_id.'/slide/'.rawurlencode($photos[$k]['photo']);
 	if (getimagesize($photoURL) === false) {
 		$photorows=0;
 		break;
 	}
-	$slideshow1 .= '<a href="/upload/server/php/files/'.$page_id.'/slide/'.rawurlencode($photos['photo']).'" class="swipebox" title="'.$info['name'].'"><img src="/upload/server/php/files/'.$page_id.'/slide/'.rawurlencode($photos['photo']).'" itemprop="image" alt="'.$photos['photo'].'" width="390" height="390" class="img-rounded img-responsive"></a>';
-	$slideshow2 .= '<img src="/upload/server/php/files/'.$page_id.'/slide/'.rawurlencode($photos['photo']).'" itemprop="image" alt="'.$photos['photo'].'" width="80" height="80" class="img-rounded img-responsive">';
+	$slideshow1 .= '<a href="/upload/server/php/files/'.$page_id.'/slide/'.rawurlencode($photos[$k]['photo']).'" class="swipebox" title="'.$info['name'].'"><img src="/upload/server/php/files/'.$page_id.'/slide/'.rawurlencode($photos[$k]['photo']).'" itemprop="image" alt="'.$photos[$k]['photo'].'" width="390" height="390" class="img-rounded img-responsive"></a>';
+	$slideshow2 .= '<img src="/upload/server/php/files/'.$page_id.'/slide/'.rawurlencode($photos[$k]['photo']).'" itemprop="image" alt="'.$photos[$k]['photo'].'" width="80" height="80" class="img-rounded img-responsive">';
 }
 ?>
 <style>
@@ -281,7 +282,8 @@ while($photos = mysql_fetch_array( $info3 )){
       <hr  />
       <?php
 $row = 1;
-while($feat = mysql_fetch_array( $check )){
+$feat = $check;
+foreach ($feat as $k => $v) {
 if ($row == 1)
 {
 ?>
@@ -289,9 +291,9 @@ if ($row == 1)
         <?php
  }
 ?>
-        <div class="col-lg-3"> <strong><?php echo $feat['type']; ?></strong>
+        <div class="col-lg-3"> <strong><?php echo $feat[$k]['type']; ?></strong>
           <table class="table table-striped">
-            <?php echo $feat['featlist']; ?>
+            <?php echo $feat[$k]['featlist']; ?>
           </table>
         </div>
         <?php

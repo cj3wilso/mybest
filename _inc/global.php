@@ -6,6 +6,10 @@ $root = realpath((getenv('DOCUMENT_ROOT') && strpos(realpath(__FILE__),preg_quot
 $root = str_replace('/_inc','',$root);
 $expire=time()+60*60*24*60;
 //echo '<!--'.$root.'-->';
+
+/*Connect to Memcache*/
+require_once("memcache.php");
+
 if(php_sapi_name() != 'cli'){
 	session_start();
 	//see: http://prajapatinilesh.wordpress.com/2009/01/14/manually-set-php-session-timeout-php-session/
@@ -15,7 +19,7 @@ if(php_sapi_name() != 'cli'){
 	session_set_cookie_params($logtime);
 	header('Content-type: text/html; charset=UTF-8');
 	$domain = $_SERVER['SERVER_NAME'];
-	if($root == "/home2/cj3wilso/public_html/dev_best"){
+	if($root == "/www/var/html/sites/dev_best"){
 		error_reporting(E_ALL); ini_set('display_errors', '1');
 	}
 	//Find faves

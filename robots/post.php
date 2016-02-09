@@ -148,7 +148,7 @@ function getAds($findlink,$container,$adID,$propName,$desc,$url,$attributes,$ima
 							echo nl2br("\r\n".'i match: '.$matches[0]."\r\n");
 							$address_all = explode(",", str_ireplace($accents, $noaccents, $matches[0]));
 							$item['street'] = ucwords(trim($address_all[0]));
-							$item['city'] = $item['region'] = ucwords(trim($address_all[1]));
+							$item['city'] = $item['region'] = ucwords(strtolower(trim($address_all[1])));
 							$item['prov'] = strtoupper($address_all[2]);
 							$item['post'] = $address_all[3];
 						}
@@ -160,7 +160,7 @@ function getAds($findlink,$container,$adID,$propName,$desc,$url,$attributes,$ima
 							echo nl2br("\r\n".'i match: '.$matches[0]."\r\n");
 							$address_all = explode(",", str_ireplace($accents, $noaccents, $matches[0]));
 							$item['street'] = ucwords(trim($address_all[0]));
-							$item['city'] = $item['region'] = ucwords(trim($address_all[1]));
+							$item['city'] = $item['region'] = ucwords(strtolower(trim($address_all[1])));
 							$provpost = explode(' ', trim($address_all[2]), 2);
 							$item['prov'] = strtoupper($provpost[0]);
 							$item['post'] = $provpost[1];
@@ -173,7 +173,7 @@ function getAds($findlink,$container,$adID,$propName,$desc,$url,$attributes,$ima
 							$address_all = explode(",", str_ireplace($accents, $noaccents, $matches[0]));
 							$item['street'] = ucwords(trim($address_all[0]));
 							$item['post'] = $address_all[1];
-							$item['city'] = $item['region'] = ucwords(trim($address_all[2]));
+							$item['city'] = $item['region'] = ucwords(strtolower(trim($address_all[2])));
 							$item['prov'] = strtoupper($address_all[3]);
 						}
 						//Match this address format:
@@ -184,8 +184,11 @@ function getAds($findlink,$container,$adID,$propName,$desc,$url,$attributes,$ima
 							$address_all = explode(",", str_ireplace($accents, $noaccents, $matches[0]));
 							$item['street'] = ucwords(trim($address_all[0]));
 							$item['post'] = $address_all[1];
-							$item['city'] = $item['region'] = ucwords(trim($address_all[2]));
+							$item['city'] = $item['region'] = ucwords(strtolower(trim($address_all[2])));
 							$item['prov'] = "";
+						}
+						if($item['city']=="Manitoba"){
+							$item['city']="Winnipeg";
 						}
 						echo nl2br("\r\n".'address after regular expression:'."\r\n".'street:'.$item['street']."\r\n".'city:'.$item['city']."\r\n".'post:'.$item['post']."\r\n");
 						break;
@@ -328,11 +331,17 @@ foreach($properties as $k => $prop) {
 		$hasError = true;
 		continue;
  	}
+	/* Also check if centre of Toronto for lat/lng. If it is skip */
+	if($properties[$k]['lat'] == "43.6532260" && $properties[$k]['lng'] == "-79.3831843"){
+		$hasError = true;
+		echo "\r\n Skip because centre of Toronto Lat/Lng \r\n";
+		continue;
+	}
 	/* START ADDING RECORDS */
 	if($hasError == false){
 		/* PROPERTIES */
 		$insert_propinfo = "INSERT INTO properties (id_user, id_pg, name, address, address2, city, region, prov, post, phone1, phone2, phone3, email, url, lat, lng, date, where_posted, posted_id, created) VALUES ($user_id, '".$properties[$k]['rnd_id']."','".$name."','".$properties[$k]['street']."','','".$properties[$k]['city']."','".$properties[$k]['region']."','".$properties[$k]['prov']."','".$properties[$k]['post']."','','','','".$properties[$k]['email']."','".$properties[$k]['url']."', ".$properties[$k]['lat'].", ".$properties[$k]['lng'].", '$today','".$properties[$k]['where_posted']."','$posted_id','".date("c")."') ;";
-		mysql_query($insert_propinfo);
+		$propinfo_success = mysql_query($insert_propinfo);
 		/* UNIT DETAILS */
 		$insert_unit = "INSERT INTO prop_units (id_prop,u_order,rent,style,beds,ba,sq_ft,dep) VALUES ('".$properties[$k]['rnd_id']."','1','".$rent."','".$properties[$k]['style']."','".$beds."','".$properties[$k]['ba']."','','')";
 		mysql_query($insert_unit);
@@ -376,7 +385,7 @@ foreach($properties as $k => $prop) {
 				}}
 				/* FEATURES */
 				$insert_feat = "INSERT INTO prop_feat (id_prop,feat_uniq,type,feat) VALUES " . $feat;
-				mysql_query($insert_feat);
+				$feat_success = mysql_query($insert_feat);
 			}
 		}}
 	}

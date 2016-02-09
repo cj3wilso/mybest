@@ -12,16 +12,15 @@ include("form_quicksearch.php");
 include("class.walkscore.php");
 if (  !isset ($_POST['submit']) ) { 
 	include '_inc/paginator.class.php';
-	require("mysqlconnect.php");
+	require_once("mysqli-connect.php");
 	
 	//Get saved search
 	$saved_search_sql = "SELECT us.email_results, us.url AS savedsearch
 		FROM user_search us
-		WHERE $srch_find AND url='".mysql_real_escape_string($_SERVER["REQUEST_URI"])."' AND deleted=0
+		WHERE $srch_find AND url='".$conn->real_escape_string($_SERVER["REQUEST_URI"])."' AND deleted=0
 		LIMIT 1";
-	$saved_search_result = mysql_query($saved_search_sql) or die(mysql_error());
-	$saved_search_rows = mysql_num_rows ( $saved_search_result );
-	$saved_search_row = mysql_fetch_array($saved_search_result);
+	$saved_search_row = mysql_query_cache($saved_search_sql);
+	$saved_search_rows = count($saved_search_row);
 	if($saved_search_rows>0) {
 		$saved_search_class = 'icon-star';
 	}else{
@@ -46,16 +45,16 @@ if (  !isset ($_POST['submit']) ) {
 	// If Street OR City/Region search
 	if (  $search_type == "street" || $search_type == "city" ) { 
 		//Get row count
-		$check = mysql_query("SELECT p.*, u.*,
+		$check = "SELECT p.*, u.*,
 		( 6371 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) AS distance 
 		FROM (properties p) 
 		INNER JOIN prop_units u ON (p.id_pg = u.id_prop $sql_beds $sql_bath $sql_price) 
 		$sql_feat 
 		$sql_feat_where 
 		GROUP BY p.id_pg 
-		HAVING distance < $radius");
-		$totalrows = mysql_num_rows($check);
-		//$totalrows = mysql_num_rows($check) or die(mysql_error());
+		HAVING distance < $radius";
+		$check = mysql_query_cache($check);
+		$totalrows = count($check);
 		//Need to get all information on properties.. but only show ones that contain 2 beds, 2 baths, pets allowed
 		// Should I query in first query to grab the property ID.. then query the property IDS on the second one? I think that could work!
 	
@@ -83,7 +82,8 @@ if (  !isset ($_POST['submit']) ) {
 		HAVING distance < $radius 
 		ORDER BY (CASE WHEN p.city = '".$city."' THEN 1 ELSE 0 END ) DESC, $sort
 		$pages->limit";
-		$result = mysql_query($sql);
+		$result = mysql_query_cache($sql);
+		
 		/*
 		LEFT JOIN (SELECT id_prop, photo, MIN(p_order) AS first FROM prop_photos GROUP BY id_prop) AS cc 
 			ON p.id_pg = cc.id_prop
@@ -111,19 +111,20 @@ if (  !isset ($_POST['submit']) ) {
 		 AND c.p_order = cc.first
 			*/
 		//echo "<!--".$select_promos."-->";
-		$promote = mysql_query($select_promos) or die(mysql_error());
-		$promote_rows = mysql_num_rows($promote);
+		$promote = mysql_query_cache($select_promos);
+		$promote_rows = count($promote);
 	// If Property ID
 	}else if ($search_type == "propid"){		
 		//Get row count
-		$check = mysql_query("SELECT p.*, u.* 
+		$check = "SELECT p.*, u.* 
 		FROM properties p 
 		INNER JOIN prop_units u ON p.id_pg = u.id_prop 
 		INNER JOIN prop_feat a on p.id_pg = a.id_prop 
 		INNER JOIN prop_feat b on p.id_pg = b.id_prop 
 		$sql_propid 
-		GROUP BY p.id_pg");
-		$totalrows = mysql_num_rows($check);
+		GROUP BY p.id_pg";
+		$check = mysql_query_cache($check);
+		$totalrows = count($check);
 	
 		//Start Pagination
 		$pages = new Paginator;  
@@ -148,18 +149,19 @@ if (  !isset ($_POST['submit']) ) {
 		GROUP BY p.id_pg 
 		ORDER BY c.id ASC 
 		$pages->limit";
-		$result = mysql_query($sql);
+		$result = mysql_query_cache($sql);
 	// If Property Name
 	}else if ($search_type == "propname"){		
 		//Get row count
-		$check = mysql_query("SELECT p.*, u.* 
+		$check = "SELECT p.*, u.* 
 		FROM properties p 
 		INNER JOIN prop_units u ON p.id_pg = u.id_prop 
 		INNER JOIN prop_feat a on p.id_pg = a.id_prop 
 		INNER JOIN prop_feat b on p.id_pg = b.id_prop 
 		$sql_propname 
-		GROUP BY p.id_pg");
-		$totalrows = mysql_num_rows($check);
+		GROUP BY p.id_pg";
+		$check = mysql_query_cache($check);
+		$totalrows = count($check);
 	
 		//Start Pagination
 		$pages = new Paginator;  
@@ -184,13 +186,12 @@ if (  !isset ($_POST['submit']) ) {
 		GROUP BY p.id_pg 
 		ORDER BY c.id ASC 
 		$pages->limit";
-		$result = mysql_query($sql);
+		$result = mysql_query_cache($sql);
 	//If Search is NULL and city is not a city, redirect to Province Page
 	}else if ($search_type == "nosearch"){
 		$_SESSION["listredirect"]=$_SERVER['REQUEST_URI'];
 		header('Location: '.$list);
 	}
-	require("mysqlclose.php");
 }
 include("header.php");
 $maxrent = "10000";
@@ -288,30 +289,31 @@ if (!$result) {
     <div class="media-top-promo">Featured Apartment</div>
     <?php
     }
-	while ($promo = @mysql_fetch_assoc($promote)){
+	$promo = $promote;
+	foreach ($promo as $k => $v) {
 		$nomagnify = NULL;
 		$star_class = 'icon-star-empty';
-		if ($promo['star']) $star_class = 'icon-star';
-		$maxrent = (isset($promo['maxrent'])) ? $promo['maxrent'] : "10000";
+		if ($promo[$k]['star']) $star_class = 'icon-star';
+		$maxrent = (isset($promo[$k]['maxrent'])) ? $promo[$k]['maxrent'] : "10000";
 		
 		//Lightbox
-		$lightbox .= "$('#pic".$promo['id_pg']."').click(function(e){
+		$lightbox .= "$('#pic".$promo[$k]['id_pg']."').click(function(e){
 		e.preventDefault();
 		$.swipebox([
 		\n";
-		foreach(glob($root.'/upload/server/php/files/'.$promo['id_pg'].'/slide/*.*') as $filename){
+		foreach(glob($root.'/upload/server/php/files/'.$promo[$k]['id_pg'].'/slide/*.*') as $filename){
 			if (getimagesize($filename) === false) {
 				$filename = "http://placehold.it/115x115&text=Coming%20Soon";
 			}else{
 				$filename = str_replace($root, "", $filename);
 			}
-			$lightbox .= "			{href:'".$filename."', title:'".addslashes(trim($promo['name']))."'}, \n";
+			$lightbox .= "			{href:'".$filename."', title:'".addslashes(trim($promo[$k]['name']))."'}, \n";
 		}
 		$lightbox .= "		], { initialIndexOnArray: 0, hideBarsDelay : 10000 });
 	});\n\n";
 		
-		if ($promo['photo']){
-			$image_url = "http://$_SERVER[HTTP_HOST]/upload/server/php/files/".$promo['id_pg']."/thumbnail/".$promo['photo'];
+		if ($promo[$k]['photo']){
+			$image_url = "http://$_SERVER[HTTP_HOST]/upload/server/php/files/".$promo[$k]['id_pg']."/thumbnail/".$promo[$k]['photo'];
 			if (getimagesize($image_url) === false) {
 				$photo = "http://placehold.it/115x115&text=Coming%20Soon";
 			}else{
@@ -321,40 +323,40 @@ if (!$result) {
 			$photo = "http://placehold.it/115x115&text=Coming%20Soon";
 			$nomagnify = true;
 		}
-		$walk = "http://www.walkscore.com/score/".str_replace(" ", "-", $promo['address'])."-".str_replace(" ", "-", $promo['post'])."/lat=".$promo['lat']."/lng=".$promo['lng'];
+		$walk = "http://www.walkscore.com/score/".str_replace(" ", "-", $promo[$k]['address'])."-".str_replace(" ", "-", $promo[$k]['post'])."/lat=".$promo[$k]['lat']."/lng=".$promo[$k]['lng'];
 		?>
     <div class="media promo" itemscope itemtype="https://schema.org/LocalBusiness"> 
       <!-- Google geo loc -->
       <div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
-        <meta itemprop="latitude" content="<?php echo $promo['lat']; ?>">
-        <meta itemprop="longitude" content="<?php echo $promo['lng']; ?>">
+        <meta itemprop="latitude" content="<?php echo $promo[$k]['lat']; ?>">
+        <meta itemprop="longitude" content="<?php echo $promo[$k]['lng']; ?>">
       </div>
-      <div class="pull-left"> <a href="<?php echo $detail; ?>/<?php echo urlencode($promo['prov']); ?>/<?php echo urlencode($promo['city']); ?>/<?php echo cleanUrl($promo['name']); ?>/<?php echo $promo['id_pg']; ?>"><img class="media-object img-thumbnail javascript" src="/assets/img/grey.gif" data-original="<?php echo $photo; ?>" width="115" height="115" alt="<?php echo $promo['photo']; ?>">
+      <div class="pull-left"> <a href="<?php echo $detail; ?>/<?php echo urlencode($promo[$k]['prov']); ?>/<?php echo urlencode($promo[$k]['city']); ?>/<?php echo cleanUrl($promo[$k]['name']); ?>/<?php echo $promo[$k]['id_pg']; ?>"><img class="media-object img-thumbnail javascript" src="/assets/img/grey.gif" data-original="<?php echo $photo; ?>" width="115" height="115" alt="<?php echo $promo[$k]['photo']; ?>">
         <noscript>
         <img class="media-object img-thumbnail" src="<?php echo $photo; ?>" width="115" height="115" itemprop="image">
         </noscript>
         </a> <span class="badge walkscore" style="margin-top:9px;"><a href="<?php echo $walk; ?>" target="_blank">See Walk Score</a></span>
         <?php if(!isset($nomagnify)){?>
-        <a id="pic<?php echo $promo['id_pg'] ?>" class="ico-search" href="javascript:;"></a>
+        <a id="pic<?php echo $promo[$k]['id_pg'] ?>" class="ico-search" href="javascript:;"></a>
         <?php } ?>
       </div>
       <div class="media-body">
         <div class="row">
           <div class="col-md-7 maintext">
-            <h4 class="media-heading" itemprop="name"><a href="<?php echo $detail; ?>/<?php echo urlencode($promo['prov']); ?>/<?php echo urlencode($promo['city']); ?>/<?php echo cleanUrl($promo['name']); ?>/<?php echo $promo['id_pg']; ?>"><?php echo $promo['name']; ?></a> <i class="<?php echo $star_class; ?>" data-prop="<?php echo $promo['id_pg']; ?>"></i> <span class="badge">Add to Faves</span></h4>
-            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"> <span itemprop="streetAddress"><?php echo $promo['address']; if($promo['address2']){echo ', '.$promo['address2'];} ?></span>
-              <?php if($promo['address']||$promo['address2']){echo ',';} ?>
-              <span itemprop="addressLocality"><?php echo $promo['city']; ?></span>, <span itemprop="addressRegion"><?php echo $promo['prov']; ?></span>, <?php echo $promo['cntry']; ?>
-              <?php if($promo['post']){echo ',';} ?>
-              <span itemprop="postalCode"><?php echo $promo['post']; ?></span> <?php echo '('.number_format($promo['distance'], 2).' km)'; ?> </div>
-            Price: <?php echo $promo['rent']; ?>, Beds: <?php echo $promo['beds']; ?> <br />
-            Page ID: <?php echo $promo['id_pg']; ?>, Posted: <?php echo $promo['date']; ?> </div>
-          <div class="col-md-3 text-right"> <a href="#myModal" role="button" class="btn btn-primary btn-block avail" data-toggle="modal" data-prop="<?php echo $promo['id_pg']; ?>">
+            <h4 class="media-heading" itemprop="name"><a href="<?php echo $detail; ?>/<?php echo urlencode($promo[$k]['prov']); ?>/<?php echo urlencode($promo[$k]['city']); ?>/<?php echo cleanUrl($promo[$k]['name']); ?>/<?php echo $promo[$k]['id_pg']; ?>"><?php echo $promo[$k]['name']; ?></a> <i class="<?php echo $star_class; ?>" data-prop="<?php echo $promo[$k]['id_pg']; ?>"></i> <span class="badge">Add to Faves</span></h4>
+            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"> <span itemprop="streetAddress"><?php echo $promo[$k]['address']; if($promo[$k]['address2']){echo ', '.$promo[$k]['address2'];} ?></span>
+              <?php if($promo[$k]['address']||$promo[$k]['address2']){echo ',';} ?>
+              <span itemprop="addressLocality"><?php echo $promo[$k]['city']; ?></span>, <span itemprop="addressRegion"><?php echo $promo[$k]['prov']; ?></span>, <?php echo $promo[$k]['cntry']; ?>
+              <?php if($promo[$k]['post']){echo ',';} ?>
+              <span itemprop="postalCode"><?php echo $promo[$k]['post']; ?></span> <?php echo '('.number_format($promo[$k]['distance'], 2).' km)'; ?> </div>
+            Price: <?php echo $promo[$k]['rent']; ?>, Beds: <?php echo $promo[$k]['beds']; ?> <br />
+            Page ID: <?php echo $promo[$k]['id_pg']; ?>, Posted: <?php echo $promo[$k]['date']; ?> </div>
+          <div class="col-md-3 text-right"> <a href="#myModal" role="button" class="btn btn-primary btn-block avail" data-toggle="modal" data-prop="<?php echo $promo[$k]['id_pg']; ?>">
             <div class="fui-mail"></div>
             Check Availability</a>
             <?php 
-			if($promo['phone1'] != 0) echo '<a href="tel://1-'.$promo['phone1'].'-'.$promo['phone2'].'-'.$promo['phone3'].'" class="btn btn-block btn-inverse"><div class="fui-chat"></div> ('.$promo['phone1'].') '.$promo['phone2'].'-'.$promo['phone3'].'</a>'; ?>
-            <?php if($promo['url']) echo '<a href="'.$promo['url'].'" target="_blank" class="btn btn-block btn-inverse"><div class="fui-eye"></div> View Website</a>'; ?>
+			if($promo[$k]['phone1'] != 0) echo '<a href="tel://1-'.$promo[$k]['phone1'].'-'.$promo[$k]['phone2'].'-'.$promo[$k]['phone3'].'" class="btn btn-block btn-inverse"><div class="fui-chat"></div> ('.$promo[$k]['phone1'].') '.$promo[$k]['phone2'].'-'.$promo[$k]['phone3'].'</a>'; ?>
+            <?php if($promo[$k]['url']) echo '<a href="'.$promo[$k]['url'].'" target="_blank" class="btn btn-block btn-inverse"><div class="fui-eye"></div> View Website</a>'; ?>
           </div>
         </div>
       </div>
@@ -364,30 +366,32 @@ if (!$result) {
 	/* END PROMOS */
 	
 	/* START FREE RENTALS */
-	while ($row = @mysql_fetch_assoc($result)){
+	$row = $result;
+	foreach ($row as $k => $v) {
+	//while ($row = @mysql_fetch_assoc($result)){
 		$nomagnify = NULL;
 		$star_class = 'icon-star-empty';
-		if ($row['star']) $star_class = 'icon-star';
-		$maxrent = (isset($row['maxrent'])) ? $row['maxrent'] : "10000";
+		if ($row[$k]['star']) $star_class = 'icon-star';
+		$maxrent = (isset($row[$k]['maxrent'])) ? $row[$k]['maxrent'] : "10000";
 		
 		//Lightbox
-		$lightbox .= "$('#pic".$row['id_pg']."').click(function(e){
+		$lightbox .= "$('#pic".$row[$k]['id_pg']."').click(function(e){
 		e.preventDefault();
 		$.swipebox([
 		\n";
-		foreach(glob($root.'/upload/server/php/files/'.$row['id_pg'].'/slide/*.*') as $filename){
+		foreach(glob($root.'/upload/server/php/files/'.$row[$k]['id_pg'].'/slide/*.*') as $filename){
 			if (getimagesize($filename) === false) {
 				$filename = "http://placehold.it/115x115&text=Coming%20Soon";
 			}else{
 				$filename = str_replace($root, "", $filename);
 			}
-			$lightbox .= "			{href:'".$filename."', title:'".addslashes(trim($row['name']))."'}, \n";
+			$lightbox .= "			{href:'".$filename."', title:'".addslashes(trim($row[$k]['name']))."'}, \n";
 		}
 		$lightbox .= "		], { initialIndexOnArray: 0, showCount: true });
 	});\n\n";
 		
-		if ($row['photo']){
-			$image_url = "http://$_SERVER[HTTP_HOST]/upload/server/php/files/".$row['id_pg']."/thumbnail/".$row['photo'];
+		if ($row[$k]['photo']){
+			$image_url = "http://$_SERVER[HTTP_HOST]/upload/server/php/files/".$row[$k]['id_pg']."/thumbnail/".$row[$k]['photo'];
 			if (getimagesize($image_url) === false) {
 				$photo = "http://placehold.it/115x115&text=Coming%20Soon";
 			}else{
@@ -397,40 +401,40 @@ if (!$result) {
 			$photo = "http://placehold.it/115x115&text=Coming%20Soon";
 			$nomagnify = true;
 		}
-		$walk = "http://www.walkscore.com/score/".str_replace(" ", "-", $row['address'])."-".str_replace(" ", "-", $row['post'])."/lat=".$row['lat']."/lng=".$row['lng'];
+		$walk = "http://www.walkscore.com/score/".str_replace(" ", "-", $row[$k]['address'])."-".str_replace(" ", "-", $row[$k]['post'])."/lat=".$row[$k]['lat']."/lng=".$row[$k]['lng'];
 		?>
     <div class="media" itemscope itemtype="https://schema.org/LocalBusiness"> 
       <!-- Google geo loc -->
       <div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
-        <meta itemprop="latitude" content="<?php echo $row['lat']; ?>">
-        <meta itemprop="longitude" content="<?php echo $row['lng']; ?>">
+        <meta itemprop="latitude" content="<?php echo $row[$k]['lat']; ?>">
+        <meta itemprop="longitude" content="<?php echo $row[$k]['lng']; ?>">
       </div>
-      <div class="pull-left"> <a href="<?php echo $detail; ?>/<?php echo urlencode($row['prov']); ?>/<?php echo urlencode($row['city']); ?>/<?php echo cleanUrl($row['name']); ?>/<?php echo $row['id_pg']; ?>"><img class="media-object img-thumbnail javascript" src="/assets/img/grey.gif" data-original="<?php echo $photo; ?>" width="115" height="115" alt="<?php echo $row['photo']; ?>">
+      <div class="pull-left"> <a href="<?php echo $detail; ?>/<?php echo urlencode($row[$k]['prov']); ?>/<?php echo urlencode($row[$k]['city']); ?>/<?php echo cleanUrl($row[$k]['name']); ?>/<?php echo $row[$k]['id_pg']; ?>"><img class="media-object img-thumbnail javascript" src="/assets/img/grey.gif" data-original="<?php echo $photo; ?>" width="115" height="115" alt="<?php echo $row[$k]['photo']; ?>">
         <noscript>
         <img class="media-object img-thumbnail" src="<?php echo $photo; ?>" width="115" height="115" itemprop="image">
         </noscript>
         </a> <span class="badge walkscore" style="margin-top:9px;"><a href="<?php echo $walk; ?>" target="_blank">See Walk Score</a></span>
         <?php if(!isset($nomagnify)){?>
-        <a id="pic<?php echo $row['id_pg'] ?>" class="ico-search" href="javascript:;"></a>
+        <a id="pic<?php echo $row[$k]['id_pg'] ?>" class="ico-search" href="javascript:;"></a>
         <?php } ?>
       </div>
       <div class="media-body">
         <div class="row">
           <div class="col-md-7 maintext">
-            <h4 class="media-heading" itemprop="name"><a href="<?php echo $detail; ?>/<?php echo urlencode($row['prov']); ?>/<?php echo urlencode($row['city']); ?>/<?php echo cleanUrl($row['name']); ?>/<?php echo $row['id_pg']; ?>"><?php echo $row['name']; ?></a> <i class="<?php echo $star_class; ?>" data-prop="<?php echo $row['id_pg']; ?>"></i> <span class="badge">Add to Faves</span></h4>
-            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"> <span itemprop="streetAddress"><?php echo $row['address']; if($row['address2']){echo ', '.$row['address2'];} ?></span>
-              <?php if($row['address']||$row['address2']){echo ',';} ?>
-              <span itemprop="addressLocality"><?php echo $row['city']; ?></span>, <span itemprop="addressRegion"><?php echo $row['prov']; ?></span>, <?php echo $row['cntry']; ?>
-              <?php if($row['post']){echo ',';} ?>
-              <span itemprop="postalCode"><?php echo $row['post']; ?></span> <?php echo '('.number_format($row['distance'], 2).' km)'; ?> </div>
-            Price: <?php echo $row['rent']; ?>, Beds: <?php echo $row['beds']; ?> <br />
-            Page ID: <?php echo $row['id_pg']; ?>, Posted: <?php echo $row['date']; ?> </div>
-          <div class="col-md-3 text-right"> <a href="#myModal" role="button" class="btn btn-block btn-primary avail" data-toggle="modal" data-prop="<?php echo $row['id_pg']; ?>">
+            <h4 class="media-heading" itemprop="name"><a href="<?php echo $detail; ?>/<?php echo urlencode($row[$k]['prov']); ?>/<?php echo urlencode($row[$k]['city']); ?>/<?php echo cleanUrl($row[$k]['name']); ?>/<?php echo $row[$k]['id_pg']; ?>"><?php echo $row[$k]['name']; ?></a> <i class="<?php echo $star_class; ?>" data-prop="<?php echo $row[$k]['id_pg']; ?>"></i> <span class="badge">Add to Faves</span></h4>
+            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"> <span itemprop="streetAddress"><?php echo $row[$k]['address']; if($row[$k]['address2']){echo ', '.$row[$k]['address2'];} ?></span>
+              <?php if($row[$k]['address']||$row[$k]['address2']){echo ',';} ?>
+              <span itemprop="addressLocality"><?php echo $row[$k]['city']; ?></span>, <span itemprop="addressRegion"><?php echo $row[$k]['prov']; ?></span>, <?php echo $row[$k]['cntry']; ?>
+              <?php if($row[$k]['post']){echo ',';} ?>
+              <span itemprop="postalCode"><?php echo $row[$k]['post']; ?></span> <?php echo '('.number_format($row[$k]['distance'], 2).' km)'; ?> </div>
+            Price: <?php echo $row[$k]['rent']; ?>, Beds: <?php echo $row[$k]['beds']; ?> <br />
+            Page ID: <?php echo $row[$k]['id_pg']; ?>, Posted: <?php echo $row[$k]['date']; ?> </div>
+          <div class="col-md-3 text-right"> <a href="#myModal" role="button" class="btn btn-block btn-primary avail" data-toggle="modal" data-prop="<?php echo $row[$k]['id_pg']; ?>">
             <div class="fui-mail"></div>
             Check Availability</a>
             <?php 
-			if($row['phone1'] != 0) echo '<a href="tel://1-'.$row['phone1'].'-'.$row['phone2'].'-'.$row['phone3'].'" class="btn btn-block btn-inverse"><div class="fui-chat"></div> ('.$row['phone1'].') '.$row['phone2'].'-'.$row['phone3'].'</a>'; ?>
-            <?php if($row['url']) echo '<a href="'.$row['url'].'" target="_blank" class="btn btn-block btn-inverse"><div class="fui-eye"></div> View Website</a>'; ?>
+			if($row[$k]['phone1'] != 0) echo '<a href="tel://1-'.$row[$k]['phone1'].'-'.$row[$k]['phone2'].'-'.$row[$k]['phone3'].'" class="btn btn-block btn-inverse"><div class="fui-chat"></div> ('.$row[$k]['phone1'].') '.$row[$k]['phone2'].'-'.$row[$k]['phone3'].'</a>'; ?>
+            <?php if($row[$k]['url']) echo '<a href="'.$row[$k]['url'].'" target="_blank" class="btn btn-block btn-inverse"><div class="fui-eye"></div> View Website</a>'; ?>
           </div>
         </div>
       </div>
