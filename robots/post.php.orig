@@ -334,7 +334,11 @@ foreach($properties as $k => $prop) {
 	/* Also check if centre of Toronto for lat/lng. If it is skip */
 	if($properties[$k]['lat'] == "43.6532260" && $properties[$k]['lng'] == "-79.3831843"){
 		$hasError = true;
+<<<<<<< HEAD
 		echo "\r\n Skip because centre of Toronto Lat/Lng \r\n";
+=======
+		echo "Skip because centre of Toronto Lat/Lng";
+>>>>>>> 3dda8ec230acaf4f3107f0b3b7e4522bc703f8d9
 		continue;
 	}
 	/* START ADDING RECORDS */

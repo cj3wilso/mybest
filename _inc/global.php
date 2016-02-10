@@ -19,7 +19,7 @@ if(php_sapi_name() != 'cli'){
 	session_set_cookie_params($logtime);
 	header('Content-type: text/html; charset=UTF-8');
 	$domain = $_SERVER['SERVER_NAME'];
-	if($root == "/www/var/html/sites/dev_best"){
+	if($root == "/www/var/sites/dev_best"){
 		error_reporting(E_ALL); ini_set('display_errors', '1');
 	}
 	//Find faves

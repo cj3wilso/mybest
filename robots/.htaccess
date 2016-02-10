@@ -5,7 +5,7 @@ Options +FollowSymLinks -Multiviews -Indexes
 
 #Supported by dev site
 <IfModule mod_suphp.c>
-suPHP_ConfigPath /var/www/html/sites/dev_best/robots
+suPHP_ConfigPath /var/www/sites/dev_best/robots
 <Files php.ini>
 order allow,deny
 deny from all

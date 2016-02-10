@@ -6,7 +6,7 @@ $db_host = "127.0.0.1";
 $db_password = "57575757aA";
 $db_port = "3306";
 // Connects to your Database
-if($root == "/www/var/html/sites/dev_best"){
+if($root == "/www/var/sites/dev_best"){
 	$db_username = $db_name = "cj3wilso_rentdev";
 }else{
 	$db_username = $db_name = "cj3wilso_rent254";

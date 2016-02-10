@@ -5,12 +5,12 @@ Options +FollowSymLinks -Multiviews -Indexes
 
 #Supported by live site
 <IfModule mod_php5.c>
-php_value include_path ".:/var/www/html/_inc"
+php_value include_path ".:/var/www/_inc"
 </IfModule>
 
 #Supported by dev site
 <IfModule mod_suphp.c>
-suPHP_ConfigPath /var/www/html/dev_best
+suPHP_ConfigPath /var/www/dev_best
 <Files php.ini>
 order allow,deny
 deny from all
