@@ -1,4 +1,9 @@
 <?php
+/*
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+*/
 $headStyles ='
 <link rel="stylesheet" type="text/css" href="/assets/js/swipebox/swipebox.css" media="screen" />
 <style>
@@ -19,8 +24,9 @@ if (  !isset ($_POST['submit']) ) {
 		FROM user_search us
 		WHERE $srch_find AND url='".$conn->real_escape_string($_SERVER["REQUEST_URI"])."' AND deleted=0
 		LIMIT 1";
-	$saved_search_row = mysql_query_cache($saved_search_sql);
-	$saved_search_rows = count($saved_search_row);
+	$saved_search_row_result = $conn->query($saved_search_sql);
+	$saved_search_row = $saved_search_row_result->fetch_array(MYSQLI_ASSOC);
+	$saved_search_rows = $saved_search_row_result->num_rows;
 	if($saved_search_rows>0) {
 		$saved_search_class = 'icon-star';
 	}else{
@@ -67,7 +73,7 @@ if (  !isset ($_POST['submit']) ) {
 		// Show list of properties
 		//INNER JOIN ( SELECT MAX(rent) AS maxrent FROM prop_units WHERE 1 = 1 ) AS umax 
 		//Select the first photo in Left Join, then second left join finds photo on first photo of prop
-		$sql = "SELECT p.*, c.photo, uf.id_prop AS star, STR_TO_DATE(date, '%M %d %Y') as latest, 
+		$sql = "SELECT p.*, c.photo, STR_TO_DATE(date, '%M %d %Y') as latest, 
 		IF(COUNT( DISTINCT u.rent ) > 1,CONCAT('$', MIN(u.rent), ' - $', MAX(u.rent)),CONCAT('$', u.rent)) AS rent, 
 		IF(COUNT( DISTINCT u.beds ) > 1,CONCAT(MIN(u.beds), ' - ', MAX(u.beds)),u.beds) AS beds, 
 		( 6371 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) AS distance 
@@ -76,7 +82,6 @@ if (  !isset ($_POST['submit']) ) {
 		INNER JOIN prop_units u ON (p.id_pg = u.id_prop $sql_beds $sql_bath $sql_price) 
 		$sql_feat 
 		LEFT JOIN prop_photos c ON p.id_pg = c.id_prop AND c.p_order = 1 
-		LEFT JOIN user_fav uf ON p.id_pg = uf.id_prop AND $fav_find
 		$sql_feat_where 
 		GROUP BY p.id_pg 
 		HAVING distance < $radius 
@@ -90,8 +95,30 @@ if (  !isset ($_POST['submit']) ) {
 		 AND c.p_order = cc.first
 		*/
 		
+		/* GET FAVE PROPS */
+		//without memcache because we need to show real time favoriting of star on refresh
+		$i = 0;
+		foreach ($result as $k => $v) {
+			if($i==0){
+				$id_props = "'".$result[$k]['id_pg']."'";
+			}else{
+				$id_props .= ",'".$result[$k]['id_pg']."'";
+			}
+			$i++;
+		}
+		$saved_prop_sql = "SELECT uf.id_prop AS star
+			FROM properties p 
+			INNER JOIN user_fav uf ON p.id_pg = uf.id_prop AND $fav_find
+			WHERE p.id_pg IN ($id_props)";
+		$saved_prop_result = $conn->query($saved_prop_sql);
+		$saved_prop_rows = $saved_prop_result->num_rows;
+		$main_saved_prop = array();
+		while( $row = $saved_prop_result->fetch_array(MYSQLI_ASSOC) ){
+			$main_saved_prop[] = $row["star"];
+		}
+		
 		/* GET PROMOTED ADS */
-		$select_promos ="SELECT pp.*, c.photo, uf.id_prop AS star, 
+		$select_promos ="SELECT pp.*, c.photo,
 		IF(COUNT( DISTINCT u.rent ) > 1,CONCAT('$', MIN(u.rent), ' - $', MAX(u.rent)),CONCAT('$', u.rent)) AS rent, 
 		IF(COUNT( DISTINCT u.beds ) > 1,CONCAT(MIN(u.beds), ' - ', MAX(u.beds)),u.beds) AS beds, 
 		( 6371 * acos( cos( radians($lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng) ) + sin( radians($lat) ) * sin( radians( lat ) ) ) ) AS distance 
@@ -99,7 +126,6 @@ if (  !isset ($_POST['submit']) ) {
 		INNER JOIN properties pp ON p.id_prop = pp.id_pg 
 		INNER JOIN prop_units u ON p.id_prop = u.id_prop 
 		LEFT JOIN prop_photos c ON pp.id_pg = c.id_prop AND c.p_order = 1 
-		LEFT JOIN user_fav uf ON p.id_prop = uf.id_prop AND $fav_find 
 		WHERE p.expired = '0000-00-00 00:00:00' AND payer_id IS NOT NULL AND pp.pub = 1 AND sku = 'A0012' 
 		GROUP BY p.id_prop 
 		HAVING distance < 55 
@@ -113,6 +139,31 @@ if (  !isset ($_POST['submit']) ) {
 		//echo "<!--".$select_promos."-->";
 		$promote = mysql_query_cache($select_promos);
 		$promote_rows = count($promote);
+		
+		/* GET FAVE PROMOTE PROPS */
+		//without memcache because we need to show real time favoriting of star on refresh
+		$i = 0;
+		if($promote_rows > 0){
+			foreach ($promote as $k => $v) {
+				if($i==0){
+					$id_props_promo = "'".$promote[$k]['id_pg']."'";
+				}else{
+					$id_props_promo .= ",'".$promote[$k]['id_pg']."'";
+				}
+				$i++;
+			}
+			$saved_promo_sql = "SELECT uf.id_prop AS star
+				FROM prop_promote p
+				INNER JOIN user_fav uf ON p.id_prop = uf.id_prop AND $fav_find
+				WHERE p.id_prop IN ($id_props_promo)";
+			$saved_promo_result = $conn->query($saved_promo_sql);
+			$saved_promo_rows = $saved_promo_result->num_rows;
+			$promo_saved_prop = array();
+			while( $row = $saved_promo_result->fetch_array(MYSQLI_ASSOC) ){
+				$promo_saved_prop[] = $row["star"];
+			}
+		}
+		
 	// If Property ID
 	}else if ($search_type == "propid"){		
 		//Get row count
@@ -133,7 +184,7 @@ if (  !isset ($_POST['submit']) ) {
 		$pages->limit = 2;
 		$pages->paginate();
 		
-		$sql = "SELECT p.*, c.photo, uf.id_prop AS star, STR_TO_DATE(date, '%M %d %Y') as latest, 
+		$sql = "SELECT p.*, c.photo, STR_TO_DATE(date, '%M %d %Y') as latest, 
 		IF(COUNT( DISTINCT rent ) > 1,CONCAT('$', MIN(rent), ' - $', MAX(rent)),CONCAT('$', rent)) as rent, 
 		IF(COUNT( DISTINCT beds ) > 1,CONCAT(MIN(beds), ' - ', MAX(beds)),beds) as beds 
 		FROM properties p 
@@ -144,12 +195,34 @@ if (  !isset ($_POST['submit']) ) {
 		LEFT JOIN (SELECT id_prop, photo, MIN(p_order) AS first FROM prop_photos GROUP BY id_prop) AS cc 
 			ON p.id_pg = cc.id_prop
 		LEFT JOIN prop_photos c ON p.id_pg = c.id_prop AND c.p_order = cc.first 
-		LEFT JOIN user_fav uf ON p.id_pg = uf.id_prop  AND $fav_find
 		$sql_propid 
 		GROUP BY p.id_pg 
 		ORDER BY c.id ASC 
 		$pages->limit";
 		$result = mysql_query_cache($sql);
+		
+		/* GET FAVE PROPS */
+		//without memcache because we need to show real time favoriting of star on refresh
+		$i = 0;
+		foreach ($result as $k => $v) {
+			if($i==0){
+				$id_props = "'".$result[$k]['id_pg']."'";
+			}else{
+				$id_props .= ",'".$result[$k]['id_pg']."'";
+			}
+			$i++;
+		}
+		$saved_prop_sql = "SELECT uf.id_prop AS star
+			FROM properties p 
+			INNER JOIN user_fav uf ON p.id_pg = uf.id_prop AND $fav_find
+			WHERE p.id_pg IN ($id_props)";
+		$saved_prop_result = $conn->query($saved_prop_sql);
+		$saved_prop_rows = $saved_prop_result->num_rows;
+		$main_saved_prop = array();
+		while( $row = $saved_prop_result->fetch_array(MYSQLI_ASSOC) ){
+			$main_saved_prop[] = $row["star"];
+		}
+		
 	// If Property Name
 	}else if ($search_type == "propname"){		
 		//Get row count
@@ -170,7 +243,7 @@ if (  !isset ($_POST['submit']) ) {
 		$pages->limit = 2;
 		$pages->paginate();
 		
-		$sql = "SELECT p.*, c.photo, uf.id_prop AS star, STR_TO_DATE(date, '%M %d %Y') as latest, 
+		$sql = "SELECT p.*, c.photo, STR_TO_DATE(date, '%M %d %Y') as latest, 
 		IF(COUNT( DISTINCT rent ) > 1,CONCAT('$', MIN(rent), ' - $', MAX(rent)),CONCAT('$', rent)) as rent, 
 		IF(COUNT( DISTINCT beds ) > 1,CONCAT(MIN(beds), ' - ', MAX(beds)),beds) as beds 
 		FROM properties p 
@@ -181,12 +254,34 @@ if (  !isset ($_POST['submit']) ) {
 		LEFT JOIN (SELECT id_prop, photo, MIN(p_order) AS first FROM prop_photos GROUP BY id_prop) AS cc 
 			ON p.id_pg = cc.id_prop
 		LEFT JOIN prop_photos c ON p.id_pg = c.id_prop AND c.p_order = cc.first 
-		LEFT JOIN user_fav uf ON p.id_pg = uf.id_prop  AND $fav_find
 		$sql_propname 
 		GROUP BY p.id_pg 
 		ORDER BY c.id ASC 
 		$pages->limit";
 		$result = mysql_query_cache($sql);
+		
+		/* GET FAVE PROPS */
+		//without memcache because we need to show real time favoriting of star on refresh
+		$i = 0;
+		foreach ($result as $k => $v) {
+			if($i==0){
+				$id_props = "'".$result[$k]['id_pg']."'";
+			}else{
+				$id_props .= ",'".$result[$k]['id_pg']."'";
+			}
+			$i++;
+		}
+		$saved_prop_sql = "SELECT uf.id_prop AS star
+			FROM properties p 
+			INNER JOIN user_fav uf ON p.id_pg = uf.id_prop AND $fav_find
+			WHERE p.id_pg IN ($id_props)";
+		$saved_prop_result = $conn->query($saved_prop_sql);
+		$saved_prop_rows = $saved_prop_result->num_rows;
+		$main_saved_prop = array();
+		while( $row = $saved_prop_result->fetch_array(MYSQLI_ASSOC) ){
+			$main_saved_prop[] = $row["star"];
+		}
+		
 	//If Search is NULL and city is not a city, redirect to Province Page
 	}else if ($search_type == "nosearch"){
 		$_SESSION["listredirect"]=$_SERVER['REQUEST_URI'];
@@ -288,12 +383,11 @@ if (!$result) {
 		?>
     <div class="media-top-promo">Featured Apartment</div>
     <?php
-    }
 	$promo = $promote;
 	foreach ($promo as $k => $v) {
 		$nomagnify = NULL;
 		$star_class = 'icon-star-empty';
-		if ($promo[$k]['star']) $star_class = 'icon-star';
+		if ( in_array($promo[$k]['id_pg'],$promo_saved_prop) ) $star_class = 'icon-star';
 		$maxrent = (isset($promo[$k]['maxrent'])) ? $promo[$k]['maxrent'] : "10000";
 		
 		//Lightbox
@@ -363,15 +457,15 @@ if (!$result) {
     </div>
     <?php
 	}
+	}
 	/* END PROMOS */
 	
 	/* START FREE RENTALS */
 	$row = $result;
 	foreach ($row as $k => $v) {
-	//while ($row = @mysql_fetch_assoc($result)){
 		$nomagnify = NULL;
 		$star_class = 'icon-star-empty';
-		if ($row[$k]['star']) $star_class = 'icon-star';
+		if ( in_array($row[$k]['id_pg'],$main_saved_prop) ) $star_class = 'icon-star';
 		$maxrent = (isset($row[$k]['maxrent'])) ? $row[$k]['maxrent'] : "10000";
 		
 		//Lightbox

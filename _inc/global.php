@@ -414,7 +414,7 @@ function citySearch($address,$prov){
 					$search = NULL;
 					$type = "ADDRESS";
 					$city = $list["city"];
-					$region = $list["region"]; 
+					$region = $list["city"]; 
 					$prov = $list["prov"];
 					$provLng = $list["provLng"];
 					$area=$city;
