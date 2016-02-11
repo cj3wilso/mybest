@@ -1,26 +1,45 @@
 <?php
-//if (!isset($_COOKIE["expire"]) || time() > $_COOKIE["expire"] ){
-	$sql = "(select COUNT(`city`) posts, prov, city from properties where prov = 'AB' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)
+	$sql = "(select COUNT(`city`) posts, prov, city from properties where prov = 'AB' GROUP BY city order by posts DESC limit 6)
 	union all
-	(select COUNT(`city`) posts, prov, city from properties where prov = 'BC' AND city <> '' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)
+	(select COUNT(`city`) posts, prov, city from properties where prov = 'BC' GROUP BY city order by posts DESC limit 6)
 	union all
-	(select COUNT(`city`) posts, prov, city from properties where prov = 'MB' AND city <> '' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)
+	(select COUNT(`city`) posts, prov, city from properties where prov = 'MB' GROUP BY city order by posts DESC limit 6)
 	union all
-	(select COUNT(`city`) posts, prov, city from properties where prov = 'NB' AND city <> '' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)
+	(select COUNT(`city`) posts, prov, city from properties where prov = 'NB' GROUP BY city order by posts DESC limit 6)
 	union all
-	(select COUNT(`city`) posts, prov, city from properties where prov = 'NL' AND city <> '' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)
+	(select COUNT(`city`) posts, prov, city from properties where prov = 'NL' GROUP BY city order by posts DESC limit 6)
 	union all
-	(select COUNT(`city`) posts, prov, city from properties where prov = 'NS' AND city <> '' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)
+	(select COUNT(`city`) posts, prov, city from properties where prov = 'NS' GROUP BY city order by posts DESC limit 6)
 	union all
-	(select COUNT(`city`) posts, prov, city from properties where prov = 'ON' AND city <> '' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)
+	(select COUNT(`city`) posts, prov, city from properties where prov = 'ON' GROUP BY city order by posts DESC limit 6)
 	union all
-	(select COUNT(`city`) posts, prov, city from properties where prov = 'PE' AND city <> '' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)
+	(select COUNT(`city`) posts, prov, city from properties where prov = 'PE' GROUP BY city order by posts DESC limit 6)
 	union all
-	(select COUNT(`city`) posts, prov, city from properties where prov = 'QC' AND city <> '' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)
+	(select COUNT(`city`) posts, prov, city from properties where prov = 'QC' GROUP BY city order by posts DESC limit 6)
 	union all
-	(select COUNT(`city`) posts, prov, city from properties where prov = 'SK' AND city <> '' AND removed = '0000-00-00 00:00:00' GROUP BY city order by posts DESC limit 6)";
+	(select COUNT(`city`) posts, prov, city from properties where prov = 'SK' GROUP BY city order by posts DESC limit 6)";
 	$menuitems = mysql_query_cache($sql);
 	$deskheader = $mobileheader = $newprov = $oldprov = "";
+
+	//Do default radius search
+	foreach ($menuitems as $key => $value) {
+		/*
+		if($menuitems[$key]['prov']=="MB" && $menuitems[$key]['city'] == "Winnipeg"){
+			echo $menuitems[$key]['prov'].', '.$menuitems[$key]['city'].'<br>';
+			continue;
+			//break;
+		}
+		*/
+		$radiussearch = "
+		SELECT 
+		COUNT(`city`) posts
+		FROM properties p
+		INNER JOIN prop_units u ON (p.id_pg = u.id_prop) 
+		WHERE p.pub=1 AND p.deleted=0 AND ( 6371 * acos( cos( radians(".cityRgnVars($menuitems[$key]['city'],$menuitems[$key]['prov'])[0].") ) * cos( radians( lat ) ) * cos( radians( lng ) - radians(".cityRgnVars($menuitems[$key]['city'],$menuitems[$key]['prov'])[1].") ) + sin( radians(".cityRgnVars($menuitems[$key]['city'],$menuitems[$key]['prov'])[0].") ) * sin( radians( lat ) ) ) ) < $radius_default
+		ORDER BY p.city;";
+		$correctpostsradius = mysql_query_cache($radiussearch);
+		$menuitems[$key]['posts'] = $correctpostsradius[0]["posts"];
+	}
 
 $deskheader = $mobileheader = $newprov = $oldprov = "";
 foreach ($menuitems as $key => $value) {

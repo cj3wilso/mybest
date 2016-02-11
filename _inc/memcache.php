@@ -7,6 +7,7 @@
     global $memcache;
     $memcache = new Memcache;
 	$cacheAvailable = $memcache->connect(MEMCACHED_HOST, MEMCACHED_PORT);
+	//$memcache->flush();
 	if ($cacheAvailable != true){
 		mail("cj3wilso@gmail.com","Memcache down","Fix it");
 	}
@@ -36,7 +37,8 @@
             $r = $conn->query($sql);
 			$rows = $r->num_rows;
 			if($rows==0){ return NULL; }
-			echo '<!-- Calling from database -->';
+			//can't do this way - breaks Angular
+			//echo '<!-- Calling from database -->';
 			if ($r instanceof mysqli_result && $rows !== 0) {
 				for ($i=0;$i<$rows;$i++) {
 					$fields = $r->field_count;

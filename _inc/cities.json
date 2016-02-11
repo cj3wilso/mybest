@@ -1,6 +1,13 @@
 {
 	"cities" : [
 		{
+ 			"city" : "Holyrood",
+     		"prov" : "NL",
+			"provLng" : "Newfoundland and Labrador",
+			"lat" : 47.3625274,
+            "lng" : -53.2273058
+   		},
+		{
  			"city" : "Beaumont",
      		"prov" : "NL",
 			"provLng" : "Newfoundland and Labrador",
@@ -883,6 +890,13 @@
            	"lng" : -94.05995089999999
    		},
 		{
+ 			"city" : "Crapaud",
+     		"prov" : "PE",
+			"provLng" : "Prince Edward Island",
+			"lat" : 46.2393259,
+            "lng" : -63.5093053
+   		},
+		{
  			"city" : "Kings County",
      		"prov" : "PE",
 			"provLng" : "Prince Edward Island",
@@ -1168,6 +1182,13 @@
 			"provLng" : "Manitoba",
 			"lat" : 51.1824880,
           	"lng" : -98.3446620
+   		},
+		{
+ 			"city" : "Woodstock",
+     		"prov" : "NB",
+			"provLng" : "New Brunswick",
+			"lat" : 46.0637957,
+            "lng" : -67.7366246
    		},
 		{
  			"city" : "Balmoral",

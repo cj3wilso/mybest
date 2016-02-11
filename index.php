@@ -3,10 +3,29 @@ $page = "home";
 $metaDesc = "FREE Canadian Apartment guide. Find your next place or post an ad for free.";
 include("global.php");
 $pageTitle = "Apartment Rentals in Canada";
+$headStyles ='
+<style>
+.loading {
+	height:403px;
+	position: relative;
+}
+.loading img{
+	margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+</style>
+';
 $headScripts='<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>';
 include("header.php");
 ?>
 <div ng-app="myApp" ng-controller="homeFeaturedProperty" ng-cloak> 
+	<div class="loading">
+		<img src="/assets/img/ajax-loader.gif">
+	</div>
 	<div ng-repeat="(key, value) in results">
 		<ul ng-if="key == 'IPCity'" class="nav nav-pills" style="padding-bottom:8px;">
 		  <li class="active pull-right"> <a href="{{ results.IPCity.CityURL }}">View All {{ results.IPCity.City }} Apartments <i class="icon-double-angle-right"></i></a> </li>
@@ -95,6 +114,7 @@ var app = angular.module('myApp', []);
 app.controller('homeFeaturedProperty', function($scope, $http) {
     $http.get("http://mybestapartments.ca/data/homeFeaturedProperty.php")
     .success(function (response) {
+		$(".loading").hide();
 		$scope.results = response;
 	});
 });

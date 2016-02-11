@@ -24,7 +24,7 @@ function Zip($source, $destination)
 			$file = str_replace('\\', '/', $file);
 
             // Ignore "." and ".." folders
-			$folders = array('.','..','robots','files','stylesheets','org','getimagedata','drawform','mobile','type','cors','cgi-bin');
+			$folders = array('.','..','files','stylesheets','org','getimagedata','drawform','mobile','type','cors','cgi-bin');
 			foreach ($folders as $exclude)
         	{
 				if (strpos($file,'/'.$exclude) !== false) {
@@ -47,4 +47,4 @@ function Zip($source, $destination)
 
     return $zip->close();
 }
-Zip('/var/www/html/', '/home/Christine/files_'.date("y-m-d-i").'.zip');
+Zip('/var/www/', '/home/Christine/files_'.date("y-m-d-i").'.zip');
