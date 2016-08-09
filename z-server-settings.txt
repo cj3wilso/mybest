@@ -116,7 +116,19 @@ sudo nano /etc/apache2/sites-available/default
         ErrorLog /var/www/sites/meeboo/logs/error.log
         CustomLog /var/www/sites/meeboo/logs/access.log combined
 </VirtualHost>
-
+<VirtualHost *:80>
+        ServerAdmin cj3wilso@gmail.com
+        ServerName wearepyxis.com
+        DocumentRoot /var/www/sites/wearepyxis
+        <Directory /var/www/sites/wearepyxis/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+        </Directory>
+        ErrorLog /var/www/sites/wearepyxis/logs/error.log
+        CustomLog /var/www/sites/wearepyxis/logs/access.log combined
+</VirtualHost>
 
 
 
@@ -304,3 +316,14 @@ cron.*
 
 #set permissions for cron job -files
 chmod 0744 files/*
+
+#Set Up FTP user
+apt-get install vsftpd
+nano /etc/vsftpd.conf
+# Uncomment this to allow local users to log in.
+local_enable=YES
+# You may restrict local users to their home directories.  See the FAQ for
+# the possible risks in this before using chroot_local_user or
+# chroot_list_enable below.
+chroot_local_user=YES
+/etc/init.d/vsftpd restart
