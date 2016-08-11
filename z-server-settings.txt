@@ -318,12 +318,104 @@ cron.*
 chmod 0744 files/*
 
 #Set Up FTP user
-apt-get install vsftpd
-nano /etc/vsftpd.conf
-# Uncomment this to allow local users to log in.
-local_enable=YES
-# You may restrict local users to their home directories.  See the FAQ for
-# the possible risks in this before using chroot_local_user or
-# chroot_list_enable below.
-chroot_local_user=YES
-/etc/init.d/vsftpd restart
+https://ubuntuforums.org/showthread.php?t=79588
+https://groups.google.com/forum/#!topic/gce-discussion/dnNQwdfMBUw
+
+1- Install proftpd with synaptic or with this command :
+Code:
+sudo apt-get install proftpd
+
+
+2- Add this line in /etc/shells file (sudo gedit /etc/shells to open the file) :
+Code:
+/bin/false
+
+Create a user named userftp which will be used only for ftp access. This user don't need a valid shell (more secure) therefore select /bin/false shell for userftp and /home/FTP-shared as home directory (property button in user and group window).
+To make this section clearer, i give you the equivalent command line to create the user, but it would be better to use the GUI (System > Administration > User & Group) to create the user since users here often got problems with the user creation and the password (530 error) with the command line, so i really advice to use the GUI :
+Code:
+sudo useradd userftp -p wearepyxis -d /var/www/sites/wearepyxis -s /bin/false
+sudo passwd userftp
+
+
+3- OK, now go to the proftpd configuration file :
+Code:
+sudo nano /etc/proftpd/proftpd.conf
+and edit your proftpd.conf file like that if it fit to your need :
+Code:
+# To really apply changes reload proftpd after modifications.
+AllowOverwrite on
+AuthAliasOnly on
+
+# Choose here the user alias you want !!!!
+UserAlias wearepyxis userftp
+
+RequireValidShell 		off
+
+RootLogin 			off
+
+# It's better for debug to create log files ;-)
+ExtendedLog 			/var/log/ftp.log
+TransferLog 			/var/log/xferlog
+SystemLog			/var/log/syslog.log
+
+#DenyFilter			\*.*/
+
+# I don't choose to use /etc/ftpusers file (set inside the users you want to ban, not useful for me)
+UseFtpUsers off
+
+# Port 21 is the standard FTP port, so you may prefer to use another port for security reasons (choose here the port you want)
+Port				21
+
+# In some cases you have to specify passive ports range to by-pass
+# firewall limitations. Ephemeral ports can be used for that, but
+# feel free to use a more narrow range.
+PassivePorts                  5000 6000
+
+# If your host was NATted, this option is useful in order to
+# allow passive tranfers to work. You have to use your public
+# address and opening the passive ports used on your firewall as well.
+MasqueradeAddress               23.251.151.120
+
+# Lock all the users in home directory, ***** really important *****
+DefaultRoot ~
+
+MaxLoginAttempts    5
+
+#VALID LOGINS
+<Limit LOGIN>
+AllowUser userftp
+DenyALL
+</Limit>
+
+Ok you have done proftpd configuration. Your server is on port 1980 (in this exemple) and the access parameters are 
+user : wearepyxis
+password : the one you've set for userftp
+
+
+4- To start/stop/restart your server :
+Code:
+sudo /etc/init.d/proftpd start
+sudo /etc/init.d/proftpd stop
+sudo /etc/init.d/proftpd restart
+To perform a syntax check of your proftpd.conf file :
+Code:
+sudo proftpd -td5
+
+
+In Google Compute find "Networking"
+Create Firewall rule
+Name: ftp
+IP range: 0.0.0.0/0
+Allowed ports: tcp:21
+Target tags: ftp-server
+NOW ADD THIS TAG TO INSTANCE - Edit
+
+Name: allow-passive-ftp
+IP range: 0.0.0.0/0
+Allowed ports: tcp:5000-6000
+Target tags: Apply to all targets
+
+Name: allow-passive2-ftp
+IP range: 0.0.0.0/0
+Allowed ports: udp:5000-6000
+Target tags: Apply to all targets
