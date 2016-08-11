@@ -419,3 +419,17 @@ Name: allow-passive2-ftp
 IP range: 0.0.0.0/0
 Allowed ports: udp:5000-6000
 Target tags: Apply to all targets
+
+
+#CREATE NEW DATABASE WITH USER
+mysql -u root -p
+57575757aA
+SHOW DATABASES;
+#THIS DATABASE NEEDS QUOTES AROUND BECAUSE OF DASHES
+CREATE DATABASE IF NOT EXISTS `gbs-web-sqldb-dev` CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE USER 'sitemap'@'localhost' IDENTIFIED BY '^GBSS!teM@p!#';
+GRANT ALL PRIVILEGES ON `gbs-web-sqldb-dev`.* TO 'sitemap'@'localhost';
+FLUSH PRIVILEGES;
+mysql -u sitemap -p -h localhost gbs-web-sqldb-dev < /var/www/sites/wearepyxis/website_dump.sql
+USE `gbs-web-sqldb-dev`;
+SHOW TABLES;
